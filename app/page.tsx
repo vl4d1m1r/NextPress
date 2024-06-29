@@ -1,5 +1,11 @@
-import Box from "@mui/material/Box";
+import Header from "@/components/ui/Header";
+import Hero from "@/components/ui/Hero";
 
 export default function Home() {
-  return <Box component="main">It is a fresh start</Box>;
+  return (
+    <>
+      <Header />
+      <Hero />
+    </>
+  );
 }
