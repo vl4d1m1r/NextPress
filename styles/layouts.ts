@@ -52,6 +52,13 @@ export const sectionDividerClass: SxProps<Theme> = (theme) => ({
   borderBottom: `1px solid ${theme.palette.grey[dividerGray]}`,
 });
 
+export const postsImageWrapperClass: SxProps<Theme> = (theme) => ({
+  position: "relative",
+  pt: "60.25%",
+  overflow: "hidden",
+  mr: { xs: 0, sm: 4 },
+});
+
 export const searchWrapperClass: SxProps<Theme> = (theme) => ({
   p: "2px 4px",
   display: "flex",
@@ -59,4 +66,36 @@ export const searchWrapperClass: SxProps<Theme> = (theme) => ({
   width: "100%",
   border: `1px solid ${theme.palette.grey[dividerGray]}`,
   borderRadius: 2,
+});
+
+export const tagsWrapperClass: SxProps<Theme> = (theme) => ({
+  display: "flex",
+  gap: 2,
+  flexWrap: "wrap",
+});
+
+export const tagsChipsClass: SxProps<Theme> = (theme) => ({
+  px: 2,
+  py: 1,
+  border: `1px solid ${theme.palette.grey[dividerGray]}`,
+  borderRadius: 1,
+});
+
+export const highlightsWrapperClass: SxProps<Theme> = (theme) => ({
+  position: "relative",
+  display: "flex",
+  flexDirection: { xs: "column", sm: "row" },
+  gap: 2,
+});
+
+export const highlightsHeadlineClass: SxProps<Theme> = (theme) => ({
+  display: "flex",
+  alignItems: "center",
+  mb: 2,
+});
+
+export const imageWrapperClass: SxProps<Theme> = (theme) => ({
+  position: "relative",
+  pt: "60.25%",
+  overflow: "hidden",
 });

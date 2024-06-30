@@ -2,6 +2,7 @@ import { Container, Grid, Stack } from "@mui/material";
 import Posts from "@/components/ui/Posts";
 import Search from "../ui/Search";
 import TweetPost from "@/components/ui/TweetPost";
+import Tags from "../ui/Tags";
 
 export default function Main() {
   return (
@@ -14,6 +15,7 @@ export default function Main() {
           <Stack spacing={2}>
             <Search />
             <TweetPost id="1628832338187636740" />
+            <Tags />
           </Stack>
         </Grid>
       </Grid>
