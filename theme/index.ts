@@ -15,5 +15,8 @@ export const darkTheme = createTheme({
     primary: {
       main: "#90caf9",
     },
+    background: {
+      default: "#000000", // Set background to black
+    },
   },
 });

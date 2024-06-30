@@ -1,0 +1,5 @@
+/* Overrides */
+
+.dark .react-tweet-theme {
+  background-color: transparent !important;
+}

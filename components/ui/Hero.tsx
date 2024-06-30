@@ -9,12 +9,10 @@ import { heroWrapperClass } from "@/styles/layouts";
 export default function Hero() {
   return (
     <Box
-      sx={{
-        ...heroWrapperClass,
-        backgroundImage: `url('https://vl4di11ir.pw/doctypeadventures/wp-content/uploads/2024/06/obrisi.jpg')`,
-      }}
+      sx={heroWrapperClass}
+      style={{ backgroundImage: `url('https://vl4di11ir.pw/doctypeadventures/wp-content/uploads/2024/06/obrisi.jpg')` }}
     >
-      <Container sx={{ pb: "100px" }}>
+      <Container sx={{ pb: "50px", zIndex: 1 }}>
         <Grid container>
           <Grid item xs={12} sm={8}>
             <Stack spacing={4}>
