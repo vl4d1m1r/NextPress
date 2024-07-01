@@ -13,10 +13,12 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.21",
     "@mui/material": "^6.0.0-alpha.13",
+    "html-react-parser": "^5.1.10",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-tweet": "^3.2.1"
+    "react-tweet": "^3.2.1",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "^20",

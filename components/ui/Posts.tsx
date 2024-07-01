@@ -1,11 +1,22 @@
+"use client";
+import { postsFetcher } from "@/controllers/api";
+import { convertPropsToApiRoute } from "@/controllers/utils";
 import { centerVerticalClass } from "@/styles/global";
 import { postsImageWrapperClass } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
+import { PostParamsType } from "@/types";
 import { Grid, Pagination, Stack, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
+import useSWR from "swr";
 
-export default function Posts() {
+export default function Posts({ page, categories, tags, search }: PostParamsType) {
+  const apiRoute = convertPropsToApiRoute({ page, categories, tags, search });
+  console.log("API Route: ", apiRoute);
+  const { data, error, isLoading } = useSWR(apiRoute, postsFetcher);
+
+  console.log("Posts: ", data, error, isLoading);
+
   return (
     <>
       <Stack component="section" direction="column">

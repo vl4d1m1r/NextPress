@@ -94,8 +94,25 @@ export const highlightsHeadlineClass: SxProps<Theme> = (theme) => ({
   mb: 2,
 });
 
+export const footerTextRowClass: SxProps<Theme> = (theme) => ({
+  width: "100%",
+  display: "flex",
+  justifyContent: "space-between",
+  p: 2,
+  pb: 4,
+  backgroundColor: "transparent",
+});
+
 export const imageWrapperClass: SxProps<Theme> = (theme) => ({
   position: "relative",
   pt: "60.25%",
   overflow: "hidden",
+});
+
+export const socialIconClass: SxProps<Theme> = (theme) => ({
+  color: theme.palette.primary.main,
+  border: `1px solid ${theme.palette.primary.main}`,
+  borderRadius: 1,
+  p: 1,
+  pb: 0,
 });
