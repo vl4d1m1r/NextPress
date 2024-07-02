@@ -1,6 +1,6 @@
 // import getConfig from "next/config"; deprecated in app router
 
-const postsPerPage = 7;
+const postsPerPage = 5;
 const tagsPerPage = 100;
 const currentYear = new Date().getFullYear();
 

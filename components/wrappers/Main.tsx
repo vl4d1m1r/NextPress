@@ -1,8 +1,8 @@
 import { Container, Grid, Stack } from "@mui/material";
-import Posts from "@/components/ui/Posts";
-import Search from "../ui/Search";
-import TweetPost from "@/components/ui/TweetPost";
-import Tags from "../ui/Tags";
+import Posts from "@/components/sections/Posts";
+import Search from "@/components/widgets/Search";
+import TweetPost from "@/components/widgets/TweetPost";
+import Tags from "@/components/sections/Tags";
 import { PostParamsType } from "@/types";
 
 export default function Main({ page, categories, tags, search }: PostParamsType) {

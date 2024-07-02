@@ -53,9 +53,6 @@ export const sectionDividerClass: SxProps<Theme> = (theme) => ({
 });
 
 export const postsImageWrapperClass: SxProps<Theme> = (theme) => ({
-  position: "relative",
-  pt: "60.25%",
-  overflow: "hidden",
   mr: { xs: 0, sm: 4 },
 });
 

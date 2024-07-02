@@ -1,8 +1,8 @@
-import Hero from "@/components/ui/Hero";
-import SectionDivider from "@/components/ui/SectionDivider";
-import Main from "@/components/layouts/Main";
-import Highlights from "@/components/ui/Highlights";
-import Footer from "@/components/ui/Footer";
+import Hero from "@/components/sections/Hero";
+import SectionDivider from "@/components/elements/SectionDivider";
+import Main from "@/components/wrappers/Main";
+import Highlights from "@/components/sections/Highlights";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (

@@ -41,7 +41,7 @@ export const convertPropsToLocalRoute = (props: { [key: string]: number | string
 export const deepCloneArray = (items: any) =>
   items.map((item: any) => (Array.isArray(item) ? deepCloneArray(item) : item));
 
-export const ExtractPostData = (post: PostType, excerptLimit: number = 250) => {
+export const ExtractPostData = (post: PostType, excerptLimit: number = 150) => {
   const imageData = post._embedded["wp:featuredmedia"][0];
   const excerpt: any = parse(post.excerpt.rendered);
   const excerptFirstParagraph = excerpt[0].props.children;
