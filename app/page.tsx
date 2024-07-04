@@ -4,10 +4,10 @@ import Main from "@/components/wrappers/Main";
 import Highlights from "@/components/sections/Highlights";
 import Footer from "@/components/sections/Footer";
 
-export default function Home() {
+export default function HomeRoute() {
   return (
     <>
-      <Hero />
+      <Hero page={1} />
       <SectionDivider />
       <Main page={1} />
       <SectionDivider />

@@ -1,4 +1,5 @@
 export type PostParamsType = { page: number; categories?: number; tags?: number; search?: string };
+export type HeroPostParamsType = { page: number; categories?: number; tags?: number; search?: string; postId?: number };
 
 export type ImageDataType = {
   source_url: string;
@@ -47,6 +48,8 @@ export type SeoDataType = {
   image: string;
   url: string;
 };
+
+export type DirectionsType = "ROW" | "COLUMN";
 
 export enum ReportTypes {
   LOADING = "loading",

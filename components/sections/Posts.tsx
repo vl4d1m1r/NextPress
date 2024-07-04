@@ -1,7 +1,6 @@
 "use client";
 import { postsFetcher } from "@/controllers/api";
 import { ExtractPostData, convertPropsToApiRoute } from "@/controllers/utils";
-import { centerVerticalClass } from "@/styles/global";
 import { postsImageWrapperClass } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
 import { PostParamsType, PostType } from "@/types";
@@ -13,10 +12,10 @@ import PostsSkeleton from "../feedback/skeletons/PostsSkeleton";
 import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
 import Link from "next/link";
 import parse from "html-react-parser";
+import Categories from "./Categories";
 
 export default function Posts({ page, categories, tags, search }: PostParamsType) {
   const apiRoute = convertPropsToApiRoute({ page, categories, tags, search });
-  console.log("API Route: ", apiRoute);
   const { data, error, isLoading } = useSWR(apiRoute, postsFetcher);
 
   console.log("Posts: ", data, error, isLoading);
@@ -57,7 +56,7 @@ export default function Posts({ page, categories, tags, search }: PostParamsType
                     </Link>
                     <Stack direction="row" spacing={2}>
                       <Typography variant="body2" sx={textPillClass}>
-                        Life
+                        <Categories categoryId={post.categories[0]} preloaderSize={10} />
                       </Typography>
                       <Typography variant="body2">{post.date.substring(0, 10)}</Typography>
                     </Stack>

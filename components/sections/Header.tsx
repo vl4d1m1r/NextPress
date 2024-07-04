@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
 import { centerVerticalClass } from "@/styles/global";
 import { Container } from "@mui/material";
+import Categories from "./Categories";
 
 export default function Header() {
   return (
@@ -13,8 +14,8 @@ export default function Header() {
         <Stack direction="row" sx={centerVerticalClass}>
           <Typography variant="h4">My App</Typography>
         </Stack>
-        <Stack direction="row" sx={centerVerticalClass}>
-          <Typography variant="h6">Welcome</Typography>
+        <Stack direction="row" spacing={4} sx={centerVerticalClass}>
+          <Categories direction="ROW" />
           <ThemeSwitcher />
         </Stack>
       </Container>
