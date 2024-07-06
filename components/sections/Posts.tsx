@@ -32,6 +32,14 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
     return <PostsSkeleton numberOfItems={4} />;
   }
 
+  if (data && data.posts.length === 1) {
+    return (
+      <Stack component="section" direction="column">
+        <Box>{parse(data.posts[0].content.rendered)}</Box>
+      </Stack>
+    );
+  }
+
   return (
     <>
       <Stack component="section" direction="column">

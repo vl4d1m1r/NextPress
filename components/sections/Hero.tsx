@@ -35,6 +35,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
   if (error) return <Box>Error: {error.message}</Box>;
 
   let heroPost: PostType;
+  let totalPosts = postId ? 1 : (data as PostsDataType).totalPosts;
   if (postId) {
     heroPost = (data as PostType[])[0];
   } else {
@@ -56,7 +57,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
                 </Typography>
                 <Typography variant="body2">{formatDate(heroPost.date.substring(0, 10))}</Typography>
               </Stack>
-              <Typography variant="body1">{excerptLimited}</Typography>
+              {Number(totalPosts) > 1 ? <Typography variant="body1">{excerptLimited}</Typography> : null}
             </Stack>
           </Grid>
           <Grid item xs={12} sm={4}></Grid>
