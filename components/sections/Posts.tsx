@@ -1,6 +1,6 @@
 "use client";
 import { postsFetcher } from "@/controllers/api";
-import { ExtractPostData, convertPropsToApiRoute, formatDate } from "@/controllers/utils";
+import { ExtractPostData, convertPropsToApiRoute, convertPropsToLocalRoute, formatDate } from "@/controllers/utils";
 import { postsImageWrapperClass } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
 import { PostParamsType, PostType } from "@/types";
@@ -13,10 +13,17 @@ import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder"
 import Link from "next/link";
 import parse from "html-react-parser";
 import Categories from "./Categories";
+import { useRouter } from "next/navigation";
 
 export default function Posts({ page, categories, tags, search }: PostParamsType) {
+  const router = useRouter();
   const apiRoute = convertPropsToApiRoute({ page, categories, tags, search });
   const { data, error, isLoading } = useSWR(apiRoute, postsFetcher);
+
+  const handlePageChange = (_: React.ChangeEvent<unknown>, value: any) => {
+    console.log("Page change: ", value);
+    router.push(convertPropsToLocalRoute({ page: value }));
+  };
 
   console.log("Posts: ", data, error, isLoading);
 
@@ -68,7 +75,13 @@ export default function Posts({ page, categories, tags, search }: PostParamsType
           );
         })}
       </Stack>
-      <Pagination count={10} variant="outlined" shape="rounded" />
+      <Pagination
+        count={Number(data.totalPages)}
+        page={page}
+        onChange={handlePageChange}
+        variant="outlined"
+        shape="rounded"
+      />
     </>
   );
 }
