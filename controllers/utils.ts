@@ -4,7 +4,7 @@ import parse from "html-react-parser";
 
 /*
  *
- * This function converts props object (eg. { page: '1', categories: '2' }) to
+ * This function converts props object (eg. { page: '1', category: '2' }) to
  * an API route (eg. https://.../wp-json/wp/v2/posts/?_embed&slug=1&categories=2 )
  *
  */
@@ -13,15 +13,18 @@ export const convertPropsToApiRoute = (props: { [key: string]: number | string |
   const apiRoute = API.basePath + API.postsPath + props.page;
   return propsKeys.reduce((accumulator: string, key: string) => {
     if (!props[key]) return accumulator;
-    accumulator += key !== "page" ? `&${key}=${props[key]}` : "";
+    let adjustedKey = key;
+    if (key === "category") adjustedKey = "categories";
+    if (key === "tag") adjustedKey = "tags";
+    accumulator += key !== "page" ? `&${adjustedKey}=${props[key]}` : "";
     return accumulator;
   }, apiRoute);
 };
 
 /*
  *
- * This function converts props object (eg. { page: '1', categories: '2' }) to
- * local API route (eg. /posts/page/1/categories/2 )
+ * This function converts props object (eg. { page: '1', category: '2' }) to
+ * local API route (eg. /posts/page/1/category/2 )
  *
  */
 export const convertPropsToLocalRoute = (props: { [key: string]: number | string }) => {

@@ -3,12 +3,12 @@ import SectionDivider from "@/components/elements/SectionDivider";
 import Main from "@/components/wrappers/Main";
 import Highlights from "@/components/sections/Highlights";
 
-export default function HomeRoute() {
+export default function PostsPageCategoryRoute({ params }: { params: { page: string; category: string } }) {
   return (
     <>
-      <Hero page={1} />
+      <Hero page={Number(params.page)} category={Number(params.category)} />
       <SectionDivider />
-      <Main page={1} />
+      <Main page={Number(params.page)} category={Number(params.category)} />
       <SectionDivider />
       <Highlights />
       <SectionDivider />

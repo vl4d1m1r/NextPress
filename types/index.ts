@@ -1,8 +1,8 @@
-export type PostParamsType = { page: number; categories?: number; tags?: number; search?: string };
+export type PostParamsType = { page: number; category?: number; tag?: number; search?: string };
 export type HeroPostParamsType = {
   page?: number;
-  categories?: number;
-  tags?: number;
+  category?: number;
+  tag?: number;
   search?: string;
   postId?: string;
 };

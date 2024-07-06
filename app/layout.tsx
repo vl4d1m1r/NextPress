@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";

@@ -15,9 +15,10 @@ import parse from "html-react-parser";
 import Categories from "./Categories";
 import { useRouter } from "next/navigation";
 
-export default function Posts({ page, categories, tags, search }: PostParamsType) {
+export default function Posts({ page, category, tag, search }: PostParamsType) {
   const router = useRouter();
-  const apiRoute = convertPropsToApiRoute({ page, categories, tags, search });
+  const apiRoute = convertPropsToApiRoute({ page, category, tag, search });
+  console.log("API Route: ===============>>>> ", apiRoute);
   const { data, error, isLoading } = useSWR(apiRoute, postsFetcher);
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: any) => {
@@ -75,13 +76,15 @@ export default function Posts({ page, categories, tags, search }: PostParamsType
           );
         })}
       </Stack>
-      <Pagination
-        count={Number(data.totalPages)}
-        page={page}
-        onChange={handlePageChange}
-        variant="outlined"
-        shape="rounded"
-      />
+      {Number(data.totalPages) > 1 ? (
+        <Pagination
+          count={Number(data.totalPages)}
+          page={page}
+          onChange={handlePageChange}
+          variant="outlined"
+          shape="rounded"
+        />
+      ) : null}
     </>
   );
 }

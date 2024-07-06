@@ -1,7 +1,6 @@
 import { simpleFetcher } from "@/controllers/api";
 import { API } from "@/models/constants";
 import { PostType } from "@/types";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import useSWR from "swr";
 import parse from "html-react-parser";
@@ -9,11 +8,8 @@ import { Stack } from "@mui/material";
 import { textPillClass } from "@/styles/text";
 import { ExtractPostData, formatDate } from "@/controllers/utils";
 import Categories from "./Categories";
-import { postsImageWrapperClass } from "@/styles/layouts";
-import Image from "next/image";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
 
-export default function Post({ postId }: { postId: string }) {
+export default function PostHeader({ postId }: { postId: string }) {
   const apiRoute = API.basePath + API.postPath + postId;
   const { data, error, isLoading } = useSWR<PostType[]>(apiRoute, simpleFetcher);
 

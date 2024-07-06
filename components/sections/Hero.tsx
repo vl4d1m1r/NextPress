@@ -18,8 +18,8 @@ import { textPillClass } from "@/styles/text";
 import Categories from "./Categories";
 import { API } from "@/models/constants";
 
-export default function Hero({ page, categories, tags, search, postId }: HeroPostParamsType) {
-  const apiRoute = convertPropsToApiRoute({ page, categories, tags, search });
+export default function Hero({ page, category, tag, search, postId }: HeroPostParamsType) {
+  const apiRoute = convertPropsToApiRoute({ page, category, tag, search });
 
   let heroApiRoute = apiRoute;
   let heroFetcher = postsFetcher;
