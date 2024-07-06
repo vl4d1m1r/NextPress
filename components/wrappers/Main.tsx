@@ -16,7 +16,7 @@ export default function Main({ page, category, tag, search }: PostParamsType) {
           <Stack spacing={2}>
             <Search />
             <TweetPost id="1628832338187636740" />
-            <Tags />
+            <Tags tagsDisplayVariant="MOST_POPULAR" />
           </Stack>
         </Grid>
       </Grid>

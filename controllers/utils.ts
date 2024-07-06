@@ -44,6 +44,26 @@ export const convertPropsToLocalRoute = (props: { [key: string]: number | string
 export const deepCloneArray = (items: any) =>
   items.map((item: any) => (Array.isArray(item) ? deepCloneArray(item) : item));
 
+function isObject<T>(item: T): item is T & Record<string, unknown> {
+  return item !== null && typeof item === "object" && !Array.isArray(item);
+}
+
+export function deepClone<T>(item: T): T {
+  if (Array.isArray(item)) {
+    return item.map((element) => deepClone(element)) as unknown as T;
+  } else if (isObject(item)) {
+    const clonedObj: Record<string, unknown> = {};
+    for (const key in item) {
+      if (Object.prototype.hasOwnProperty.call(item, key)) {
+        clonedObj[key] = deepClone((item as Record<string, unknown>)[key]);
+      }
+    }
+    return clonedObj as T;
+  } else {
+    return item;
+  }
+}
+
 export const ExtractPostData = (post: PostType, excerptLimit: number = 150) => {
   const imageData = post._embedded["wp:featuredmedia"][0];
   const excerpt: any = parse(post.excerpt.rendered);

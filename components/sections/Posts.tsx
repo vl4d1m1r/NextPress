@@ -18,7 +18,6 @@ import { useRouter } from "next/navigation";
 export default function Posts({ page, category, tag, search }: PostParamsType) {
   const router = useRouter();
   const apiRoute = convertPropsToApiRoute({ page, category, tag, search });
-  console.log("API Route: ===============>>>> ", apiRoute);
   const { data, error, isLoading } = useSWR(apiRoute, postsFetcher);
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: any) => {

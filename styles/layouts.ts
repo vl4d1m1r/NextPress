@@ -9,6 +9,22 @@ export const exampleClass: SxProps<Theme> = (theme) => ({
 });
 */
 
+export const containerClass: SxProps<Theme> = (theme) => ({
+  width: "100%",
+  marginLeft: "auto",
+  boxSizing: "border-box",
+  marginRight: "auto",
+  paddingLeft: "16px",
+  paddingRight: "16px",
+  [theme.breakpoints.up("sm")]: {
+    paddingLeft: "24px",
+    paddingRight: "24px",
+  },
+  [theme.breakpoints.up("lg")]: {
+    maxWidth: "1200px",
+  },
+});
+
 export const headerWrapperClass: SxProps<Theme> = (theme) => ({
   position: "absolute",
   width: "100%",
@@ -83,19 +99,7 @@ export const highlightsContainerColumnClass: SxProps<Theme> = (theme) => ({
 });
 
 export const highlightsContainerRowClass: SxProps<Theme> = (theme) => ({
-  width: "100%",
-  marginLeft: "auto",
-  boxSizing: "border-box",
-  marginRight: "auto",
-  paddingLeft: "16px",
-  paddingRight: "16px",
-  [theme.breakpoints.up("sm")]: {
-    paddingLeft: "24px",
-    paddingRight: "24px",
-  },
-  [theme.breakpoints.up("lg")]: {
-    maxWidth: "1200px",
-  },
+  ...containerClass(theme),
 });
 
 export const highlightsWrapperColumnClass: SxProps<Theme> = (theme) => ({
@@ -116,6 +120,14 @@ export const highlightsHeadlineClass: SxProps<Theme> = (theme) => ({
   display: "flex",
   alignItems: "center",
   mb: 2,
+});
+
+export const tagsWrapperContainerClass: SxProps<Theme> = (theme) => ({
+  ...containerClass(theme),
+});
+
+export const tagsWrapperRegularClass: SxProps<Theme> = (theme) => ({
+  width: "100%",
 });
 
 export const footerTextRowClass: SxProps<Theme> = (theme) => ({

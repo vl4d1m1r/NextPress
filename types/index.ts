@@ -47,7 +47,12 @@ export type TagType = {
   id: number;
   name: string;
   count: number;
+  description: string;
+  slug: string;
+  taxonomy: string;
 };
+
+export type TagsDisplayVariantType = "ALL" | "MOST_POPULAR";
 
 export type ReportPropType = {
   type: string;

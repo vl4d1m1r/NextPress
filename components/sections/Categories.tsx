@@ -22,9 +22,9 @@ export default function Categories({
 }) {
   const { data, error, isLoading } = useSWR(API.categoriesSwrKey, fetcher);
 
-  if (isLoading) return <CircularProgress size={preloaderSize} sx={{ color: preloaderColor }} />;
-
   if (error) return <SentimentVeryDissatisfiedIcon />;
+
+  if (isLoading) return <CircularProgress size={preloaderSize} sx={{ color: preloaderColor }} />;
 
   if (categoryId) {
     return (
