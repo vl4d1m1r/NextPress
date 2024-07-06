@@ -9,10 +9,10 @@ export default function Main({ page, categories, tags, search }: PostParamsType)
   return (
     <Container component="main">
       <Grid container>
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} md={8}>
           <Posts page={page} categories={categories} tags={tags} search={search} />
         </Grid>
-        <Grid item xs={12} sm={4} sx={{ pl: { xs: 0, sm: 4 } }}>
+        <Grid item xs={12} md={4} sx={{ pl: { xs: 0, md: 4 } }}>
           <Stack spacing={2}>
             <Search />
             <TweetPost id="1628832338187636740" />

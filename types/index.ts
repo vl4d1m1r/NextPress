@@ -28,6 +28,7 @@ export type PostType = {
   _embedded: {
     "wp:featuredmedia": [{ imageData: ImageDataType; source_url: string; title: { rendered: string } }];
   };
+  content: { rendered: string };
 };
 
 export type PostsDataType = {

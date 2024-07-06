@@ -7,6 +7,28 @@ export const lightTheme = createTheme({
       main: "#1976d2",
     },
   },
+  typography: {
+    h1: {
+      fontSize: "3rem",
+      fontWeight: 600,
+    },
+    h2: {
+      fontSize: "2.5rem",
+      fontWeight: 500,
+    },
+    h3: {
+      fontSize: "2rem",
+      fontWeight: 400,
+    },
+    h4: {
+      fontSize: "1.5rem",
+      fontWeight: 300,
+    },
+    h5: {
+      fontSize: "1.1rem",
+      fontWeight: 300,
+    },
+  },
 });
 
 export const darkTheme = createTheme({
@@ -17,6 +39,28 @@ export const darkTheme = createTheme({
     },
     background: {
       default: "#000000", // Set background to black
+    },
+  },
+  typography: {
+    h1: {
+      fontSize: "3rem",
+      fontWeight: 600,
+    },
+    h2: {
+      fontSize: "2.5rem",
+      fontWeight: 500,
+    },
+    h3: {
+      fontSize: "2rem",
+      fontWeight: 400,
+    },
+    h4: {
+      fontSize: "1.5rem",
+      fontWeight: 300,
+    },
+    h5: {
+      fontSize: "1.1rem",
+      fontWeight: 300,
     },
   },
 });

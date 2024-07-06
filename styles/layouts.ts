@@ -78,11 +78,38 @@ export const tagsChipsClass: SxProps<Theme> = (theme) => ({
   borderRadius: 1,
 });
 
-export const highlightsWrapperClass: SxProps<Theme> = (theme) => ({
+export const highlightsContainerColumnClass: SxProps<Theme> = (theme) => ({
+  width: "100%",
+});
+
+export const highlightsContainerRowClass: SxProps<Theme> = (theme) => ({
+  width: "100%",
+  marginLeft: "auto",
+  boxSizing: "border-box",
+  marginRight: "auto",
+  paddingLeft: "16px",
+  paddingRight: "16px",
+  [theme.breakpoints.up("sm")]: {
+    paddingLeft: "24px",
+    paddingRight: "24px",
+  },
+  [theme.breakpoints.up("lg")]: {
+    maxWidth: "1200px",
+  },
+});
+
+export const highlightsWrapperColumnClass: SxProps<Theme> = (theme) => ({
   position: "relative",
   display: "flex",
-  flexDirection: { xs: "column", sm: "row" },
   gap: 2,
+  flexDirection: "column",
+});
+
+export const highlightsWrapperRowClass: SxProps<Theme> = (theme) => ({
+  position: "relative",
+  display: "flex",
+  gap: 2,
+  flexDirection: { xs: "column", md: "row" },
 });
 
 export const highlightsHeadlineClass: SxProps<Theme> = (theme) => ({
@@ -108,7 +135,7 @@ export const imageWrapperClass: SxProps<Theme> = (theme) => ({
 
 export const socialIconClass: SxProps<Theme> = (theme) => ({
   color: theme.palette.primary.main,
-  border: `1px solid ${theme.palette.primary.main}`,
+  border: `1px solid ${theme.palette.warning.main}`,
   borderRadius: 1,
   p: 1,
   pb: 0,

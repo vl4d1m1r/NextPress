@@ -1,6 +1,6 @@
 "use client";
 import { postsFetcher } from "@/controllers/api";
-import { ExtractPostData, convertPropsToApiRoute } from "@/controllers/utils";
+import { ExtractPostData, convertPropsToApiRoute, formatDate } from "@/controllers/utils";
 import { postsImageWrapperClass } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
 import { PostParamsType, PostType } from "@/types";
@@ -52,13 +52,13 @@ export default function Posts({ page, categories, tags, search }: PostParamsType
                 <Grid item xs={12} sm={7} sx={{ pr: { xs: 0, sm: 4 } }}>
                   <Stack direction="column" spacing={2}>
                     <Link href={`/post/${post.slug}`}>
-                      <Typography variant="h5">{parse(post.title.rendered)}</Typography>
+                      <Typography variant="h4">{parse(post.title.rendered)}</Typography>
                     </Link>
                     <Stack direction="row" spacing={2}>
                       <Typography variant="body2" sx={textPillClass}>
                         <Categories categoryId={post.categories[0]} preloaderSize={10} />
                       </Typography>
-                      <Typography variant="body2">{post.date.substring(0, 10)}</Typography>
+                      <Typography variant="body2">{formatDate(post.date.substring(0, 10))}</Typography>
                     </Stack>
                     <Typography variant="body2">{excerptLimited}</Typography>
                   </Stack>

@@ -1,4 +1,10 @@
-import { highlightsWrapperClass, imageWrapperClass } from "@/styles/layouts";
+import {
+  highlightsContainerColumnClass,
+  highlightsContainerRowClass,
+  highlightsWrapperColumnClass,
+  highlightsWrapperRowClass,
+  imageWrapperClass,
+} from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -7,15 +13,20 @@ import Stack from "@mui/material/Stack";
 import Image from "next/image";
 import AlarmOnIcon from "@mui/icons-material/AlarmOn";
 import { highlightsHeadlineClass } from "@/styles/layouts";
+import { DirectionsType } from "@/types";
 
-export default function Highlights() {
+export default function Highlights({ direction = "ROW" }: { direction?: DirectionsType }) {
   return (
-    <Container component="section" className="highlights">
+    <Box
+      component="section"
+      className="highlights"
+      sx={direction === "COLUMN" ? highlightsContainerColumnClass : highlightsContainerRowClass}
+    >
       <Stack direction="row" spacing={2} sx={highlightsHeadlineClass}>
         <AlarmOnIcon sx={{ fontSize: "42px" }} />
         <Typography variant="h5">Highlights</Typography>
       </Stack>
-      <Box sx={highlightsWrapperClass}>
+      <Box sx={direction === "COLUMN" ? highlightsWrapperColumnClass : highlightsWrapperRowClass}>
         {[1, 2, 3].map((highlight) => {
           return (
             <Stack key={highlight} spacing={2}>
@@ -41,6 +52,6 @@ export default function Highlights() {
           );
         })}
       </Box>
-    </Container>
+    </Box>
   );
 }

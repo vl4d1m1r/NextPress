@@ -49,3 +49,9 @@ export const ExtractPostData = (post: PostType, excerptLimit: number = 150) => {
     excerptFirstParagraph.slice(0, excerptLimit) + (excerptFirstParagraph.length > excerptLimit ? "..." : "");
   return { imageData, excerptLimited };
 };
+
+export function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+}
