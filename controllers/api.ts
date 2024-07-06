@@ -1,4 +1,4 @@
-export const fetcher = (path: string) => fetch(path).then((res) => res.json());
+export const simpleFetcher = (path: string) => fetch(path).then((res) => res.json());
 
 export const postsFetcher = async (path: string) => {
   const response = await fetch(path);

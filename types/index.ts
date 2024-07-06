@@ -1,5 +1,11 @@
 export type PostParamsType = { page: number; categories?: number; tags?: number; search?: string };
-export type HeroPostParamsType = { page: number; categories?: number; tags?: number; search?: string; postId?: number };
+export type HeroPostParamsType = {
+  page?: number;
+  categories?: number;
+  tags?: number;
+  search?: string;
+  postId?: string;
+};
 
 export type ImageDataType = {
   source_url: string;
@@ -22,6 +28,12 @@ export type PostType = {
   _embedded: {
     "wp:featuredmedia": [{ imageData: ImageDataType; source_url: string; title: { rendered: string } }];
   };
+};
+
+export type PostsDataType = {
+  totalPages: string;
+  totalPosts: string;
+  posts: PostType[];
 };
 
 export type CategoryType = {
