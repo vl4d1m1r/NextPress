@@ -29,7 +29,7 @@ export default function PostRoute({ params }: { params: { postId: string } }) {
               <Search />
               <TweetPost id="1628832338187636740" />
               <Tags />
-              <Highlights direction="COLUMN" />
+              <Highlights direction="COLUMN" category={2} />
             </Stack>
           </Grid>
         </Grid>

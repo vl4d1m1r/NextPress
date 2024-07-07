@@ -27,10 +27,11 @@ export const convertPropsToApiRoute = (props: { [key: string]: number | string |
  * local API route (eg. /posts/page/1/category/2 )
  *
  */
-export const convertPropsToLocalRoute = (props: { [key: string]: number | string }) => {
+export const convertPropsToLocalRoute = (props: { [key: string]: number | string | undefined }) => {
   const propsKeys = Object.keys(props);
   const apiRoute = API.localPostsPath + props.page;
   return propsKeys.reduce((accumulator: string, key: string) => {
+    if (!props[key]) return accumulator;
     accumulator += key !== "page" ? `/${key}/${props[key]}` : "";
     return accumulator;
   }, apiRoute);

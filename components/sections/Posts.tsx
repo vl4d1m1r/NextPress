@@ -22,66 +22,68 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: any) => {
     console.log("Page change: ", value);
-    router.push(convertPropsToLocalRoute({ page: value }));
+    router.push(convertPropsToLocalRoute({ page: value, category, tag, search }));
   };
 
   console.log("Posts: ", data, error, isLoading);
 
-  if (!data) {
-    return <PostsSkeleton numberOfItems={4} />;
-  }
+  if (error) return <Box>There were errors!!</Box>;
 
-  if (data && data.posts.length === 1) {
-    return (
-      <Stack component="section" direction="column">
-        <Box>{parse(data.posts[0].content.rendered)}</Box>
-      </Stack>
-    );
+  if (isLoading || !data) {
+    return <PostsSkeleton numberOfItems={4} />;
   }
 
   return (
     <>
       <Stack component="section" direction="column">
-        {data.posts.map((post: PostType, index: number) => {
-          const { imageData, excerptLimited } = ExtractPostData(post);
-          if (index === 0) return null;
-          return (
-            <Box key={post.id} className={`blog-post-preview-${post.id}`} sx={{ mb: 4 }}>
-              <Grid container>
-                <Grid item xs={12} sm={5}>
-                  <Box sx={postsImageWrapperClass}>
-                    <Image
-                      placeholder={imagePlaceholder}
-                      src={imageData.source_url}
-                      alt={imageData.title.rendered}
-                      sizes="100vw"
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                      }}
-                      width={500}
-                      height={300}
-                    />
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={7} sx={{ pr: { xs: 0, sm: 4 } }}>
-                  <Stack direction="column" spacing={2}>
-                    <Link href={`/post/${post.slug}`}>
-                      <Typography variant="h4">{parse(post.title.rendered)}</Typography>
-                    </Link>
-                    <Stack direction="row" spacing={2}>
-                      <Typography variant="body2" sx={textPillClass}>
-                        <Categories categoryId={post.categories[0]} preloaderSize={10} />
-                      </Typography>
-                      <Typography variant="body2">{formatDate(post.date.substring(0, 10))}</Typography>
-                    </Stack>
-                    <Typography variant="body2">{excerptLimited}</Typography>
-                  </Stack>
-                </Grid>
-              </Grid>
-            </Box>
-          );
-        })}
+        {data && data.posts.length > 1 ? (
+          <>
+            {data.posts.map((post: PostType, index: number) => {
+              const { imageData, excerptLimited } = ExtractPostData(post);
+              if (index === 0) return null;
+              return (
+                <Box key={post.id} className={`blog-post-preview-${post.id}`} sx={{ mb: 4 }}>
+                  <Grid container>
+                    <Grid item xs={12} sm={5}>
+                      <Box sx={postsImageWrapperClass}>
+                        <Image
+                          placeholder={imagePlaceholder}
+                          src={imageData.source_url}
+                          alt={imageData.title.rendered}
+                          sizes="100vw"
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                          }}
+                          width={500}
+                          height={300}
+                        />
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={7} sx={{ pr: { xs: 0, sm: 4 } }}>
+                      <Stack direction="column" spacing={2}>
+                        <Link href={`/post/${post.slug}`}>
+                          <Typography variant="h4">{parse(post.title.rendered)}</Typography>
+                        </Link>
+                        <Stack direction="row" spacing={2}>
+                          <Typography variant="body2" sx={textPillClass}>
+                            <Categories categoryId={post.categories[0]} preloaderSize={10} />
+                          </Typography>
+                          <Typography variant="body2">{formatDate(post.date.substring(0, 10))}</Typography>
+                        </Stack>
+                        <Typography variant="body2">{excerptLimited}</Typography>
+                      </Stack>
+                    </Grid>
+                  </Grid>
+                </Box>
+              );
+            })}
+          </>
+        ) : (
+          <Stack component="section" direction="column" sx={{ mb: 2 }}>
+            <Box>{parse(data.posts[0].content.rendered)}</Box>
+          </Stack>
+        )}
       </Stack>
       {Number(data.totalPages) > 1 ? (
         <Pagination

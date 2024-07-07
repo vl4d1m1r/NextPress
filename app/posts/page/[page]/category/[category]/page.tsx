@@ -10,9 +10,9 @@ export default function PostsPageCategoryRoute({ params }: { params: { page: str
       <SectionDivider />
       <Main page={Number(params.page)} category={Number(params.category)} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={2} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={4} />
       <SectionDivider />
     </>
   );

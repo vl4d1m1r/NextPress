@@ -11,9 +11,9 @@ export default function PostsPageRoute({ params }: { params: { page: string } })
       <SectionDivider />
       <Main page={Number(params.page)} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={4} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={2} />
       <SectionDivider />
     </>
   );

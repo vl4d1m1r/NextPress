@@ -10,9 +10,9 @@ export default function PostsPageSearchRoute({ params }: { params: { page: strin
       <SectionDivider />
       <Main page={Number(params.page)} search={params.search} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={4} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={2} />
       <SectionDivider />
     </>
   );

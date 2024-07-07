@@ -10,9 +10,9 @@ export default function PostsPageTagRoute({ params }: { params: { page: string; 
       <SectionDivider />
       <Main page={Number(params.page)} tag={Number(params.tag)} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={2} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={4} />
       <SectionDivider />
     </>
   );

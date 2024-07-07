@@ -11,11 +11,11 @@ export default function HomeRoute() {
       <SectionDivider />
       <Main page={1} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={2} />
       <SectionDivider />
       <Tags tagsDisplayVariant="ALL" containerized={true} />
       <SectionDivider />
-      <Highlights />
+      <Highlights category={4} />
       <SectionDivider />
     </>
   );
