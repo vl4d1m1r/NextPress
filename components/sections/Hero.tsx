@@ -24,7 +24,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
   let heroApiRoute = apiRoute;
   let heroFetcher = postsFetcher;
   if (postId) {
-    heroApiRoute = API.basePath + API.postPath + postId;
+    heroApiRoute = process.env.WORDPRESS_API_PATH + API.postPath + postId;
     heroFetcher = simpleFetcher;
   }
 

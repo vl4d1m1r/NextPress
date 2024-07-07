@@ -11,7 +11,7 @@ import Image from "next/image";
 import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
 
 export default function PostBody({ postId }: { postId: string }) {
-  const apiRoute = API.basePath + API.postPath + postId;
+  const apiRoute = process.env.WORDPRESS_API_PATH + API.postPath + postId;
   const { data, error, isLoading } = useSWR<PostType[]>(apiRoute, simpleFetcher);
 
   if (error) return <div>Error: {error.message}</div>;

@@ -7,7 +7,7 @@ import { API } from "@/models/constants";
 import CircularProgress from "@mui/material/CircularProgress";
 import Stack from "@mui/material/Stack";
 
-const fetcher = (path: string) => fetch(API.basePath + path).then((res) => res.json());
+const fetcher = (path: string) => fetch(process.env.WORDPRESS_API_PATH + path).then((res) => res.json());
 
 export default function Categories({
   categoryId = null,

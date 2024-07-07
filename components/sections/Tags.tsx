@@ -25,7 +25,7 @@ export default function Tags({
 }) {
   const router = useRouter();
 
-  const { data, error, isLoading } = useSWR(API.basePath + API.tagsSwrKey, simpleFetcher);
+  const { data, error, isLoading } = useSWR(process.env.WORDPRESS_API_PATH + API.tagsSwrKey, simpleFetcher);
 
   if (error) return <SentimentVeryDissatisfiedIcon />;
 
