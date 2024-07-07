@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import Box from "@mui/material/Box";
 import { searchWrapperClass } from "@/styles/layouts";
-import { API } from "@/models/constants";
+import { API } from "@/models/config";
 import { useRouter } from "next/navigation";
 
 export default function Search() {

@@ -7,7 +7,6 @@ const nextConfig = {
   env: {
     DOMAIN: process.env.DOMAIN,
     WORDPRESS_DOMAIN: process.env.WORDPRESS_DOMAIN,
-    WORDPRESS_API_PATH: process.env.WORDPRESS_API_PATH,
   },
 };
 

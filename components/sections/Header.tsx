@@ -1,24 +1,77 @@
-import { headerContainerClass, headerWrapperClass } from "@/styles/layouts";
+"use client";
+import {
+  headerContainerClass,
+  headerDrawerClass,
+  headerDrawerWrapperClass,
+  headerRightSideDesktopClass,
+  headerRightSideMobileClass,
+  headerSecondaryLogosClass,
+  headerWrapperClass,
+} from "@/styles/layouts";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
 import { centerVerticalClass } from "@/styles/global";
-import { Container } from "@mui/material";
+import { Avatar, Backdrop, Button, Container, Drawer, Menu, MenuItem } from "@mui/material";
 import Categories from "./Categories";
+import { appData } from "@/models/config";
+import Image from "next/image";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
+import { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import { buttonGeneralClass } from "@/styles/buttons";
 
 export default function Header() {
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpenDrawer(newOpen);
+  };
+
   return (
-    <Box component="header" sx={headerWrapperClass}>
-      <Container sx={headerContainerClass}>
-        <Stack direction="row" sx={centerVerticalClass}>
-          <Typography variant="h4">My App</Typography>
-        </Stack>
-        <Stack direction="row" spacing={4} sx={centerVerticalClass}>
-          <Categories direction="ROW" />
-          <ThemeSwitcher />
-        </Stack>
-      </Container>
-    </Box>
+    <>
+      <Box component="header" sx={headerWrapperClass}>
+        <Container sx={headerContainerClass}>
+          <Stack direction="row" sx={centerVerticalClass}>
+            {appData.showLogo ? <Avatar alt="logo image" src={appData.logoImageUrl} sx={{ mr: 2 }} /> : null}
+            <Box sx={headerSecondaryLogosClass}>
+              {appData.showLogoTextImage ? (
+                <Image
+                  placeholder={imagePlaceholder}
+                  src={appData.logoTextImageUrl}
+                  alt="Logo Image Text"
+                  sizes="100vw"
+                  style={{ height: "auto" }}
+                  width={150}
+                  height={50}
+                />
+              ) : null}
+            </Box>
+            {/* Logo text will not show if showLogoTextImage is set to true */}
+            <Box sx={headerSecondaryLogosClass}>
+              {appData.showLogoText && !appData.showLogoTextImage ? (
+                <Typography variant="h4">{appData.name}</Typography>
+              ) : null}
+            </Box>
+          </Stack>
+          <Stack direction="row" spacing={2} sx={headerRightSideMobileClass}>
+            <Button variant="outlined" onClick={toggleDrawer(true)} sx={buttonGeneralClass}>
+              <MenuIcon />
+            </Button>
+            <ThemeSwitcher />
+            <Drawer open={openDrawer} anchor="bottom" onClose={toggleDrawer(false)} sx={headerDrawerClass}>
+              <Box sx={headerDrawerWrapperClass}>
+                <Categories direction="COLUMN" />
+              </Box>
+            </Drawer>
+          </Stack>
+          <Stack direction="row" spacing={4} sx={headerRightSideDesktopClass}>
+            <Categories direction="ROW" />
+            <ThemeSwitcher />
+          </Stack>
+        </Container>
+      </Box>
+    </>
   );
 }

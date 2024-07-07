@@ -41,9 +41,33 @@ export const headerContainerClass: SxProps<Theme> = (theme) => ({
   backgroundColor: "transparent",
 });
 
+export const headerSecondaryLogosClass: SxProps<Theme> = (theme) => ({
+  display: { xs: "none", md: "flex" },
+  alignItems: "center",
+});
+
+export const headerRightSideDesktopClass: SxProps<Theme> = (theme) => ({
+  display: { xs: "none", md: "flex" },
+  alignItems: "center",
+});
+
+export const headerRightSideMobileClass: SxProps<Theme> = (theme) => ({
+  display: { xs: "flex", md: "none" },
+  alignItems: "center",
+});
+
+export const headerDrawerClass: SxProps<Theme> = (theme) => ({
+  padding: 2,
+});
+
+export const headerDrawerWrapperClass: SxProps<Theme> = (theme) => ({
+  p: 4,
+  borderTop: `1px solid ${theme.palette.grey[dividerGray]}`,
+});
+
 export const heroWrapperClass: SxProps<Theme> = (theme) => ({
   position: "relative",
-  height: "50vh",
+  height: { xs: "100vh", md: "50vh" },
   width: "100%",
   backgroundSize: "cover",
   backgroundPosition: "center",

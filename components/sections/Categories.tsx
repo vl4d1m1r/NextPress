@@ -3,11 +3,11 @@ import useSWR from "swr";
 import Link from "next/link";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { CategoryType, DirectionsType } from "@/types";
-import { API } from "@/models/constants";
+import { API } from "@/models/config";
 import CircularProgress from "@mui/material/CircularProgress";
 import Stack from "@mui/material/Stack";
 
-const fetcher = (path: string) => fetch(process.env.WORDPRESS_API_PATH + path).then((res) => res.json());
+const fetcher = (path: string) => fetch(API.wordpressApiPath + path).then((res) => res.json());
 
 export default function Categories({
   categoryId = null,

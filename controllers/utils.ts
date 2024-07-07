@@ -1,4 +1,4 @@
-import { API } from "@/models/constants";
+import { API } from "@/models/config";
 import { PostType } from "@/types";
 import parse from "html-react-parser";
 
@@ -10,7 +10,7 @@ import parse from "html-react-parser";
  */
 export const convertPropsToApiRoute = (props: { [key: string]: number | string | undefined }) => {
   const propsKeys = Object.keys(props);
-  const apiRoute = process.env.WORDPRESS_API_PATH + API.postsPath + props.page;
+  const apiRoute = API.wordpressApiPath + API.postsPath + props.page;
   return propsKeys.reduce((accumulator: string, key: string) => {
     if (!props[key]) return accumulator;
     let adjustedKey = key;

@@ -16,7 +16,7 @@ import { postsFetcher, simpleFetcher } from "@/controllers/api";
 import parse from "html-react-parser";
 import { textPillClass } from "@/styles/text";
 import Categories from "./Categories";
-import { API } from "@/models/constants";
+import { API } from "@/models/config";
 
 export default function Hero({ page, category, tag, search, postId }: HeroPostParamsType) {
   const apiRoute = convertPropsToApiRoute({ page, category, tag, search });
@@ -24,7 +24,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
   let heroApiRoute = apiRoute;
   let heroFetcher = postsFetcher;
   if (postId) {
-    heroApiRoute = process.env.WORDPRESS_API_PATH + API.postPath + postId;
+    heroApiRoute = API.wordpressApiPath + API.postPath + postId;
     heroFetcher = simpleFetcher;
   }
 

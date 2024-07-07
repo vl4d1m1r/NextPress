@@ -1,5 +1,5 @@
 import { simpleFetcher } from "@/controllers/api";
-import { API } from "@/models/constants";
+import { API } from "@/models/config";
 import { PostType } from "@/types";
 import Box from "@mui/material/Box";
 import useSWR from "swr";
@@ -11,7 +11,7 @@ import Image from "next/image";
 import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
 
 export default function PostBody({ postId }: { postId: string }) {
-  const apiRoute = process.env.WORDPRESS_API_PATH + API.postPath + postId;
+  const apiRoute = API.wordpressApiPath + API.postPath + postId;
   const { data, error, isLoading } = useSWR<PostType[]>(apiRoute, simpleFetcher);
 
   if (error) return <div>Error: {error.message}</div>;

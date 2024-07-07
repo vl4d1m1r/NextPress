@@ -12,7 +12,7 @@ import Highlights from "@/components/sections/Highlights";
 export default function PostRoute({ params }: { params: { postId: string } }) {
   console.log("Post ID: ", params.postId);
   return (
-    <Box component="main">
+    <Box>
       <Container sx={{ pt: 16 }}>
         <Grid container>
           <Grid item xs={12} md={8}>

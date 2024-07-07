@@ -1,11 +1,12 @@
 // import getConfig from "next/config"; deprecated in app router
-
-const postsPerPage = 5;
-const tagsPerPage = 100;
-const currentYear = new Date().getFullYear();
+export const postsPerPage = 5;
+export const tagsPerPage = 100;
+export const currentYear = new Date().getFullYear();
+export const numberOfPopularTagsToShow = 10;
 
 export const API = {
-  basePath: "https://vl4di11ir.pw/doctypeadventures/wp-json/wp/v2/",
+  wordpressApiPath: `https://${process.env.WORDPRESS_DOMAIN}/doctypeadventures/wp-json/wp/v2/`,
+  wordpressMediaPath: `https://${process.env.WORDPRESS_DOMAIN}/doctypeadventures/wp-content/uploads/`,
   postsPath: `posts?_embed&per_page=${postsPerPage}&page=`,
   localPostsPath: "/posts/page/",
   postPath: "posts/?_embed&slug=",
@@ -18,24 +19,19 @@ export const API = {
   indexImage: "image.jpg",
 };
 
-export const settings = {
-  postsPerPage,
-};
-
 export const appData = {
   name: "<!DOCTYPE Adventures>",
-  // Version: publicRuntimeConfig?.version || "0.0", deprecated in app router
-  version: "6.0.1",
   author: "Vladimir Jankovic",
   githubRepo: "https://github.com/vl4d1m1r",
-  // Dummy blur data image, sorry
-  blurDataImage:
-    "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==",
+  logoImageUrl: API.wordpressMediaPath + "2024/07/logo.jpg",
+  showLogo: true,
+  logoTextImageUrl: API.wordpressMediaPath + "2024/07/logo-text-image.png",
+  showLogoTextImage: true,
+  showLogoText: true, // logoText = name, will not show if showLogoTextImage is set to true
 };
 
 export const texts = {
   tagline: "Technology, security and stuff according to some guy.",
-  websiteVersionText: `${appData.name} version: ${appData.version}`,
   copyrightNotice: `Ⓒ ${appData.author}, 2016-${currentYear}`,
   license: "Website engine released under the MIT license.",
   rant: "All the articles on this site represent my opinions, and I could be wrong. So take everything that I said here with a grain of salt. Also, I am not into monetization with my texts, so no tracking cookies, ads, or anything of that sort here. And, please, please, please don't f*ck something up after reading articles from this site! ",

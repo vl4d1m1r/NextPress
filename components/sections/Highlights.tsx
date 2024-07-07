@@ -4,12 +4,10 @@ import {
   highlightsContainerRowClass,
   highlightsWrapperColumnClass,
   highlightsWrapperRowClass,
-  imageWrapperClass,
 } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Image from "next/image";
 import AlarmOnIcon from "@mui/icons-material/AlarmOn";

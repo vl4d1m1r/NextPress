@@ -1,6 +1,6 @@
 "use client";
 import { simpleFetcher } from "@/controllers/api";
-import { API } from "@/models/constants";
+import { API, numberOfPopularTagsToShow } from "@/models/config";
 import { tagsChipsClass, tagsWrapperClass, tagsWrapperRegularClass } from "@/styles/layouts";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -9,7 +9,6 @@ import useSWR from "swr";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { deepClone } from "@/controllers/utils";
 import { TagsDisplayVariantType, TagType } from "@/types";
-import { numberOfPopularTagsToShow } from "@/models/settings";
 import Typography from "@mui/material/Typography";
 import { tagsWrapperContainerClass } from "@/styles/layouts";
 import { useRouter } from "next/navigation";
@@ -25,7 +24,7 @@ export default function Tags({
 }) {
   const router = useRouter();
 
-  const { data, error, isLoading } = useSWR(process.env.WORDPRESS_API_PATH + API.tagsSwrKey, simpleFetcher);
+  const { data, error, isLoading } = useSWR(API.wordpressApiPath + API.tagsSwrKey, simpleFetcher);
 
   if (error) return <SentimentVeryDissatisfiedIcon />;
 
