@@ -1,3 +1,4 @@
+import { textPillClass } from "@/styles/text";
 import { Box, Grid, Skeleton, Stack, Typography } from "@mui/material";
 
 export default function PostSkeleton({ numberOfItems = 4 }: { numberOfItems: number }) {
@@ -15,7 +16,12 @@ export default function PostSkeleton({ numberOfItems = 4 }: { numberOfItems: num
             <Grid item xs={12} sm={7} sx={{ pr: { xs: 0, sm: 4 } }}>
               <Stack direction="column" spacing={2}>
                 <Skeleton variant="rectangular" width="100%" height="30px" />
-                <Skeleton variant="rectangular" width="50%" height="30px" />
+                <Stack direction="row" spacing={2}>
+                  <Typography variant="body2" sx={textPillClass}>
+                    <Skeleton variant="rectangular" width="50px" height="30px" />
+                  </Typography>
+                  <Skeleton variant="rectangular" width="100%" height="30px" />
+                </Stack>
                 <Skeleton variant="rectangular" width="100%" height="20px" />
                 <Skeleton variant="rectangular" width="100%" height="20px" />
               </Stack>

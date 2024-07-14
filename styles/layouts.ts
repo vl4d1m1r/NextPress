@@ -150,7 +150,27 @@ export const tagsWrapperContainerClass: SxProps<Theme> = (theme) => ({
   ...containerClass(theme),
 });
 
+export const tagsInfoClass: SxProps<Theme> = (theme) => ({
+  border: `1px solid ${theme.palette.grey[dividerGray]}`,
+  borderRadius: "5px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: "200px",
+});
+
 export const tagsWrapperRegularClass: SxProps<Theme> = (theme) => ({
+  width: "100%",
+});
+
+export const tagsInfoWrapperContainerClass: SxProps<Theme> = (theme) => ({
+  ...containerClass(theme),
+  ...tagsInfoClass(theme),
+  border: "none",
+});
+
+export const tagsInfoWrapperRegularClass: SxProps<Theme> = (theme) => ({
+  ...tagsInfoClass(theme),
   width: "100%",
 });
 

@@ -1,7 +1,13 @@
 "use client";
 import { simpleFetcher } from "@/controllers/api";
 import { apiConfig, pageConfig } from "@/models/config";
-import { tagsChipsClass, tagsWrapperClass, tagsWrapperRegularClass } from "@/styles/layouts";
+import {
+  tagsChipsClass,
+  tagsInfoWrapperContainerClass,
+  tagsInfoWrapperRegularClass,
+  tagsWrapperClass,
+  tagsWrapperRegularClass,
+} from "@/styles/layouts";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -26,11 +32,19 @@ export default function Tags({
 
   const { data, error, isLoading } = useSWR(apiConfig.wordpressApiPath + apiConfig.tagsSwrKey, simpleFetcher);
 
-  if (error) return <SentimentVeryDissatisfiedIcon />;
+  if (error)
+    return (
+      <Box sx={containerized ? tagsInfoWrapperContainerClass : tagsInfoWrapperRegularClass}>
+        <SentimentVeryDissatisfiedIcon fontSize="large" />
+      </Box>
+    );
 
-  if (isLoading && !data) return <CircularProgress />;
-
-  console.log("Tags: ", data);
+  if (isLoading && !data)
+    return (
+      <Box sx={containerized ? tagsInfoWrapperContainerClass : tagsInfoWrapperRegularClass}>
+        <CircularProgress />
+      </Box>
+    );
 
   let tags = deepClone(data);
 

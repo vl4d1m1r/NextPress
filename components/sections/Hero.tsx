@@ -18,6 +18,7 @@ import { textPillClass } from "@/styles/text";
 import Categories from "./Categories";
 import { apiConfig } from "@/models/config";
 import BackdropInfo from "@/components/widgets/BackdropInfo";
+import HeroSkeleton from "../feedback/skeletons/HeroSkeleton";
 
 export default function Hero({ page, category, tag, search, postId }: HeroPostParamsType) {
   const apiRoute = convertPropsToApiRoute({ page, category, tag, search });
@@ -31,7 +32,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
 
   const { data, error, isLoading } = useSWR<PostsDataType | PostType[]>(heroApiRoute, heroFetcher);
 
-  if (isLoading || !data) return <Box>Loading...</Box>;
+  if (isLoading || !data) return <HeroSkeleton />;
 
   if (error) return <BackdropInfo message={error.message} />;
 
