@@ -3,6 +3,7 @@ import TerminalIcon from "@mui/icons-material/Terminal";
 import DrawIcon from "@mui/icons-material/Draw";
 import LockIcon from "@mui/icons-material/Lock";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import { ThemeConfigType } from "@/types";
 
 export const pageConfig = {
   postsPerPage: 5,
@@ -45,6 +46,11 @@ export const headerConfig = {
   showLogo: true,
   showLogoTextImage: true,
   showLogoText: true, // logoText = name, will not show if showLogoTextImage is set to true
+};
+
+export const themeConfig: ThemeConfigType = {
+  defaultTheme: "dark",
+  allowThemeChange: true,
 };
 
 export const texts = {

@@ -14,7 +14,7 @@ import { HeroPostParamsType, PostsDataType, PostType } from "@/types";
 import { convertPropsToApiRoute, ExtractPostData, formatDate } from "@/controllers/utils";
 import { postsFetcher, simpleFetcher } from "@/controllers/api";
 import parse from "html-react-parser";
-import { textPillClass } from "@/styles/text";
+import { textPillClass, textPostsContentClass } from "@/styles/text";
 import Categories from "./Categories";
 import { apiConfig } from "@/models/config";
 import BackdropInfo from "@/components/widgets/BackdropInfo";
@@ -40,7 +40,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
   let fetchedPostsCount = postId ? 1 : (data as PostsDataType).posts.length;
   let totalPosts = postId ? 1 : (data as PostsDataType).totalPosts;
 
-  const { imageData, excerptLimited } = ExtractPostData(heroPost);
+  const { imageData, excerptLimited } = ExtractPostData(heroPost, 250);
 
   return (
     <Box sx={heroWrapperClass} style={{ backgroundImage: `url(${imageData.source_url})` }}>
@@ -56,7 +56,9 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
                 <Typography variant="body2">{formatDate(heroPost.date.substring(0, 10))}</Typography>
               </Stack>
               {Number(totalPosts) === 1 || fetchedPostsCount === 1 ? null : (
-                <Typography variant="body1">{excerptLimited}</Typography>
+                <Typography variant="body1" sx={textPostsContentClass}>
+                  {excerptLimited}
+                </Typography>
               )}
             </Stack>
           </Grid>

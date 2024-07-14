@@ -3,6 +3,11 @@
   text-decoration: none;
 }
 
+a:-webkit-any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* Overrides */
 
 .dark .react-tweet-theme {

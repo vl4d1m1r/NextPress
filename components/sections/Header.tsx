@@ -22,6 +22,7 @@ import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { buttonGeneralClass } from "@/styles/buttons";
 import Link from "next/link";
+import { themeConfig } from "@/models/config";
 
 export default function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -71,7 +72,7 @@ export default function Header() {
           </Stack>
           <Stack direction="row" spacing={4} sx={headerRightSideDesktopClass}>
             <Categories direction="ROW" />
-            <ThemeSwitcher />
+            {themeConfig.allowThemeChange ? <ThemeSwitcher /> : null}
           </Stack>
         </Container>
       </Box>

@@ -77,6 +77,11 @@ export type SeoDataType = {
   url: string;
 };
 
+export type ThemeConfigType = {
+  defaultTheme: "light" | "dark";
+  allowThemeChange: boolean;
+};
+
 export type DirectionsType = "ROW" | "COLUMN";
 
 export type InfoPageType = "error" | "notFound" | "empty" | "loading";

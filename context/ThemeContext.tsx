@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useState, useMemo, ReactNode } from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { lightTheme, darkTheme } from "@/theme";
+import { themeConfig } from "@/models/config";
 
 interface ThemeContextProps {
   toggleTheme: () => void;
@@ -19,7 +20,7 @@ export const useTheme = () => {
 };
 
 export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [theme, setTheme] = useState<"light" | "dark">(themeConfig.defaultTheme);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));

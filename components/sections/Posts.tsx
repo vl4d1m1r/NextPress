@@ -3,7 +3,7 @@ import { postsFetcher } from "@/controllers/api";
 import { ExtractPostData, convertPropsToApiRoute, convertPropsToLocalRoute, formatDate } from "@/controllers/utils";
 
 import { postsImageWrapperClass, postsInfoWrapperClass } from "@/styles/layouts";
-import { textPillClass } from "@/styles/text";
+import { textPillClass, textPostsContentClass, textPostsHeadlineClass } from "@/styles/text";
 import { PostParamsType, PostType } from "@/types";
 import { Grid, Pagination, Stack, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -64,7 +64,9 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
                     <Grid item xs={12} sm={7} sx={{ pr: { xs: 0, sm: 4 } }}>
                       <Stack direction="column" spacing={2}>
                         <Link href={`/post/${post.slug}`}>
-                          <Typography variant="h4">{parse(post.title.rendered)}</Typography>
+                          <Typography variant="h4" sx={textPostsHeadlineClass}>
+                            {parse(post.title.rendered)}
+                          </Typography>
                         </Link>
                         <Stack direction="row" spacing={2}>
                           <Typography variant="body2" sx={textPillClass}>
@@ -72,7 +74,9 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
                           </Typography>
                           <Typography variant="body2">{formatDate(post.date.substring(0, 10))}</Typography>
                         </Stack>
-                        <Typography variant="body2">{excerptLimited}</Typography>
+                        <Typography variant="body2" sx={textPostsContentClass}>
+                          {excerptLimited}
+                        </Typography>
                       </Stack>
                     </Grid>
                   </Grid>
