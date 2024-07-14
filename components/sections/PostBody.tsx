@@ -9,17 +9,19 @@ import { ExtractPostData } from "@/controllers/utils";
 import { postsImageWrapperClass } from "@/styles/layouts";
 import Image from "next/image";
 import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
+import PostBodySkeleton from "../feedback/skeletons/PostBodySkeleton";
+import BackdropInfo from "../widgets/BackdropInfo";
 
 export default function PostBody({ postId }: { postId: string }) {
   const apiRoute = apiConfig.wordpressApiPath + apiConfig.postPath + postId;
   const { data, error, isLoading } = useSWR<PostType[]>(apiRoute, simpleFetcher);
 
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <BackdropInfo message={error.message} />;
 
-  if (isLoading || !data) return <div>Loading...</div>;
+  if (isLoading || !data) return <PostBodySkeleton />;
 
   const post = data[0];
-  const { imageData, excerptLimited } = ExtractPostData(post);
+  const { imageData } = ExtractPostData(post);
 
   return (
     <Stack component="article" spacing={4}>

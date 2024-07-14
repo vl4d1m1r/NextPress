@@ -138,14 +138,14 @@ export const highlightsContainerRowClass: SxProps<Theme> = (theme) => ({
 export const highlightsWrapperColumnClass: SxProps<Theme> = (theme) => ({
   position: "relative",
   display: "flex",
-  gap: 2,
+  gap: 4,
   flexDirection: "column",
 });
 
 export const highlightsWrapperRowClass: SxProps<Theme> = (theme) => ({
   position: "relative",
   display: "flex",
-  gap: 2,
+  gap: 4,
   flexDirection: { xs: "column", md: "row" },
 });
 

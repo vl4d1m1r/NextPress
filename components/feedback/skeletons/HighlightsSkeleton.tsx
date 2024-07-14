@@ -29,7 +29,7 @@ export default function HighlightsSkeleton({
     return (
       <Box
         component="section"
-        className="highlights-loading"
+        className="highlights-error"
         sx={direction === "COLUMN" ? highlightsContainerColumnClass : highlightsContainerRowClass}
       >
         <Box sx={direction === "COLUMN" ? highlightsWrapperColumnClass : highlightsWrapperRowClass}>
