@@ -176,3 +176,10 @@ export const socialIconClass: SxProps<Theme> = (theme) => ({
   p: 1,
   pb: 0,
 });
+
+export const backdropInfoWrapperClass: SxProps<Theme> = (theme) => ({
+  background: "rgba(0,0,0,0.9)",
+  color: "#fff",
+  zIndex: theme.zIndex.drawer + 1,
+  p: { xs: 2, sm: 4, lg: 0 },
+});

@@ -7,3 +7,8 @@ export const textPillClass: SxProps<Theme> = (theme) => ({
   background: theme.palette.warning.main,
   fontWeight: 600,
 });
+
+export const textBackdropInfoClass: SxProps<Theme> = (theme) => ({
+  fontSize: { xs: "2rem", sm: "3rem" },
+  fontWeight: { xs: 700, sm: 800 },
+});

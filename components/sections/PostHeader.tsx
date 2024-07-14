@@ -1,5 +1,5 @@
 import { simpleFetcher } from "@/controllers/api";
-import { API } from "@/models/config";
+import { apiConfig } from "@/models/config";
 import { PostType } from "@/types";
 import Typography from "@mui/material/Typography";
 import useSWR from "swr";
@@ -10,7 +10,7 @@ import { ExtractPostData, formatDate } from "@/controllers/utils";
 import Categories from "./Categories";
 
 export default function PostHeader({ postId }: { postId: string }) {
-  const apiRoute = API.wordpressApiPath + API.postPath + postId;
+  const apiRoute = apiConfig.wordpressApiPath + apiConfig.postPath + postId;
   const { data, error, isLoading } = useSWR<PostType[]>(apiRoute, simpleFetcher);
 
   if (error) return <div>Error: {error.message}</div>;

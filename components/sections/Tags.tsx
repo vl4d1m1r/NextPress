@@ -1,6 +1,6 @@
 "use client";
 import { simpleFetcher } from "@/controllers/api";
-import { API, numberOfPopularTagsToShow } from "@/models/config";
+import { apiConfig, pageConfig } from "@/models/config";
 import { tagsChipsClass, tagsWrapperClass, tagsWrapperRegularClass } from "@/styles/layouts";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -24,7 +24,7 @@ export default function Tags({
 }) {
   const router = useRouter();
 
-  const { data, error, isLoading } = useSWR(API.wordpressApiPath + API.tagsSwrKey, simpleFetcher);
+  const { data, error, isLoading } = useSWR(apiConfig.wordpressApiPath + apiConfig.tagsSwrKey, simpleFetcher);
 
   if (error) return <SentimentVeryDissatisfiedIcon />;
 
@@ -41,18 +41,18 @@ export default function Tags({
   }
 
   if (tagsDisplayVariant === "MOST_POPULAR") {
-    tags = [...tags].sort((a, b) => b.count - a.count).slice(0, numberOfPopularTagsToShow);
+    tags = [...tags].sort((a, b) => b.count - a.count).slice(0, pageConfig.numberOfPopularTagsToShow);
   }
 
   const handleTagClick = (tagId: number) => {
-    router.push(process.env.DOMAIN + API.tagsPath + tagId);
+    router.push(process.env.DOMAIN + apiConfig.tagsPath + tagId);
   };
 
   return (
     <Box className="tags" sx={containerized ? tagsWrapperContainerClass : tagsWrapperRegularClass}>
       {tagsDisplayVariant === "MOST_POPULAR" ? (
         <Typography variant="h5" sx={{ mb: 2 }}>
-          Top {numberOfPopularTagsToShow} tags:
+          Top {pageConfig.numberOfPopularTagsToShow} tags:
         </Typography>
       ) : null}
       <Box sx={tagsWrapperClass}>

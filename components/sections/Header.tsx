@@ -15,7 +15,7 @@ import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
 import { centerVerticalClass } from "@/styles/global";
 import { Avatar, Backdrop, Button, Container, Drawer, Menu, MenuItem } from "@mui/material";
 import Categories from "./Categories";
-import { appData } from "@/models/config";
+import { appConfig, headerConfig } from "@/models/config";
 import Image from "next/image";
 import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
 import { useState } from "react";
@@ -34,12 +34,12 @@ export default function Header() {
       <Box component="header" sx={headerWrapperClass}>
         <Container sx={headerContainerClass}>
           <Stack direction="row" sx={centerVerticalClass}>
-            {appData.showLogo ? <Avatar alt="logo image" src={appData.logoImageUrl} sx={{ mr: 2 }} /> : null}
+            {headerConfig.showLogo ? <Avatar alt="logo image" src={appConfig.logoImageUrl} sx={{ mr: 2 }} /> : null}
             <Box sx={headerSecondaryLogosClass}>
-              {appData.showLogoTextImage ? (
+              {headerConfig.showLogoTextImage ? (
                 <Image
                   placeholder={imagePlaceholder}
-                  src={appData.logoTextImageUrl}
+                  src={appConfig.logoTextImageUrl}
                   alt="Logo Image Text"
                   sizes="100vw"
                   style={{ height: "auto" }}
@@ -50,8 +50,8 @@ export default function Header() {
             </Box>
             {/* Logo text will not show if showLogoTextImage is set to true */}
             <Box sx={headerSecondaryLogosClass}>
-              {appData.showLogoText && !appData.showLogoTextImage ? (
-                <Typography variant="h4">{appData.name}</Typography>
+              {headerConfig.showLogoText && !headerConfig.showLogoTextImage ? (
+                <Typography variant="h4">{appConfig.name}</Typography>
               ) : null}
             </Box>
           </Stack>
@@ -60,7 +60,7 @@ export default function Header() {
               <MenuIcon />
             </Button>
             <ThemeSwitcher />
-            <Drawer open={openDrawer} anchor="bottom" onClose={toggleDrawer(false)} sx={headerDrawerClass}>
+            <Drawer open={openDrawer} anchor="top" onClose={toggleDrawer(false)} sx={headerDrawerClass}>
               <Box sx={headerDrawerWrapperClass}>
                 <Categories direction="COLUMN" />
               </Box>

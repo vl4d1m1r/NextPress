@@ -69,6 +69,15 @@ export type SeoDataType = {
 
 export type DirectionsType = "ROW" | "COLUMN";
 
+export type InfoPageType = "error" | "notFound" | "empty" | "loading";
+
+export type InfoDisplayDataType = {
+  type: InfoPageType;
+  messages: string[];
+  animation: string;
+  homeButton: boolean;
+};
+
 export enum ReportTypes {
   LOADING = "loading",
   ERROR = "error",

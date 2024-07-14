@@ -3,11 +3,11 @@ import useSWR from "swr";
 import Link from "next/link";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { CategoryType, DirectionsType } from "@/types";
-import { API } from "@/models/config";
+import { apiConfig } from "@/models/config";
 import CircularProgress from "@mui/material/CircularProgress";
 import Stack from "@mui/material/Stack";
 
-const fetcher = (path: string) => fetch(API.wordpressApiPath + path).then((res) => res.json());
+const fetcher = (path: string) => fetch(apiConfig.wordpressApiPath + path).then((res) => res.json());
 
 export default function Categories({
   categoryId = null,
@@ -20,7 +20,7 @@ export default function Categories({
   preloaderColor?: string;
   preloaderSize?: number;
 }) {
-  const { data, error, isLoading } = useSWR(API.categoriesSwrKey, fetcher);
+  const { data, error, isLoading } = useSWR(apiConfig.categoriesSwrKey, fetcher);
 
   if (error) return <SentimentVeryDissatisfiedIcon />;
 
@@ -33,7 +33,11 @@ export default function Categories({
           .filter((category: CategoryType) => category.id === categoryId)
           .map((category: CategoryType) => {
             return (
-              <Link key={category.id} href={process.env.DOMAIN + API.categoriesPath + category.id} className="link">
+              <Link
+                key={category.id}
+                href={process.env.DOMAIN + apiConfig.categoriesPath + category.id}
+                className="link"
+              >
                 {category.name}
               </Link>
             );
@@ -47,7 +51,7 @@ export default function Categories({
       {data.map((category: CategoryType) => {
         if (category.count) {
           return (
-            <Link key={category.id} className="link" href={process.env.DOMAIN + API.categoriesPath + category.id}>
+            <Link key={category.id} className="link" href={process.env.DOMAIN + apiConfig.categoriesPath + category.id}>
               {category.name}
             </Link>
           );

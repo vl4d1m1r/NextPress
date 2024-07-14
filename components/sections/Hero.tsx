@@ -16,7 +16,8 @@ import { postsFetcher, simpleFetcher } from "@/controllers/api";
 import parse from "html-react-parser";
 import { textPillClass } from "@/styles/text";
 import Categories from "./Categories";
-import { API } from "@/models/config";
+import { apiConfig } from "@/models/config";
+import BackdropInfo from "@/components/widgets/BackdropInfo";
 
 export default function Hero({ page, category, tag, search, postId }: HeroPostParamsType) {
   const apiRoute = convertPropsToApiRoute({ page, category, tag, search });
@@ -24,7 +25,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
   let heroApiRoute = apiRoute;
   let heroFetcher = postsFetcher;
   if (postId) {
-    heroApiRoute = API.wordpressApiPath + API.postPath + postId;
+    heroApiRoute = apiConfig.wordpressApiPath + apiConfig.postPath + postId;
     heroFetcher = simpleFetcher;
   }
 
@@ -32,13 +33,11 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
 
   if (isLoading || !data) return <Box>Loading...</Box>;
 
-  if (error) return <Box>Error: {error.message}</Box>;
+  if (error) return <BackdropInfo message={error.message} />;
 
   let heroPost = postId ? (data as PostType[])[0] : (data as PostsDataType).posts[0];
   let fetchedPostsCount = postId ? 1 : (data as PostsDataType).posts.length;
   let totalPosts = postId ? 1 : (data as PostsDataType).totalPosts;
-
-  console.log("====lo>> ", fetchedPostsCount);
 
   const { imageData, excerptLimited } = ExtractPostData(heroPost);
 

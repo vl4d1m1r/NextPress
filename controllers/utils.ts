@@ -1,4 +1,4 @@
-import { API } from "@/models/config";
+import { apiConfig } from "@/models/config";
 import { PostType } from "@/types";
 import parse from "html-react-parser";
 
@@ -10,7 +10,7 @@ import parse from "html-react-parser";
  */
 export const convertPropsToApiRoute = (props: { [key: string]: number | string | undefined }) => {
   const propsKeys = Object.keys(props);
-  const apiRoute = API.wordpressApiPath + API.postsPath + props.page;
+  const apiRoute = apiConfig.wordpressApiPath + apiConfig.postsPath + props.page;
   return propsKeys.reduce((accumulator: string, key: string) => {
     if (!props[key]) return accumulator;
     let adjustedKey = key;
@@ -29,7 +29,7 @@ export const convertPropsToApiRoute = (props: { [key: string]: number | string |
  */
 export const convertPropsToLocalRoute = (props: { [key: string]: number | string | undefined }) => {
   const propsKeys = Object.keys(props);
-  const apiRoute = API.localPostsPath + props.page;
+  const apiRoute = apiConfig.localPostsPath + props.page;
   return propsKeys.reduce((accumulator: string, key: string) => {
     if (!props[key]) return accumulator;
     accumulator += key !== "page" ? `/${key}/${props[key]}` : "";
