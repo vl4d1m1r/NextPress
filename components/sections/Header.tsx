@@ -21,6 +21,7 @@ import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder"
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { buttonGeneralClass } from "@/styles/buttons";
+import Link from "next/link";
 
 export default function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -33,28 +34,30 @@ export default function Header() {
     <>
       <Box component="header" sx={headerWrapperClass}>
         <Container sx={headerContainerClass}>
-          <Stack direction="row" sx={centerVerticalClass}>
-            {headerConfig.showLogo ? <Avatar alt="logo image" src={appConfig.logoImageUrl} sx={{ mr: 2 }} /> : null}
-            <Box sx={headerSecondaryLogosClass}>
-              {headerConfig.showLogoTextImage ? (
-                <Image
-                  placeholder={imagePlaceholder}
-                  src={appConfig.logoTextImageUrl}
-                  alt="Logo Image Text"
-                  sizes="100vw"
-                  style={{ height: "auto" }}
-                  width={150}
-                  height={50}
-                />
-              ) : null}
-            </Box>
-            {/* Logo text will not show if showLogoTextImage is set to true */}
-            <Box sx={headerSecondaryLogosClass}>
-              {headerConfig.showLogoText && !headerConfig.showLogoTextImage ? (
-                <Typography variant="h4">{appConfig.name}</Typography>
-              ) : null}
-            </Box>
-          </Stack>
+          <Link href="/">
+            <Stack direction="row" sx={centerVerticalClass}>
+              {headerConfig.showLogo ? <Avatar alt="logo image" src={appConfig.logoImageUrl} sx={{ mr: 2 }} /> : null}
+              <Box sx={headerSecondaryLogosClass}>
+                {headerConfig.showLogoTextImage ? (
+                  <Image
+                    placeholder={imagePlaceholder}
+                    src={appConfig.logoTextImageUrl}
+                    alt="Logo Image Text"
+                    sizes="100vw"
+                    style={{ height: "auto" }}
+                    width={150}
+                    height={50}
+                  />
+                ) : null}
+              </Box>
+              {/* Logo text will not show if showLogoTextImage is set to true */}
+              <Box sx={headerSecondaryLogosClass}>
+                {headerConfig.showLogoText && !headerConfig.showLogoTextImage ? (
+                  <Typography variant="h4">{appConfig.name}</Typography>
+                ) : null}
+              </Box>
+            </Stack>
+          </Link>
           <Stack direction="row" spacing={2} sx={headerRightSideMobileClass}>
             <Button variant="outlined" onClick={toggleDrawer(true)} sx={buttonGeneralClass}>
               <MenuIcon />

@@ -1,9 +1,21 @@
 // import getConfig from "next/config"; deprecated in app router
+import TerminalIcon from "@mui/icons-material/Terminal";
+import DrawIcon from "@mui/icons-material/Draw";
+import LockIcon from "@mui/icons-material/Lock";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+
 export const pageConfig = {
   postsPerPage: 5,
   tagsPerPage: 100,
   currentYear: new Date().getFullYear(),
   numberOfPopularTagsToShow: 10,
+};
+
+export const categoriesConfig = {
+  coding: { id: 4, name: "Coding", slug: "coding", Icon: TerminalIcon },
+  design: { id: 7, name: "Design", slug: "design", Icon: DrawIcon },
+  security: { id: 16, name: "Security", slug: "security", Icon: LockIcon },
+  gaming: { id: 2, name: "Gaming", slug: "gaming", Icon: SportsEsportsIcon },
 };
 
 export const apiConfig = {

@@ -3,6 +3,7 @@ import SectionDivider from "@/components/elements/SectionDivider";
 import Main from "@/components/wrappers/Main";
 import Highlights from "@/components/sections/Highlights";
 import Footer from "@/components/sections/Footer";
+import { categoriesConfig } from "@/models/config";
 
 export default function PostsPageRoute({ params }: { params: { page: string } }) {
   return (
@@ -11,9 +12,9 @@ export default function PostsPageRoute({ params }: { params: { page: string } })
       <SectionDivider />
       <Main page={Number(params.page)} />
       <SectionDivider />
-      <Highlights category={4} />
+      <Highlights category={categoriesConfig.coding} />
       <SectionDivider />
-      <Highlights category={2} />
+      <Highlights category={categoriesConfig.gaming} />
       <SectionDivider />
     </>
   );

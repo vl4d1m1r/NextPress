@@ -1,4 +1,7 @@
+import { SvgIconComponent } from "@mui/icons-material";
+
 export type PostParamsType = { page: number; category?: number; tag?: number; search?: string };
+
 export type HeroPostParamsType = {
   page?: number;
   category?: number;
@@ -41,6 +44,13 @@ export type CategoryType = {
   id: number;
   name: string;
   count: number;
+};
+
+export type CategoryConfigType = {
+  id: number;
+  name: string;
+  slug: string;
+  Icon: SvgIconComponent;
 };
 
 export type TagType = {

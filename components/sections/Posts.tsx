@@ -1,7 +1,8 @@
 "use client";
 import { postsFetcher } from "@/controllers/api";
 import { ExtractPostData, convertPropsToApiRoute, convertPropsToLocalRoute, formatDate } from "@/controllers/utils";
-import { postsImageWrapperClass } from "@/styles/layouts";
+
+import { postsImageWrapperClass, postsInfoWrapperClass } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
 import { PostParamsType, PostType } from "@/types";
 import { Grid, Pagination, Stack, Typography } from "@mui/material";
@@ -25,9 +26,9 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
     router.push(convertPropsToLocalRoute({ page: value, category, tag, search }));
   };
 
-  console.log("Posts: ", data, error, isLoading);
-
-  if (error) return <Box>There were errors!!</Box>;
+  if (error) {
+    return <PostsSkeleton numberOfItems={4} error={true} />;
+  }
 
   if (isLoading || !data) {
     return <PostsSkeleton numberOfItems={4} />;

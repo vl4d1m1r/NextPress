@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import SectionDivider from "@/components/elements/SectionDivider";
 import PostHeader from "@/components/sections/PostHeader";
 import Highlights from "@/components/sections/Highlights";
+import { categoriesConfig } from "@/models/config";
 
 export default function PostRoute({ params }: { params: { postId: string } }) {
   console.log("Post ID: ", params.postId);
@@ -29,7 +30,7 @@ export default function PostRoute({ params }: { params: { postId: string } }) {
               <Search />
               <TweetPost id="1628832338187636740" />
               <Tags />
-              <Highlights direction="COLUMN" category={2} />
+              <Highlights direction="COLUMN" category={categoriesConfig.gaming} />
             </Stack>
           </Grid>
         </Grid>

@@ -96,6 +96,15 @@ export const postsImageWrapperClass: SxProps<Theme> = (theme) => ({
   mr: { xs: 0, sm: 4 },
 });
 
+export const postsInfoWrapperClass: SxProps<Theme> = (theme) => ({
+  border: `1px solid ${theme.palette.grey[dividerGray]}`,
+  borderRadius: "5px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: "200px",
+});
+
 export const searchWrapperClass: SxProps<Theme> = (theme) => ({
   p: "2px 4px",
   display: "flex",
@@ -146,11 +155,20 @@ export const highlightsHeadlineClass: SxProps<Theme> = (theme) => ({
   mb: 2,
 });
 
+export const highlightsErrorSkeletonWrapperClass: SxProps<Theme> = (theme) => ({
+  border: `1px solid ${theme.palette.grey[dividerGray]}`,
+  borderRadius: "5px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: "200px",
+});
+
 export const tagsWrapperContainerClass: SxProps<Theme> = (theme) => ({
   ...containerClass(theme),
 });
 
-export const tagsInfoClass: SxProps<Theme> = (theme) => ({
+export const tagsInfoWrapperClass: SxProps<Theme> = (theme) => ({
   border: `1px solid ${theme.palette.grey[dividerGray]}`,
   borderRadius: "5px",
   display: "flex",
@@ -165,12 +183,12 @@ export const tagsWrapperRegularClass: SxProps<Theme> = (theme) => ({
 
 export const tagsInfoWrapperContainerClass: SxProps<Theme> = (theme) => ({
   ...containerClass(theme),
-  ...tagsInfoClass(theme),
+  ...tagsInfoWrapperClass(theme),
   border: "none",
 });
 
 export const tagsInfoWrapperRegularClass: SxProps<Theme> = (theme) => ({
-  ...tagsInfoClass(theme),
+  ...tagsInfoWrapperClass(theme),
   width: "100%",
 });
 

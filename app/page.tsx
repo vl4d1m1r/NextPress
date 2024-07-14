@@ -3,6 +3,7 @@ import SectionDivider from "@/components/elements/SectionDivider";
 import Main from "@/components/wrappers/Main";
 import Highlights from "@/components/sections/Highlights";
 import Tags from "@/components/sections/Tags";
+import { categoriesConfig } from "@/models/config";
 
 export default function HomeRoute() {
   return (
@@ -11,11 +12,11 @@ export default function HomeRoute() {
       <SectionDivider />
       <Main page={1} />
       <SectionDivider />
-      <Highlights category={2} />
+      <Highlights category={categoriesConfig.gaming} />
       <SectionDivider />
       <Tags tagsDisplayVariant="ALL" containerized={true} />
       <SectionDivider />
-      <Highlights category={4} />
+      <Highlights category={categoriesConfig.coding} />
       <SectionDivider />
     </>
   );

@@ -2,6 +2,7 @@ import Hero from "@/components/sections/Hero";
 import SectionDivider from "@/components/elements/SectionDivider";
 import Main from "@/components/wrappers/Main";
 import Highlights from "@/components/sections/Highlights";
+import { categoriesConfig } from "@/models/config";
 
 export default function PostsPageTagRoute({ params }: { params: { page: string; tag: string } }) {
   return (
@@ -10,9 +11,9 @@ export default function PostsPageTagRoute({ params }: { params: { page: string; 
       <SectionDivider />
       <Main page={Number(params.page)} tag={Number(params.tag)} />
       <SectionDivider />
-      <Highlights category={2} />
+      <Highlights category={categoriesConfig.gaming} />
       <SectionDivider />
-      <Highlights category={4} />
+      <Highlights category={categoriesConfig.coding} />
       <SectionDivider />
     </>
   );
