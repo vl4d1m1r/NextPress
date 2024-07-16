@@ -48,6 +48,14 @@ export const headerConfig = {
   showLogoText: true, // logoText = name, will not show if showLogoTextImage is set to true
 };
 
+export const postsConfig = {
+  showImageCaption: {
+    posts: true,
+    post: true,
+    highlights: true,
+  },
+};
+
 export const themeConfig: ThemeConfigType = {
   defaultTheme: "dark",
   allowThemeChange: true,
@@ -89,7 +97,7 @@ export const infoDisplayDataConfig = {
   },
 };
 
-export const defaultSeo = {
+export const defaultSeoConfig = {
   title: appConfig.name,
   description: texts.tagline,
   image: process.env.DOMAIN! + apiConfig.indexImage,

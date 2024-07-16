@@ -2,7 +2,7 @@
 import { postsFetcher } from "@/controllers/api";
 import { ExtractPostData, convertPropsToApiRoute, convertPropsToLocalRoute, formatDate } from "@/controllers/utils";
 
-import { postsImageWrapperClass, postsInfoWrapperClass } from "@/styles/layouts";
+import { postsImageCaptionClass, postsImageWrapperClass } from "@/styles/layouts";
 import { textPillClass, textPostsContentClass, textPostsHeadlineClass } from "@/styles/text";
 import { PostParamsType, PostType } from "@/types";
 import { Grid, Pagination, Stack, Typography } from "@mui/material";
@@ -15,6 +15,7 @@ import Link from "next/link";
 import parse from "html-react-parser";
 import Categories from "./Categories";
 import { useRouter } from "next/navigation";
+import { postsConfig } from "@/models/config";
 
 export default function Posts({ page, category, tag, search }: PostParamsType) {
   const router = useRouter();
@@ -47,6 +48,11 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
                   <Grid container>
                     <Grid item xs={12} sm={5}>
                       <Box sx={postsImageWrapperClass}>
+                        {postsConfig.showImageCaption.posts ? (
+                          <Box sx={postsImageCaptionClass}>
+                            <Typography variant="caption">{imageData.title.rendered}</Typography>
+                          </Box>
+                        ) : null}
                         <Image
                           placeholder={imagePlaceholder}
                           src={imageData.source_url}

@@ -92,8 +92,36 @@ export const sectionDividerClass: SxProps<Theme> = (theme) => ({
   borderBottom: `1px solid ${theme.palette.grey[dividerGray]}`,
 });
 
+export const imageCaptionClass: SxProps = {
+  display: "block",
+  position: "absolute",
+  backgroundColor: "rgba(0,0,0,0.5)",
+  px: 1,
+};
+
 export const postsImageWrapperClass: SxProps<Theme> = (theme) => ({
+  position: "relative",
   mr: { xs: 0, sm: 4 },
+});
+
+export const postsImageCaptionClass: SxProps<Theme> = (theme) => ({
+  ...imageCaptionClass,
+  top: 0,
+  left: 0,
+  width: "100%",
+});
+
+export const postImageCaptionClass: SxProps<Theme> = (theme) => ({
+  ...imageCaptionClass,
+  top: "1rem",
+  right: "1rem",
+});
+
+export const highlightsImageCaptionClass: SxProps<Theme> = (theme) => ({
+  ...imageCaptionClass,
+  top: 0,
+  left: 0,
+  width: "100%",
 });
 
 export const postsInfoWrapperClass: SxProps<Theme> = (theme) => ({

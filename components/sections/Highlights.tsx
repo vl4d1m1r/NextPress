@@ -2,6 +2,7 @@
 import {
   highlightsContainerColumnClass,
   highlightsContainerRowClass,
+  highlightsImageCaptionClass,
   highlightsWrapperColumnClass,
   highlightsWrapperRowClass,
 } from "@/styles/layouts";
@@ -19,6 +20,7 @@ import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder"
 import parse from "html-react-parser";
 import Categories from "./Categories";
 import HighlightsSkeleton from "../feedback/skeletons/HighlightsSkeleton";
+import { postsConfig } from "@/models/config";
 
 export default function Highlights({
   direction = "ROW",
@@ -49,7 +51,12 @@ export default function Highlights({
           const { imageData, excerptLimited } = ExtractPostData(highlight);
           return (
             <Stack key={highlight.id} spacing={2}>
-              <Box sx={{ width: "100%", overflow: "hidden" }}>
+              <Box sx={{ width: "100%", overflow: "hidden", position: "relative" }}>
+                {postsConfig.showImageCaption.posts ? (
+                  <Box sx={highlightsImageCaptionClass}>
+                    <Typography variant="caption">{imageData.title.rendered}</Typography>
+                  </Box>
+                ) : null}
                 <Image
                   placeholder={imagePlaceholder}
                   src={imageData.source_url}
