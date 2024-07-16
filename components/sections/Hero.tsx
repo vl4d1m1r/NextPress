@@ -19,6 +19,7 @@ import Categories from "./Categories";
 import { apiConfig } from "@/models/config";
 import BackdropInfo from "@/components/widgets/BackdropInfo";
 import HeroSkeleton from "../feedback/skeletons/HeroSkeleton";
+import Link from "next/link";
 
 export default function Hero({ page, category, tag, search, postId }: HeroPostParamsType) {
   const apiRoute = convertPropsToApiRoute({ page, category, tag, search });
@@ -48,7 +49,9 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
         <Grid container>
           <Grid item xs={12} sm={8}>
             <Stack spacing={4}>
-              <Typography variant="h1">{parse(heroPost.title.rendered)}</Typography>
+              <Link href={`/post/${heroPost.slug}`}>
+                <Typography variant="h1">{parse(heroPost.title.rendered)}</Typography>
+              </Link>
               <Stack direction="row" spacing={2}>
                 <Typography variant="body2" sx={textPillClass}>
                   <Categories categoryId={heroPost.categories[0]} preloaderSize={10} />
@@ -56,9 +59,11 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
                 <Typography variant="body2">{formatDate(heroPost.date.substring(0, 10))}</Typography>
               </Stack>
               {Number(totalPosts) === 1 || fetchedPostsCount === 1 ? null : (
-                <Typography variant="body1" sx={textPostsContentClass}>
-                  {excerptLimited}
-                </Typography>
+                <Link href={`/post/${heroPost.slug}`}>
+                  <Typography variant="body1" sx={textPostsContentClass}>
+                    {excerptLimited}
+                  </Typography>
+                </Link>
               )}
             </Stack>
           </Grid>

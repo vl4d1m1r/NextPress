@@ -53,18 +53,20 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
                             <Typography variant="caption">{imageData.title.rendered}</Typography>
                           </Box>
                         ) : null}
-                        <Image
-                          placeholder={imagePlaceholder}
-                          src={imageData.source_url}
-                          alt={imageData.title.rendered}
-                          sizes="100vw"
-                          style={{
-                            width: "100%",
-                            height: "auto",
-                          }}
-                          width={500}
-                          height={300}
-                        />
+                        <Link href={`/post/${post.slug}`}>
+                          <Image
+                            placeholder={imagePlaceholder}
+                            src={imageData.source_url}
+                            alt={imageData.title.rendered}
+                            sizes="100vw"
+                            style={{
+                              width: "100%",
+                              height: "auto",
+                            }}
+                            width={500}
+                            height={300}
+                          />
+                        </Link>
                       </Box>
                     </Grid>
                     <Grid item xs={12} sm={7} sx={{ pr: { xs: 0, sm: 4 } }}>
@@ -80,9 +82,11 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
                           </Typography>
                           <Typography variant="body2">{formatDate(post.date.substring(0, 10))}</Typography>
                         </Stack>
-                        <Typography variant="body2" sx={textPostsContentClass}>
-                          {excerptLimited}
-                        </Typography>
+                        <Link href={`/post/${post.slug}`}>
+                          <Typography variant="body2" sx={textPostsContentClass}>
+                            {excerptLimited}
+                          </Typography>
+                        </Link>
                       </Stack>
                     </Grid>
                   </Grid>

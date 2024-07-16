@@ -21,6 +21,7 @@ import parse from "html-react-parser";
 import Categories from "./Categories";
 import HighlightsSkeleton from "../feedback/skeletons/HighlightsSkeleton";
 import { postsConfig } from "@/models/config";
+import Link from "next/link";
 
 export default function Highlights({
   direction = "ROW",
@@ -57,27 +58,32 @@ export default function Highlights({
                     <Typography variant="caption">{imageData.title.rendered}</Typography>
                   </Box>
                 ) : null}
-                <Image
-                  placeholder={imagePlaceholder}
-                  src={imageData.source_url}
-                  alt={imageData.title.rendered}
-                  sizes="100vw"
-                  style={{
-                    display: "block",
-                    maxWidth: "100%",
-                    height: "auto",
-                  }}
-                  width={500}
-                  height={300}
-                />
+                <Link href={`/post/${highlight.slug}`}>
+                  <Image
+                    placeholder={imagePlaceholder}
+                    src={imageData.source_url}
+                    alt={imageData.title.rendered}
+                    sizes="100vw"
+                    style={{
+                      display: "block",
+                      maxWidth: "100%",
+                      height: "auto",
+                    }}
+                    width={500}
+                    height={300}
+                  />
+                </Link>
               </Box>
               <Box>
-                <Typography variant="h5">{parse(highlight.title.rendered)}</Typography>
+                <Link href={`/post/${highlight.slug}`}>
+                  <Typography variant="h5">{parse(highlight.title.rendered)}</Typography>
+                </Link>
               </Box>
               <Stack direction="row" spacing={2}>
                 <Typography variant="body2" sx={textPillClass}>
                   <Categories categoryId={highlight.categories[0]} preloaderSize={10} />
                 </Typography>
+
                 <Typography variant="body2">{formatDate(highlight.date.substring(0, 10))}</Typography>
               </Stack>
             </Stack>
