@@ -84,27 +84,46 @@ export const texts = {
 export const infoDisplayDataConfig = {
   loading: {
     type: "loading",
+    title: "LOADING...",
     messages: ["LOADING MUTHA... LOADING!"],
     animation: "ヽ༼ ຈل͜ຈ༼ ▀̿̿Ĺ̯̿̿▀̿ ̿༽Ɵ͆ل͜Ɵ͆ ༽ﾉ",
     homeButton: false,
+    homeLink: "/",
+    image: "",
   },
   error: {
     type: "error",
+    title: "There was an error!",
     messages: ["SOMETHIN' SNAPPED MUTHA!", "SOMETHIN' SNAPPED I'M TELLING YA!"],
     animation: "(ノಠ益ಠ)ノ彡┻━┻",
     homeButton: true,
+    homeLink: "/",
+    image: "https://vl4di11ir.pw/doctypeadventures/wp-content/uploads/2024/07/not-found.jpg",
   },
   notFound: {
     type: "notFound",
-    messages: ["WHAT YOU'RE SEARCHIN' FOR...", "IS NOT FOUND, MUTHA!"],
+    title: "Page not found!",
+    messages: ["(But) I Still Haven't found what I'm looking for..."],
     animation: `¯${String.fromCharCode(92)}_(ツ)_/¯`,
     homeButton: true,
+    homeLink: "/",
+    image: "https://vl4di11ir.pw/doctypeadventures/wp-content/uploads/2024/07/not-found.jpg",
   },
   empty: {
     type: "empty",
-    messages: ["PAGE IS BLANK! IT'S NOTHING THERE!!", "I'M SCARED MUTHA!!"],
+    title: "Nothing there!",
+    messages: [
+      "You broke it, didn't you?",
+      "Searchin' for something that ain't there...",
+      "Maybe you should try again?",
+      "Or not...",
+      "It's up to you.",
+      `(╯°□°)╯`,
+    ],
     animation: `(╯°□°)╯`,
     homeButton: true,
+    homeLink: "/",
+    image: "https://vl4di11ir.pw/doctypeadventures/wp-content/uploads/2024/07/not-found.jpg",
   },
 };
 

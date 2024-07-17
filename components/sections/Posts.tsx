@@ -16,6 +16,7 @@ import parse from "html-react-parser";
 import Categories from "./Categories";
 import { useRouter } from "next/navigation";
 import { postsConfig, imageConfig } from "@/models/config";
+import { infoDisplayDataConfig } from "@/models/config";
 
 export default function Posts({ page, category, tag, search }: PostParamsType) {
   const router = useRouter();
@@ -33,6 +34,18 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
 
   if (isLoading || !data) {
     return <PostsSkeleton numberOfItems={4} />;
+  }
+
+  if (data.posts.length === 0) {
+    return (
+      <>
+        {infoDisplayDataConfig.empty.messages.map((message, index) => (
+          <Typography key={index} variant="h4" sx={{ mb: 2 }}>
+            {message}
+          </Typography>
+        ))}
+      </>
+    );
   }
 
   return (

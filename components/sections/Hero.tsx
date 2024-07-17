@@ -20,6 +20,7 @@ import { apiConfig } from "@/models/config";
 import BackdropInfo from "@/components/widgets/BackdropInfo";
 import HeroSkeleton from "../feedback/skeletons/HeroSkeleton";
 import Link from "next/link";
+import { infoDisplayDataConfig } from "@/models/config";
 
 export default function Hero({ page, category, tag, search, postId }: HeroPostParamsType) {
   const apiRoute = convertPropsToApiRoute({ page, category, tag, search });
@@ -39,31 +40,46 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
 
   console.log("Hero data: ", data);
 
-  let heroPost = postId ? (data as PostType[])[0] : (data as PostsDataType).posts[0];
-  let fetchedPostsCount = postId ? 1 : (data as PostsDataType).posts.length;
-  let totalPosts = postId ? 1 : (data as PostsDataType).totalPosts;
+  const heroPost = postId ? (data as PostType[])[0] : (data as PostsDataType).posts[0];
+  const fetchedPostsCount = postId ? 1 : (data as PostsDataType).posts.length;
+  const totalPosts = postId ? 1 : (data as PostsDataType).totalPosts;
 
   const { imageData, excerptLimited } = ExtractPostData(heroPost, 250);
 
+  const noPostsFound = (data as PostsDataType).posts.length === 0;
+  let heroLink = infoDisplayDataConfig.empty.homeLink;
+  let heroTitle = infoDisplayDataConfig.empty.title;
+  let heroImage = infoDisplayDataConfig.empty.image;
+  let heroExcerpt = "";
+
+  if ((data as PostsDataType).posts.length > 0) {
+    heroLink = `/post/${heroPost.slug}`;
+    heroTitle = parse(heroPost.title.rendered).toString();
+    heroImage = imageData.source_url;
+    heroExcerpt = excerptLimited;
+  }
+
   return (
-    <Box sx={heroWrapperClass} style={{ backgroundImage: `url(${imageData.source_url})` }}>
+    <Box sx={heroWrapperClass} style={{ backgroundImage: `url(${heroImage})` }}>
       <Container sx={{ pb: "50px", zIndex: 1 }}>
         <Grid container>
           <Grid item xs={12} sm={8}>
             <Stack spacing={4}>
-              <Link href={`/post/${heroPost.slug}`}>
-                <Typography variant="h1">{parse(heroPost.title.rendered)}</Typography>
+              <Link href={heroLink}>
+                <Typography variant="h1">{heroTitle}</Typography>
               </Link>
-              <Stack direction="row" spacing={2}>
-                <Typography variant="body2" sx={textPillClass}>
-                  <Categories categoryId={heroPost.categories[0]} preloaderSize={10} />
-                </Typography>
-                <Typography variant="body2">{formatDate(heroPost.date.substring(0, 10))}</Typography>
-              </Stack>
-              {Number(totalPosts) === 1 || fetchedPostsCount === 1 ? null : (
-                <Link href={`/post/${heroPost.slug}`}>
+              {noPostsFound ? null : (
+                <Stack direction="row" spacing={2}>
+                  <Typography variant="body2" sx={textPillClass}>
+                    <Categories categoryId={heroPost.categories[0]} preloaderSize={10} />
+                  </Typography>
+                  <Typography variant="body2">{formatDate(heroPost.date.substring(0, 10))}</Typography>
+                </Stack>
+              )}
+              {Number(totalPosts) === 1 || fetchedPostsCount === 1 || noPostsFound ? null : (
+                <Link href={heroLink}>
                   <Typography variant="body1" sx={textPostsContentClass}>
-                    {excerptLimited}
+                    {heroExcerpt}
                   </Typography>
                 </Link>
               )}
