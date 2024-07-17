@@ -66,6 +66,7 @@ export function deepClone<T>(item: T): T {
 }
 
 export const ExtractPostData = (post: PostType, excerptLimit: number = 150) => {
+  console.log("===> ", post);
   const imageData = post._embedded["wp:featuredmedia"][0];
   const excerpt: any = parse(post.excerpt.rendered);
   const excerptFirstParagraph = excerpt[0].props.children;

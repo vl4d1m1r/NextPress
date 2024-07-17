@@ -10,7 +10,7 @@ export default function BackdropInfo({
   message = null,
 }: {
   type?: InfoPageType;
-  message: string | null;
+  message?: string | null;
 }) {
   const displayData = infoDisplayDataConfig[type];
   return (

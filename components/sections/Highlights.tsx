@@ -16,11 +16,11 @@ import { CategoryConfigType, DirectionsType, PostType } from "@/types";
 import { convertPropsToApiRoute, ExtractPostData, formatDate } from "@/controllers/utils";
 import useSWR from "swr";
 import { postsFetcher } from "@/controllers/api";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import parse from "html-react-parser";
 import Categories from "./Categories";
 import HighlightsSkeleton from "../feedback/skeletons/HighlightsSkeleton";
-import { postsConfig } from "@/models/config";
+import { imageConfig, postsConfig } from "@/models/config";
 import Link from "next/link";
 
 export default function Highlights({
@@ -69,8 +69,8 @@ export default function Highlights({
                       maxWidth: "100%",
                       height: "auto",
                     }}
-                    width={500}
-                    height={300}
+                    width={imageConfig.ratio.width}
+                    height={imageConfig.ratio.height}
                   />
                 </Link>
               </Box>

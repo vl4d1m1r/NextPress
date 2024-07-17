@@ -15,9 +15,9 @@ import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
 import { centerVerticalClass } from "@/styles/global";
 import { Avatar, Backdrop, Button, Container, Drawer, Menu, MenuItem } from "@mui/material";
 import Categories from "./Categories";
-import { appConfig, headerConfig } from "@/models/config";
+import { appConfig, headerConfig, imageConfig } from "@/models/config";
 import Image from "next/image";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { buttonGeneralClass } from "@/styles/buttons";
@@ -37,7 +37,7 @@ export default function Header() {
         <Container sx={headerContainerClass}>
           <Link href="/">
             <Stack direction="row" sx={centerVerticalClass}>
-              {headerConfig.showLogo ? <Avatar alt="logo image" src={appConfig.logoImageUrl} sx={{ mr: 2 }} /> : null}
+              {headerConfig.showLogo ? <Avatar alt="Avatar" src={appConfig.logoImageUrl} sx={{ mr: 2 }} /> : null}
               <Box sx={headerSecondaryLogosClass}>
                 {headerConfig.showLogoTextImage ? (
                   <Image
@@ -46,8 +46,8 @@ export default function Header() {
                     alt="Logo Image Text"
                     sizes="100vw"
                     style={{ height: "auto" }}
-                    width={150}
-                    height={50}
+                    width={imageConfig.logoTextRatio.width}
+                    height={imageConfig.logoTextRatio.height}
                   />
                 ) : null}
               </Box>

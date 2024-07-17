@@ -37,6 +37,8 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
 
   if (error) return <BackdropInfo message={error.message} />;
 
+  console.log("Hero data: ", data);
+
   let heroPost = postId ? (data as PostType[])[0] : (data as PostsDataType).posts[0];
   let fetchedPostsCount = postId ? 1 : (data as PostsDataType).posts.length;
   let totalPosts = postId ? 1 : (data as PostsDataType).totalPosts;

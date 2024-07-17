@@ -1,5 +1,5 @@
 import { simpleFetcher } from "@/controllers/api";
-import { apiConfig } from "@/models/config";
+import { apiConfig, imageConfig } from "@/models/config";
 import { PostType } from "@/types";
 import Box from "@mui/material/Box";
 import useSWR from "swr";
@@ -8,7 +8,7 @@ import { Stack, Typography } from "@mui/material";
 import { ExtractPostData } from "@/controllers/utils";
 import { postImageCaptionClass, postsImageWrapperClass } from "@/styles/layouts";
 import Image from "next/image";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import PostBodySkeleton from "../feedback/skeletons/PostBodySkeleton";
 import BackdropInfo from "../widgets/BackdropInfo";
 import { postsConfig } from "@/models/config";
@@ -41,8 +41,8 @@ export default function PostBody({ postId }: { postId: string }) {
             width: "100%",
             height: "auto",
           }}
-          width={500}
-          height={300}
+          width={imageConfig.ratio.width}
+          height={imageConfig.ratio.height}
         />
       </Box>
       <Box>{parse(post.content.rendered)}</Box>

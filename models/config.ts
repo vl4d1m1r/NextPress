@@ -56,6 +56,17 @@ export const postsConfig = {
   },
 };
 
+export const imageConfig = {
+  ratio: {
+    width: 500,
+    height: 280,
+  },
+  logoTextRatio: {
+    width: 150,
+    height: 50,
+  },
+};
+
 export const themeConfig: ThemeConfigType = {
   defaultTheme: "dark",
   allowThemeChange: true,

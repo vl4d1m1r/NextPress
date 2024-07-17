@@ -10,12 +10,12 @@ import Box from "@mui/material/Box";
 import Image from "next/image";
 import useSWR from "swr";
 import PostsSkeleton from "../feedback/skeletons/PostsSkeleton";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import Link from "next/link";
 import parse from "html-react-parser";
 import Categories from "./Categories";
 import { useRouter } from "next/navigation";
-import { postsConfig } from "@/models/config";
+import { postsConfig, imageConfig } from "@/models/config";
 
 export default function Posts({ page, category, tag, search }: PostParamsType) {
   const router = useRouter();
@@ -63,8 +63,8 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
                               width: "100%",
                               height: "auto",
                             }}
-                            width={500}
-                            height={300}
+                            width={imageConfig.ratio.width}
+                            height={imageConfig.ratio.height}
                           />
                         </Link>
                       </Box>
