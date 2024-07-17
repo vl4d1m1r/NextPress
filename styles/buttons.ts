@@ -6,3 +6,7 @@ export const buttonGeneralClass: SxProps<Theme> = (theme) => ({
   padding: 1,
   backgroundColor: "rgba(0, 0, 0, 0.9)",
 });
+
+export const buttonCategoriesClass: SxProps<Theme> = (theme) => ({
+  backgroundColor: "rgba(0, 0, 0, 0.3)",
+});

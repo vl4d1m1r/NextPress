@@ -12,6 +12,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
+import { useTheme } from "@mui/material";
 import { centerVerticalClass } from "@/styles/global";
 import { Avatar, Backdrop, Button, Container, Drawer, Menu, MenuItem } from "@mui/material";
 import Categories from "./Categories";
@@ -25,6 +26,8 @@ import Link from "next/link";
 import { themeConfig } from "@/models/config";
 
 export default function Header() {
+  const theme = useTheme();
+  const isDarkMode = theme.palette.mode === "dark";
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -42,7 +45,7 @@ export default function Header() {
                 {headerConfig.showLogoTextImage ? (
                   <Image
                     placeholder={imagePlaceholder}
-                    src={appConfig.logoTextImageUrl}
+                    src={isDarkMode ? appConfig.logoTextImageDarkUrl : appConfig.logoTextImageLightUrl}
                     alt="Logo Image Text"
                     sizes="100vw"
                     style={{ height: "auto" }}

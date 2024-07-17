@@ -6,6 +6,9 @@ import { CategoryType, DirectionsType } from "@/types";
 import { apiConfig } from "@/models/config";
 import CircularProgress from "@mui/material/CircularProgress";
 import Stack from "@mui/material/Stack";
+import { Button } from "@mui/material";
+import { buttonCategoriesClass } from "@/styles/buttons";
+import { mainMenuConfig } from "@/models/config";
 
 const fetcher = (path: string) => fetch(apiConfig.wordpressApiPath + path).then((res) => res.json());
 
@@ -51,9 +54,15 @@ export default function Categories({
       {data.map((category: CategoryType) => {
         if (category.count) {
           return (
-            <Link key={category.id} className="link" href={process.env.DOMAIN + apiConfig.categoriesPath + category.id}>
-              {category.name}
-            </Link>
+            <Button
+              variant={mainMenuConfig.buttonsOutlined ? "outlined" : "text"}
+              key={category.id}
+              sx={direction === "ROW" && mainMenuConfig.buttonsBackground ? buttonCategoriesClass : null}
+            >
+              <Link className="link" href={process.env.DOMAIN + apiConfig.categoriesPath + category.id}>
+                {category.name}
+              </Link>
+            </Button>
           );
         }
       })}

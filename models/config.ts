@@ -19,6 +19,11 @@ export const categoriesConfig = {
   gaming: { id: 2, name: "Gaming", slug: "gaming", Icon: SportsEsportsIcon },
 };
 
+export const mainMenuConfig = {
+  buttonsOutlined: true,
+  buttonsBackground: true,
+};
+
 export const apiConfig = {
   wordpressApiPath: `https://${process.env.WORDPRESS_DOMAIN}/doctypeadventures/wp-json/wp/v2/`,
   wordpressMediaPath: `https://${process.env.WORDPRESS_DOMAIN}/doctypeadventures/wp-content/uploads/`,
@@ -40,7 +45,8 @@ export const appConfig = {
   author: "Vladimir Jankovic",
   githubRepo: "https://github.com/vl4d1m1r",
   logoImageUrl: apiConfig.wordpressMediaPath + "2024/07/logo.jpg",
-  logoTextImageUrl: apiConfig.wordpressMediaPath + "2024/07/logo-text-image.png",
+  logoTextImageDarkUrl: apiConfig.wordpressMediaPath + "2024/07/logo-doctype-text-dark.png",
+  logoTextImageLightUrl: apiConfig.wordpressMediaPath + "2024/07/logo-doctype-text-light.png",
 };
 
 export const headerConfig = {

@@ -81,7 +81,10 @@ export const heroWrapperClass: SxProps<Theme> = (theme) => ({
     left: 0,
     right: 0,
     height: "100%",
-    background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)",
+    background:
+      theme.palette.mode === "dark"
+        ? "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)"
+        : "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)",
   },
 });
 
@@ -109,12 +112,14 @@ export const postsImageCaptionClass: SxProps<Theme> = (theme) => ({
   top: 0,
   left: 0,
   width: "100%",
+  color: "white",
 });
 
 export const postImageCaptionClass: SxProps<Theme> = (theme) => ({
   ...imageCaptionClass,
   top: "1rem",
   right: "1rem",
+  color: "white",
 });
 
 export const highlightsImageCaptionClass: SxProps<Theme> = (theme) => ({
@@ -122,6 +127,7 @@ export const highlightsImageCaptionClass: SxProps<Theme> = (theme) => ({
   top: 0,
   left: 0,
   width: "100%",
+  color: "white",
 });
 
 export const postsInfoWrapperClass: SxProps<Theme> = (theme) => ({
