@@ -80,6 +80,7 @@ export type SeoDataType = {
 export type ThemeConfigType = {
   defaultTheme: "light" | "dark";
   allowThemeChange: boolean;
+  localStorageName: string;
 };
 
 export type DirectionsType = "ROW" | "COLUMN";

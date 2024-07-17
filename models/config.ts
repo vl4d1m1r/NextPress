@@ -36,6 +36,7 @@ export const apiConfig = {
 
 export const appConfig = {
   name: "<!DOCTYPE Adventures>",
+  slug: "doctype_adventures",
   author: "Vladimir Jankovic",
   githubRepo: "https://github.com/vl4d1m1r",
   logoImageUrl: apiConfig.wordpressMediaPath + "2024/07/logo.jpg",
@@ -70,6 +71,7 @@ export const imageConfig = {
 export const themeConfig: ThemeConfigType = {
   defaultTheme: "dark",
   allowThemeChange: true,
+  localStorageName: `${appConfig.slug}-theme`,
 };
 
 export const texts = {

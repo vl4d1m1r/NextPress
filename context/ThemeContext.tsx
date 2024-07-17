@@ -20,10 +20,15 @@ export const useTheme = () => {
 };
 
 export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<"light" | "dark">(themeConfig.defaultTheme);
+  const themeSavedInLocalStorage = localStorage.getItem(themeConfig.localStorageName) as "light" | "dark";
+  const [theme, setTheme] = useState<"light" | "dark">(
+    themeSavedInLocalStorage ? themeSavedInLocalStorage : themeConfig.defaultTheme
+  );
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem(themeConfig.localStorageName, newTheme);
   };
 
   const value = useMemo(() => ({ toggleTheme, theme }), [theme]);
