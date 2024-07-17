@@ -4,6 +4,7 @@ import Search from "@/components/widgets/Search";
 import TweetPost from "@/components/widgets/TweetPost";
 import Tags from "@/components/sections/Tags";
 import { PostParamsType } from "@/types";
+import { rightGridWrapperClass } from "@/styles/layouts";
 
 export default function Main({ page, category, tag, search }: PostParamsType) {
   return (
@@ -12,7 +13,7 @@ export default function Main({ page, category, tag, search }: PostParamsType) {
         <Grid item xs={12} md={8}>
           <Posts page={page} category={category} tag={tag} search={search} />
         </Grid>
-        <Grid item xs={12} md={4} sx={{ pl: { xs: 0, md: 4 } }}>
+        <Grid item xs={12} md={4} sx={rightGridWrapperClass}>
           <Stack spacing={2}>
             <Search />
             <TweetPost id="1628832338187636740" />

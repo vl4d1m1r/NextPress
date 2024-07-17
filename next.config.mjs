@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.WORDPRESS_DOMAIN],
+    domains: [process.env.WORDPRESS_DOMAIN, "secure.gravatar.com"],
   },
   env: {
     DOMAIN: process.env.DOMAIN,

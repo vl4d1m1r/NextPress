@@ -69,14 +69,14 @@ export function deepClone<T>(item: T): T {
 const emptyImage = { source_url: "", title: { rendered: "" } };
 
 export const ExtractPostData = (post: PostType, excerptLimit: number = 150) => {
-  console.log("===> ", post);
   if (!post) return { imageData: emptyImage, excerptLimited: "" };
   const imageData = post._embedded["wp:featuredmedia"][0];
+  const authorData = post._embedded.author[0];
   const excerpt: any = parse(post.excerpt.rendered);
   const excerptFirstParagraph = excerpt[0].props.children;
   const excerptLimited =
     excerptFirstParagraph.slice(0, excerptLimit) + (excerptFirstParagraph.length > excerptLimit ? "..." : "");
-  return { imageData, excerptLimited };
+  return { imageData, excerptLimited, authorData };
 };
 
 export function formatDate(dateString: string): string {

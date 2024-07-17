@@ -8,6 +8,10 @@ a:-webkit-any-link {
   text-decoration: none;
 }
 
+.post-author-photo {
+  border-radius: 5px;
+}
+
 /* Overrides */
 
 .dark .react-tweet-theme {

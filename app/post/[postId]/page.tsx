@@ -9,6 +9,7 @@ import SectionDivider from "@/components/elements/SectionDivider";
 import PostHeader from "@/components/sections/PostHeader";
 import Highlights from "@/components/sections/Highlights";
 import { categoriesConfig } from "@/models/config";
+import { rightGridWrapperClass } from "@/styles/layouts";
 
 export default function PostRoute({ params }: { params: { postId: string } }) {
   console.log("Post ID: ", params.postId);
@@ -25,7 +26,7 @@ export default function PostRoute({ params }: { params: { postId: string } }) {
           <Grid item xs={12} md={8}>
             <PostBody postId={params.postId} />
           </Grid>
-          <Grid item xs={12} md={4} sx={{ pl: { xs: 0, md: 4 } }}>
+          <Grid item xs={12} md={4} sx={rightGridWrapperClass}>
             <Stack spacing={2}>
               <Search />
               <TweetPost id="1628832338187636740" />

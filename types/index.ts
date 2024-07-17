@@ -30,6 +30,13 @@ export type PostType = {
   type: string;
   _embedded: {
     "wp:featuredmedia": [{ imageData: ImageDataType; source_url: string; title: { rendered: string } }];
+    author: {
+      name: string;
+      slug: string;
+      id: number;
+      avatar_urls: { 24: string; 48: string; 96: string; 192: string };
+      description: string;
+    }[];
   };
   content: { rendered: string };
 };

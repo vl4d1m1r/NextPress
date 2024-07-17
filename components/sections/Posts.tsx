@@ -17,6 +17,7 @@ import Categories from "./Categories";
 import { useRouter } from "next/navigation";
 import { postsConfig, imageConfig } from "@/models/config";
 import { infoDisplayDataConfig } from "@/models/config";
+import Author from "../elements/Author";
 
 export default function Posts({ page, category, tag, search }: PostParamsType) {
   const router = useRouter();
@@ -108,8 +109,9 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
             })}
           </>
         ) : (
-          <Stack component="section" direction="column" sx={{ mb: 2 }}>
+          <Stack component="section" spacing={2} direction="column" sx={{ mb: 2 }}>
             <Box>{parse(data.posts[0].content.rendered)}</Box>
+            <Author authorData={data.posts[0]._embedded.author[0]} />
           </Stack>
         )}
       </Stack>

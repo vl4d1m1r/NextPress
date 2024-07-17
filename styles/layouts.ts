@@ -25,6 +25,11 @@ export const containerClass: SxProps<Theme> = (theme) => ({
   },
 });
 
+export const rightGridWrapperClass: SxProps<Theme> = (theme) => ({
+  pl: { xs: 0, md: 4 },
+  pt: { xs: 4, md: 0 },
+});
+
 export const headerWrapperClass: SxProps<Theme> = (theme) => ({
   position: "absolute",
   width: "100%",

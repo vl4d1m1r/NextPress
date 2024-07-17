@@ -12,6 +12,7 @@ import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder5
 import PostBodySkeleton from "../feedback/skeletons/PostBodySkeleton";
 import BackdropInfo from "../widgets/BackdropInfo";
 import { postsConfig } from "@/models/config";
+import Author from "@/components/elements/Author";
 
 export default function PostBody({ postId }: { postId: string }) {
   const apiRoute = apiConfig.wordpressApiPath + apiConfig.postPath + postId;
@@ -22,7 +23,9 @@ export default function PostBody({ postId }: { postId: string }) {
   if (isLoading || !data) return <PostBodySkeleton />;
 
   const post = data[0];
-  const { imageData } = ExtractPostData(post);
+  const { imageData, authorData } = ExtractPostData(post);
+
+  console.log("PostBody: ", post);
 
   return (
     <Stack component="article" spacing={4}>
@@ -46,6 +49,7 @@ export default function PostBody({ postId }: { postId: string }) {
         />
       </Box>
       <Box>{parse(post.content.rendered)}</Box>
+      <Author authorData={authorData} />
     </Stack>
   );
 }
