@@ -37,6 +37,10 @@ figure img {
   height: auto;
 }
 
+ul.wp-block-list li {
+  word-wrap: break-word;
+}
+
 /* MUI Overrides */
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper {

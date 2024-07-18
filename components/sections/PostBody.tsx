@@ -13,6 +13,7 @@ import PostBodySkeleton from "../feedback/skeletons/PostBodySkeleton";
 import BackdropInfo from "../widgets/BackdropInfo";
 import { postsConfig } from "@/models/config";
 import Author from "@/components/elements/Author";
+import Share from "@/components/elements/Share";
 
 export default function PostBody({ postId }: { postId: string }) {
   const apiRoute = apiConfig.wordpressApiPath + apiConfig.postPath + postId;
@@ -48,6 +49,7 @@ export default function PostBody({ postId }: { postId: string }) {
           height={imageConfig.ratio.height}
         />
       </Box>
+      <Share />
       <Box>{parse(post.content.rendered)}</Box>
       <Author authorData={authorData} />
     </Stack>
