@@ -13,7 +13,7 @@ import Stack from "@mui/material/Stack";
 import Image from "next/image";
 import { highlightsHeadlineClass } from "@/styles/layouts";
 import { CategoryConfigType, DirectionsType, PostType } from "@/types";
-import { convertPropsToApiRoute, ExtractPostData, formatDate } from "@/controllers/utils";
+import { convertPropsToApiRoute, extractPostData, formatDate } from "@/controllers/utils";
 import useSWR from "swr";
 import { postsFetcher } from "@/controllers/api";
 import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
@@ -49,7 +49,7 @@ export default function Highlights({
       </Stack>
       <Box sx={direction === "COLUMN" ? highlightsWrapperColumnClass : highlightsWrapperRowClass}>
         {data.posts.slice(0, 3).map((highlight: PostType) => {
-          const { imageData, excerptLimited } = ExtractPostData(highlight);
+          const { imageData, excerptLimited } = extractPostData(highlight);
           return (
             <Stack key={highlight.id} spacing={2}>
               <Box sx={{ width: "100%", overflow: "hidden", position: "relative" }}>

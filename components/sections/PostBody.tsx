@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import useSWR from "swr";
 import parse from "html-react-parser";
 import { Stack, Typography } from "@mui/material";
-import { ExtractPostData } from "@/controllers/utils";
+import { extractPostData } from "@/controllers/utils";
 import { postImageCaptionClass, postsImageWrapperClass } from "@/styles/layouts";
 import Image from "next/image";
 import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
@@ -23,7 +23,7 @@ export default function PostBody({ postId }: { postId: string }) {
   if (isLoading || !data) return <PostBodySkeleton />;
 
   const post = data[0];
-  const { imageData, authorData } = ExtractPostData(post);
+  const { imageData, authorData } = extractPostData(post);
 
   console.log("PostBody: ", post);
 

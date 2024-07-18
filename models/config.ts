@@ -36,7 +36,7 @@ export const apiConfig = {
   tagsPath: "posts/page/1/tag/",
   tagsSwrKey: `tags?per_page=${pageConfig.tagsPerPage}`,
   searchPath: "posts/page/1/search/",
-  indexImage: "image.jpg",
+  indexImage: `https://${process.env.WORDPRESS_DOMAIN}/doctypeadventures/wp-content/uploads/2024/07/index.jpeg`,
 };
 
 export const appConfig = {
@@ -138,6 +138,6 @@ export const infoDisplayDataConfig = {
 export const defaultSeoConfig = {
   title: appConfig.name,
   description: texts.tagline,
-  image: process.env.DOMAIN! + apiConfig.indexImage,
+  image: apiConfig.indexImage,
   url: process.env.DOMAIN!,
 };

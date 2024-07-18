@@ -11,7 +11,7 @@ import { Container, Grid } from "@mui/material";
 import { heroWrapperClass } from "@/styles/layouts";
 import useSWR from "swr";
 import { HeroPostParamsType, PostsDataType, PostType } from "@/types";
-import { convertPropsToApiRoute, ExtractPostData, formatDate } from "@/controllers/utils";
+import { convertPropsToApiRoute, extractPostData, formatDate } from "@/controllers/utils";
 import { postsFetcher, simpleFetcher } from "@/controllers/api";
 import parse from "html-react-parser";
 import { textPillClass, textPostsContentClass } from "@/styles/text";
@@ -44,7 +44,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
   const fetchedPostsCount = postId ? 1 : (data as PostsDataType).posts.length;
   const totalPosts = postId ? 1 : (data as PostsDataType).totalPosts;
 
-  const { imageData, excerptLimited } = ExtractPostData(heroPost, 250);
+  const { imageData, excerptLimited } = extractPostData(heroPost, 250);
 
   const noPostsFound = (data as PostsDataType).posts.length === 0;
   let heroLink = infoDisplayDataConfig.empty.homeLink;

@@ -1,6 +1,6 @@
 "use client";
 import { postsFetcher } from "@/controllers/api";
-import { ExtractPostData, convertPropsToApiRoute, convertPropsToLocalRoute, formatDate } from "@/controllers/utils";
+import { extractPostData, convertPropsToApiRoute, convertPropsToLocalRoute, formatDate } from "@/controllers/utils";
 
 import { postsImageCaptionClass, postsImageWrapperClass } from "@/styles/layouts";
 import { textPillClass, textPostsContentClass, textPostsHeadlineClass } from "@/styles/text";
@@ -55,7 +55,7 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
         {data && data.posts.length > 1 ? (
           <>
             {data.posts.map((post: PostType, index: number) => {
-              const { imageData, excerptLimited } = ExtractPostData(post);
+              const { imageData, excerptLimited } = extractPostData(post);
               if (index === 0) return null;
               return (
                 <Box key={post.id} className={`blog-post-preview-${post.id}`} sx={{ mb: 4 }}>

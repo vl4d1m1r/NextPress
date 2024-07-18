@@ -12,7 +12,6 @@ import { categoriesConfig } from "@/models/config";
 import { rightGridWrapperClass } from "@/styles/layouts";
 
 export default function PostRoute({ params }: { params: { postId: string } }) {
-  console.log("Post ID: ", params.postId);
   return (
     <Box>
       <Container sx={{ pt: 16 }}>
