@@ -1,7 +1,7 @@
 import { postsInfoWrapperClass } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
-import { Box, Grid, Skeleton, Stack, Typography } from "@mui/material";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import { Box, Grid, Skeleton, Stack, Typography } from "@mui/material";
 
 export default function PostSkeleton({ numberOfItems = 4, error = false }: { numberOfItems: number; error?: boolean }) {
   const skeletons = Array.from({ length: numberOfItems }, (_, index) => index);

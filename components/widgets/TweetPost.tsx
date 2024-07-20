@@ -1,7 +1,7 @@
 "use client";
+import { useTheme } from "@/context/ThemeContext";
 import Box from "@mui/material/Box";
 import { Tweet } from "react-tweet";
-import { useTheme } from "@/context/ThemeContext";
 
 export default function TweetPost({ id }: { id: string }) {
   const { theme } = useTheme();

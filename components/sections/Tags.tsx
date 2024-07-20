@@ -1,23 +1,23 @@
 "use client";
 import { simpleFetcher } from "@/controllers/api";
+import { deepClone } from "@/controllers/utils";
 import { apiConfig, pageConfig } from "@/models/config";
 import {
   tagsChipsClass,
   tagsInfoWrapperContainerClass,
   tagsInfoWrapperRegularClass,
   tagsWrapperClass,
+  tagsWrapperContainerClass,
   tagsWrapperRegularClass,
 } from "@/styles/layouts";
+import { TagsDisplayVariantType, TagType } from "@/types";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
-import useSWR from "swr";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-import { deepClone } from "@/controllers/utils";
-import { TagsDisplayVariantType, TagType } from "@/types";
 import Typography from "@mui/material/Typography";
-import { tagsWrapperContainerClass } from "@/styles/layouts";
 import { useRouter } from "next/navigation";
+import useSWR from "swr";
 
 export default function Tags({
   tagIds,

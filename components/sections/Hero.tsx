@@ -4,23 +4,22 @@ Hero can be called:
    - <Hero page={N} /> - displays the data from the first post on the Nth page
    - <Hero postId={postId} /> - displays the data from the post with the given ID
 */
+import BackdropInfo from "@/components/widgets/BackdropInfo";
+import { postsFetcher, simpleFetcher } from "@/controllers/api";
+import { convertPropsToApiRoute, extractPostData, formatDate } from "@/controllers/utils";
+import { apiConfig, infoDisplayDataConfig } from "@/models/config";
+import { heroWrapperClass } from "@/styles/layouts";
+import { textPillClass, textPostsContentClass } from "@/styles/text";
+import { HeroPostParamsType, PostsDataType, PostType } from "@/types";
+import { Container, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Container, Grid } from "@mui/material";
-import { heroWrapperClass } from "@/styles/layouts";
-import useSWR from "swr";
-import { HeroPostParamsType, PostsDataType, PostType } from "@/types";
-import { convertPropsToApiRoute, extractPostData, formatDate } from "@/controllers/utils";
-import { postsFetcher, simpleFetcher } from "@/controllers/api";
 import parse from "html-react-parser";
-import { textPillClass, textPostsContentClass } from "@/styles/text";
-import Categories from "./Categories";
-import { apiConfig } from "@/models/config";
-import BackdropInfo from "@/components/widgets/BackdropInfo";
-import HeroSkeleton from "../feedback/skeletons/HeroSkeleton";
 import Link from "next/link";
-import { infoDisplayDataConfig } from "@/models/config";
+import useSWR from "swr";
+import HeroSkeleton from "../feedback/skeletons/HeroSkeleton";
+import Categories from "./Categories";
 
 export default function Hero({ page, category, tag, search, postId }: HeroPostParamsType) {
   const apiRoute = convertPropsToApiRoute({ page, category, tag, search });

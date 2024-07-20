@@ -1,4 +1,9 @@
 "use client";
+import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
+import { appConfig, headerConfig, imageConfig, themeConfig } from "@/models/config";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
+import { buttonGeneralClass } from "@/styles/buttons";
+import { centerVerticalClass } from "@/styles/global";
 import {
   headerContainerClass,
   headerDrawerClass,
@@ -8,22 +13,15 @@ import {
   headerSecondaryLogosClass,
   headerWrapperClass,
 } from "@/styles/layouts";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Avatar, Button, Container, Drawer, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
-import { useTheme } from "@mui/material";
-import { centerVerticalClass } from "@/styles/global";
-import { Avatar, Backdrop, Button, Container, Drawer, Menu, MenuItem } from "@mui/material";
-import Categories from "./Categories";
-import { appConfig, headerConfig, imageConfig } from "@/models/config";
 import Image from "next/image";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
-import { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import { buttonGeneralClass } from "@/styles/buttons";
 import Link from "next/link";
-import { themeConfig } from "@/models/config";
+import { useState } from "react";
+import Categories from "./Categories";
 
 export default function Header() {
   const theme = useTheme();

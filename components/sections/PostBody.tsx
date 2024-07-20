@@ -1,19 +1,19 @@
-import { simpleFetcher } from "@/controllers/api";
-import { apiConfig, imageConfig } from "@/models/config";
-import { PostType } from "@/types";
-import Box from "@mui/material/Box";
-import useSWR from "swr";
-import parse from "html-react-parser";
-import { Stack, Typography } from "@mui/material";
-import { extractPostData } from "@/controllers/utils";
-import { postImageCaptionClass, postsImageWrapperClass } from "@/styles/layouts";
-import Image from "next/image";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
-import PostBodySkeleton from "../feedback/skeletons/PostBodySkeleton";
-import BackdropInfo from "../widgets/BackdropInfo";
-import { postsConfig } from "@/models/config";
+"use client";
 import Author from "@/components/elements/Author";
 import Share from "@/components/elements/Share";
+import PostBodySkeleton from "@/components/feedback/skeletons/PostBodySkeleton";
+import BackdropInfo from "@/components/widgets/BackdropInfo";
+import { simpleFetcher } from "@/controllers/api";
+import { extractPostData } from "@/controllers/utils";
+import { apiConfig, imageConfig, postsConfig } from "@/models/config";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
+import { postImageCaptionClass, postsImageWrapperClass } from "@/styles/layouts";
+import { PostType } from "@/types";
+import { Stack, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import parse from "html-react-parser";
+import Image from "next/image";
+import useSWR from "swr";
 
 export default function PostBody({ postId }: { postId: string }) {
   const apiRoute = apiConfig.wordpressApiPath + apiConfig.postPath + postId;

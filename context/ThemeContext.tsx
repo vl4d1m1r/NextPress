@@ -1,8 +1,8 @@
 "use client";
-import React, { createContext, useContext, useState, useMemo, ReactNode } from "react";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import { lightTheme, darkTheme } from "@/theme";
 import { themeConfig } from "@/models/config";
+import { darkTheme, lightTheme } from "@/theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createContext, ReactNode, useContext, useMemo, useState } from "react";
 
 interface ThemeContextProps {
   toggleTheme: () => void;

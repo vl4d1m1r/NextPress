@@ -1,19 +1,19 @@
+"use client";
+import PostHeaderSkeleton from "@/components/feedback/skeletons/PostHeaderSkeleton";
+import Categories from "@/components/sections/Categories";
+import SeoInjector from "@/components/seo/SeoInjector";
 import { simpleFetcher } from "@/controllers/api";
-import { apiConfig } from "@/models/config";
-import { PostType, SeoDataType } from "@/types";
-import Typography from "@mui/material/Typography";
-import useSWR from "swr";
-import parse from "html-react-parser";
-import { Stack } from "@mui/material";
-import { textPillClass } from "@/styles/text";
 import { extractPostData, formatDate } from "@/controllers/utils";
-import Categories from "./Categories";
-import PostHeaderSkeleton from "../feedback/skeletons/PostHeaderSkeleton";
-import { defaultSeoConfig } from "@/models/config";
-import { use, useEffect, useState } from "react";
-import SeoInjector from "../seo/SeoInjector";
+import { apiConfig, defaultSeoConfig, pageConfig } from "@/models/config";
+import { textPillClass } from "@/styles/text";
+import { PostType, SeoDataType } from "@/types";
+import { Stack } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import parse from "html-react-parser";
+import { useEffect, useState } from "react";
+import useSWR from "swr";
 
-export default function PostHeader({ postId }: { postId: string }) {
+export default function PostHeader({ postId, setSidebarLevel }: { postId: string; setSidebarLevel: Function }) {
   const [seoParams, setSeoParams] = useState<SeoDataType>(defaultSeoConfig);
   const apiRoute = apiConfig.wordpressApiPath + apiConfig.postPath + postId;
   const { data, error, isLoading } = useSWR<PostType[]>(apiRoute, simpleFetcher);
@@ -34,6 +34,11 @@ export default function PostHeader({ postId }: { postId: string }) {
   if (isLoading || !data) return <PostHeaderSkeleton />;
 
   const post = data[0];
+
+  let sidebarLevel = Math.floor(Number(post.content.rendered.length) / pageConfig.sidebarCharactersPerLevel);
+  if (sidebarLevel < 0) sidebarLevel = 0;
+  if (sidebarLevel > 4) sidebarLevel = 4;
+  setSidebarLevel(sidebarLevel);
 
   return (
     <>

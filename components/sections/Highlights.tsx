@@ -1,28 +1,28 @@
 "use client";
+import { postsFetcher } from "@/controllers/api";
+import { convertPropsToApiRoute, extractPostData, formatDate } from "@/controllers/utils";
+import { imageConfig, postsConfig } from "@/models/config";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import {
   highlightsContainerColumnClass,
   highlightsContainerRowClass,
+  highlightsHeadlineClass,
   highlightsImageCaptionClass,
   highlightsWrapperBoxClass,
   highlightsWrapperColumnClass,
   highlightsWrapperRowClass,
 } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
+import { CategoryConfigType, DirectionsType, PostType } from "@/types";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import Image from "next/image";
-import { highlightsHeadlineClass } from "@/styles/layouts";
-import { CategoryConfigType, DirectionsType, PostType } from "@/types";
-import { convertPropsToApiRoute, extractPostData, formatDate } from "@/controllers/utils";
-import useSWR from "swr";
-import { postsFetcher } from "@/controllers/api";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import parse from "html-react-parser";
-import Categories from "./Categories";
-import HighlightsSkeleton from "../feedback/skeletons/HighlightsSkeleton";
-import { imageConfig, postsConfig } from "@/models/config";
+import Image from "next/image";
 import Link from "next/link";
+import useSWR from "swr";
+import HighlightsSkeleton from "../feedback/skeletons/HighlightsSkeleton";
+import Categories from "./Categories";
 
 export default function Highlights({
   direction = "ROW",

@@ -1,9 +1,9 @@
+import { heroWrapperClass } from "@/styles/layouts";
+import { textPillClass } from "@/styles/text";
+import { Container, Grid, Skeleton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Container, Grid, Skeleton } from "@mui/material";
-import { heroWrapperClass } from "@/styles/layouts";
-import { textPillClass } from "@/styles/text";
 
 export default function HeroSkeleton() {
   return (

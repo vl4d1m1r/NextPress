@@ -1,14 +1,13 @@
 "use client";
-import useSWR from "swr";
-import Link from "next/link";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import { apiConfig, mainMenuConfig } from "@/models/config";
+import { buttonCategoriesClass } from "@/styles/buttons";
 import { CategoryType, DirectionsType } from "@/types";
-import { apiConfig } from "@/models/config";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import { Button } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import Stack from "@mui/material/Stack";
-import { Button } from "@mui/material";
-import { buttonCategoriesClass } from "@/styles/buttons";
-import { mainMenuConfig } from "@/models/config";
+import Link from "next/link";
+import useSWR from "swr";
 
 const fetcher = (path: string) => fetch(apiConfig.wordpressApiPath + path).then((res) => res.json());
 

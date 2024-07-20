@@ -1,20 +1,21 @@
 // import getConfig from "next/config"; deprecated in app router
-import TerminalIcon from "@mui/icons-material/Terminal";
-import DrawIcon from "@mui/icons-material/Draw";
-import LockIcon from "@mui/icons-material/Lock";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import RedditIcon from "@mui/icons-material/Reddit";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import { ThemeConfigType } from "@/types";
+import DrawIcon from "@mui/icons-material/Draw";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import LockIcon from "@mui/icons-material/Lock";
+import RedditIcon from "@mui/icons-material/Reddit";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import TerminalIcon from "@mui/icons-material/Terminal";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 export const pageConfig = {
   postsPerPage: 5,
   tagsPerPage: 100,
   currentYear: new Date().getFullYear(),
   numberOfPopularTagsToShow: 10,
+  sidebarCharactersPerLevel: 2500,
 };
 
 export const categoriesConfig = {
@@ -106,8 +107,8 @@ export const infoDisplayDataConfig = {
   },
   error: {
     type: "error",
-    title: "There was an error!",
-    messages: ["SOMETHIN' SNAPPED MUTHA!", "SOMETHIN' SNAPPED I'M TELLING YA!"],
+    title: "LOOK AROUND YA! AN ERROR MUTHA!",
+    messages: ["SOMETHIN' SNAPPED MUTHA!", "SOMETHIN' SNAPPED I'M TELLIN' YA!"],
     animation: "(ノಠ益ಠ)ノ彡┻━┻",
     homeButton: true,
     homeLink: "/",
@@ -115,8 +116,8 @@ export const infoDisplayDataConfig = {
   },
   notFound: {
     type: "notFound",
-    title: "Page not found!",
-    messages: ["(But) I Still Haven't found what I'm looking for..."],
+    title: "THAT PAGE ISN'T HERE MUTHA!",
+    messages: ["I LOOKED EVERYWHERE MUTHA!", "I CAN'T FIND IT!", "BUT I DON'T GIVE A CARE!"],
     animation: `¯${String.fromCharCode(92)}_(ツ)_/¯`,
     homeButton: true,
     homeLink: "/",
@@ -124,13 +125,13 @@ export const infoDisplayDataConfig = {
   },
   empty: {
     type: "empty",
-    title: "Nothing there!",
+    title: "IT'S EMPTY MUTHA!",
     messages: [
-      "You broke it, didn't you?",
-      "Searchin' for something that ain't there...",
-      "Maybe you should try again?",
-      "Or not...",
-      "It's up to you.",
+      "NOTHIN' HERE!",
+      "JUST EMPTY SPACE!",
+      "WHAT HAVE YOU BEEN SEARCHIN' FOR MUTHA!",
+      "WHATEVER IT IS, IT AIN'T HERE!",
+      "DON'T PISS ME OFF MUTHA!.",
       `(╯°□°)╯`,
     ],
     animation: `(╯°□°)╯`,

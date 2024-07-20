@@ -1,14 +1,14 @@
 "use client";
-import * as React from "react";
-import InputBase from "@mui/material/InputBase";
+import { apiConfig } from "@/models/config";
+import { searchWrapperClass } from "@/styles/layouts";
+import DirectionsIcon from "@mui/icons-material/Directions";
+import SearchIcon from "@mui/icons-material/Search";
+import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
-import Box from "@mui/material/Box";
-import { searchWrapperClass } from "@/styles/layouts";
-import { apiConfig } from "@/models/config";
+import InputBase from "@mui/material/InputBase";
 import { useRouter } from "next/navigation";
+import * as React from "react";
 
 export default function Search() {
   const router = useRouter();

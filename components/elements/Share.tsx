@@ -1,9 +1,9 @@
-import Box from "@mui/material/Box";
-import ShareIcon from "@mui/icons-material/Share";
-import SpeedDial from "@mui/material/SpeedDial";
-import SpeedDialAction from "@mui/material/SpeedDialAction";
 import { socialShareConfig } from "@/models/config";
 import { shareSpeedDialClass, shareWrapperClass } from "@/styles/layouts";
+import ShareIcon from "@mui/icons-material/Share";
+import Box from "@mui/material/Box";
+import SpeedDial from "@mui/material/SpeedDial";
+import SpeedDialAction from "@mui/material/SpeedDialAction";
 
 export default function Share({ headline }: { headline: string }) {
   const socialShareActions = socialShareConfig.actions.map((config) => ({

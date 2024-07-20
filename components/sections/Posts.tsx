@@ -1,23 +1,21 @@
 "use client";
 import { postsFetcher } from "@/controllers/api";
-import { extractPostData, convertPropsToApiRoute, convertPropsToLocalRoute, formatDate } from "@/controllers/utils";
-
+import { convertPropsToApiRoute, convertPropsToLocalRoute, extractPostData, formatDate } from "@/controllers/utils";
+import { imageConfig, infoDisplayDataConfig, postsConfig } from "@/models/config";
+import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import { postsImageCaptionClass, postsImageWrapperClass } from "@/styles/layouts";
 import { textPillClass, textPostsContentClass, textPostsHeadlineClass } from "@/styles/text";
 import { PostParamsType, PostType } from "@/types";
 import { Grid, Pagination, Stack, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import Image from "next/image";
-import useSWR from "swr";
-import PostsSkeleton from "../feedback/skeletons/PostsSkeleton";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
-import Link from "next/link";
 import parse from "html-react-parser";
-import Categories from "./Categories";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { postsConfig, imageConfig } from "@/models/config";
-import { infoDisplayDataConfig } from "@/models/config";
+import useSWR from "swr";
 import Author from "../elements/Author";
+import PostsSkeleton from "../feedback/skeletons/PostsSkeleton";
+import Categories from "./Categories";
 
 export default function Posts({ page, category, tag, search }: PostParamsType) {
   const router = useRouter();

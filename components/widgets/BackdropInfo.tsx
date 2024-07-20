@@ -1,8 +1,8 @@
-import { backdropInfoWrapperClass } from "@/styles/layouts";
-import { Backdrop, Stack, Typography } from "@mui/material";
 import { infoDisplayDataConfig } from "@/models/config";
-import { InfoPageType } from "@/types";
+import { backdropInfoWrapperClass } from "@/styles/layouts";
 import { textBackdropInfoClass } from "@/styles/text";
+import { InfoPageType } from "@/types";
+import { Backdrop, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 
 export default function BackdropInfo({

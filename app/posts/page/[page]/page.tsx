@@ -1,10 +1,9 @@
-import Hero from "@/components/sections/Hero";
 import SectionDivider from "@/components/elements/SectionDivider";
-import Main from "@/components/wrappers/Main";
+import Hero from "@/components/sections/Hero";
 import Highlights from "@/components/sections/Highlights";
-import Footer from "@/components/sections/Footer";
-import { categoriesConfig } from "@/models/config";
 import Tags from "@/components/sections/Tags";
+import Main from "@/components/wrappers/Main";
+import { categoriesConfig } from "@/models/config";
 
 export default function PostsPageRoute({ params }: { params: { page: string } }) {
   return (

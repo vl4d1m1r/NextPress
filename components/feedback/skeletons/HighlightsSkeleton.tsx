@@ -3,16 +3,16 @@ import {
   highlightsContainerColumnClass,
   highlightsContainerRowClass,
   highlightsErrorSkeletonWrapperClass,
+  highlightsHeadlineClass,
   highlightsWrapperColumnClass,
   highlightsWrapperRowClass,
 } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
+import { DirectionsType } from "@/types";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { Skeleton, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { highlightsHeadlineClass } from "@/styles/layouts";
-import { DirectionsType } from "@/types";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 export default function HighlightsSkeleton({
   numberOfItems = 3,

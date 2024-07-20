@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, ClickAwayListener, Container, Grid, Stack, Tooltip, Typography } from "@mui/material";
+import { socialNetworksConfig, textsConfig } from "@/models/config";
 import { centerHorizontalClass, centerVerticalClass } from "@/styles/global";
 import {
   footerSocialWrapperClass,
@@ -9,9 +9,8 @@ import {
   footerWrapperClass,
   socialIconClass,
 } from "@/styles/layouts";
-import { socialNetworksConfig } from "@/models/config";
+import { Box, Button, ClickAwayListener, Container, Grid, Stack, Tooltip, Typography } from "@mui/material";
 import Link from "next/link";
-import { textsConfig } from "@/models/config";
 import { useState } from "react";
 
 export default function Footer() {

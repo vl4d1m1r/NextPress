@@ -1,10 +1,10 @@
-import { Container, Grid, Stack } from "@mui/material";
 import Posts from "@/components/sections/Posts";
+import Tags from "@/components/sections/Tags";
 import Search from "@/components/widgets/Search";
 import TweetPost from "@/components/widgets/TweetPost";
-import Tags from "@/components/sections/Tags";
-import { PostParamsType } from "@/types";
 import { rightGridWrapperClass } from "@/styles/layouts";
+import { PostParamsType } from "@/types";
+import { Container, Grid, Stack } from "@mui/material";
 
 export default function Main({ page, category, tag, search }: PostParamsType) {
   return (

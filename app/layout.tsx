@@ -1,10 +1,10 @@
+import Footer from "@/components/sections/Footer";
+import Header from "@/components/sections/Header";
+import { ThemeContextProvider } from "@/context/ThemeContext";
+import { defaultSeoConfig } from "@/models/config";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeContextProvider } from "@/context/ThemeContext";
-import Header from "@/components/sections/Header";
-import Footer from "@/components/sections/Footer";
-import { defaultSeoConfig } from "@/models/config";
 
 const inter = Inter({ subsets: ["latin"] });
 

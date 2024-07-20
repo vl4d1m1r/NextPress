@@ -1,8 +1,8 @@
-import Typography from "@mui/material/Typography";
-import { Box, Skeleton, Stack } from "@mui/material";
+import { postsInfoWrapperClass } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-import { postsInfoWrapperClass } from "@/styles/layouts";
+import { Box, Skeleton, Stack } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 export default function PostHeaderSkeleton({ error = false }: { error?: boolean }) {
   if (error) {
