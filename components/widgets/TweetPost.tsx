@@ -6,7 +6,7 @@ import { useTheme } from "@/context/ThemeContext";
 export default function TweetPost({ id }: { id: string }) {
   const { theme } = useTheme();
   return (
-    <Box component="div" className={theme === "light" ? "light" : "dark"}>
+    <Box className={theme === "light" ? "light" : "dark"}>
       <Tweet id={id} />
     </Box>
   );

@@ -181,6 +181,15 @@ export const highlightsWrapperColumnClass: SxProps<Theme> = (theme) => ({
   flexDirection: "column",
 });
 
+export const highlightsWrapperBoxClass: SxProps<Theme> = (theme) => ({
+  width: "100%",
+  overflow: "hidden",
+  position: "relative",
+  "& img": {
+    width: { xs: "100%", md: "revert-layer" },
+  },
+});
+
 export const highlightsWrapperRowClass: SxProps<Theme> = (theme) => ({
   position: "relative",
   display: "flex",
@@ -277,6 +286,15 @@ export const shareSpeedDialClass: SxProps<Theme> = (theme) => ({
   position: "absolute",
   bottom: 10,
   left: 20,
+});
+
+export const authorImageWrapperClass: SxProps<Theme> = (theme) => ({
+  width: { xs: 50, md: 80 },
+  height: { xs: 50, md: 80 },
+});
+
+export const authorTextWrapperClass: SxProps<Theme> = (theme) => ({
+  pt: { xs: 2, md: 0 },
 });
 
 export const backdropInfoWrapperClass: SxProps<Theme> = (theme) => ({

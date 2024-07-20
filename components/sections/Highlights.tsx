@@ -3,6 +3,7 @@ import {
   highlightsContainerColumnClass,
   highlightsContainerRowClass,
   highlightsImageCaptionClass,
+  highlightsWrapperBoxClass,
   highlightsWrapperColumnClass,
   highlightsWrapperRowClass,
 } from "@/styles/layouts";
@@ -52,7 +53,7 @@ export default function Highlights({
           const { imageData, excerptLimited } = extractPostData(highlight);
           return (
             <Stack key={highlight.id} spacing={2}>
-              <Box sx={{ width: "100%", overflow: "hidden", position: "relative" }}>
+              <Box sx={highlightsWrapperBoxClass}>
                 {postsConfig.showImageCaption.posts ? (
                   <Box sx={highlightsImageCaptionClass}>
                     <Typography variant="caption">{imageData.title.rendered}</Typography>

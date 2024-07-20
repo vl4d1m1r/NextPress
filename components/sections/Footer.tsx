@@ -1,4 +1,5 @@
-import { Box, Button, Container, Grid, Stack, Tooltip, Typography } from "@mui/material";
+"use client";
+import { Box, Button, ClickAwayListener, Container, Grid, Stack, Tooltip, Typography } from "@mui/material";
 import { centerHorizontalClass, centerVerticalClass } from "@/styles/global";
 import {
   footerSocialWrapperClass,
@@ -11,8 +12,19 @@ import {
 import { socialNetworksConfig } from "@/models/config";
 import Link from "next/link";
 import { textsConfig } from "@/models/config";
+import { useState } from "react";
 
 export default function Footer() {
+  const [open, setOpen] = useState(false);
+
+  const handleTooltipClose = () => {
+    setOpen(false);
+  };
+
+  const handleTooltipOpen = () => {
+    setOpen(true);
+  };
+
   return (
     <Container component="footer" className="footer" sx={footerWrapperClass}>
       <Stack direction="column" spacing={2}>
@@ -43,11 +55,27 @@ export default function Footer() {
             <Typography variant="body2">© 2024 Doctype Adventures</Typography>
           </Grid>
           <Grid item xs={12} sm={6} sx={footerTextGridItemRightClass}>
-            <Tooltip title={textsConfig.disclaimer} placement="top-end">
-              <Button variant="text" size="small">
-                <Typography variant="body2">Privacy Policy</Typography>
-              </Button>
-            </Tooltip>
+            <ClickAwayListener onClickAway={handleTooltipClose}>
+              <div>
+                <Tooltip
+                  PopperProps={{
+                    disablePortal: true,
+                  }}
+                  onClose={handleTooltipClose}
+                  open={open}
+                  disableFocusListener
+                  disableHoverListener
+                  disableTouchListener
+                  title={textsConfig.disclaimer}
+                  placement="top-end"
+                  arrow
+                >
+                  <Button onClick={handleTooltipOpen} variant="text" size="small">
+                    <Typography variant="body2">Privacy Policy</Typography>
+                  </Button>
+                </Tooltip>
+              </div>
+            </ClickAwayListener>
           </Grid>
         </Grid>
       </Stack>
