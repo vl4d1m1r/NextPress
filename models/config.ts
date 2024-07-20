@@ -7,6 +7,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import RedditIcon from "@mui/icons-material/Reddit";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { ThemeConfigType } from "@/types";
 
 export const pageConfig = {
@@ -84,7 +85,7 @@ export const themeConfig: ThemeConfigType = {
   localStorageName: `${appConfig.slug}-theme`,
 };
 
-export const texts = {
+export const textsConfig = {
   tagline: "Technology, security and stuff according to some guy.",
   copyrightNotice: `Ⓒ ${appConfig.author}, 2016-${pageConfig.currentYear}`,
   license: "Website engine released under the MIT license.",
@@ -141,7 +142,7 @@ export const infoDisplayDataConfig = {
 
 export const defaultSeoConfig = {
   title: appConfig.name,
-  description: texts.tagline,
+  description: textsConfig.tagline,
   image: apiConfig.indexImage,
   url: process.env.DOMAIN!,
 };
@@ -159,3 +160,11 @@ export const socialShareConfig = {
     { Icon: RedditIcon, name: "Reddit", shareUrl: "https://www.reddit.com/submit?url=_URL_&title=_TEXT_" },
   ],
 };
+
+export const socialNetworksConfig = [
+  { Icon: GitHubIcon, name: "GitHub", active: true, url: "https://github.com/vl4d1m1r" },
+  { Icon: TwitterIcon, name: "Twitter", active: true, url: "https://twitter.com/" },
+  { Icon: FacebookIcon, name: "Facebook", active: true, url: "https://www.facebook.com/" },
+  { Icon: LinkedInIcon, name: "LinkedIn", active: true, url: "https://www.linkedin.com/" },
+  { Icon: RedditIcon, name: "Reddit", active: true, url: "https://www.reddit.com/" },
+];

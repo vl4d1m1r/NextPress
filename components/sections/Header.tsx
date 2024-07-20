@@ -36,7 +36,7 @@ export default function Header() {
 
   return (
     <>
-      <Box component="header" sx={headerWrapperClass}>
+      <Box component="header" className="header" sx={headerWrapperClass}>
         <Container sx={headerContainerClass}>
           <Link href="/">
             <Stack direction="row" sx={centerVerticalClass}>
@@ -48,7 +48,7 @@ export default function Header() {
                     src={isDarkMode ? appConfig.logoTextImageDarkUrl : appConfig.logoTextImageLightUrl}
                     alt="Logo Image Text"
                     sizes="100vw"
-                    style={{ height: "auto" }}
+                    style={{ height: "auto", width: "auto" }}
                     width={imageConfig.logoTextRatio.width}
                     height={imageConfig.logoTextRatio.height}
                   />

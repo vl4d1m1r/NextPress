@@ -17,7 +17,6 @@ export default function Search() {
     if (e.key !== "Enter") return;
     e.preventDefault();
     const inputElement = e.target as HTMLInputElement;
-    console.log("Search: ", process.env.DOMAIN + apiConfig.searchPath + inputElement.value);
     router.push(process.env.DOMAIN + apiConfig.searchPath + inputElement.value);
   };
 

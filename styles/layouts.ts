@@ -231,13 +231,26 @@ export const tagsInfoWrapperRegularClass: SxProps<Theme> = (theme) => ({
   width: "100%",
 });
 
-export const footerTextRowClass: SxProps<Theme> = (theme) => ({
-  width: "100%",
+export const footerWrapperClass: SxProps<Theme> = (theme) => ({
+  mb: 4,
+});
+
+export const footerTextGridContainerClass: SxProps<Theme> = (theme) => ({
+  gap: { xs: 2, sm: 0 },
+});
+
+export const footerTextGridItemLeftClass: SxProps<Theme> = (theme) => ({
+  textAlign: { xs: "center", sm: "left" },
+});
+
+export const footerTextGridItemRightClass: SxProps<Theme> = (theme) => ({
+  textAlign: { xs: "center", sm: "right" },
+});
+
+export const footerSocialWrapperClass: SxProps<Theme> = (theme) => ({
   display: "flex",
-  justifyContent: "space-between",
-  p: 2,
-  pb: 4,
-  backgroundColor: "transparent",
+  flexDirection: { xs: "column", sm: "row" },
+  gap: 2,
 });
 
 export const imageWrapperClass: SxProps<Theme> = (theme) => ({
@@ -252,6 +265,18 @@ export const socialIconClass: SxProps<Theme> = (theme) => ({
   borderRadius: 1,
   p: 1,
   pb: 0,
+});
+
+export const shareWrapperClass: SxProps<Theme> = (theme) => ({
+  height: 30,
+  transform: "translateZ(0px)",
+  flexGrow: 1,
+});
+
+export const shareSpeedDialClass: SxProps<Theme> = (theme) => ({
+  position: "absolute",
+  bottom: 10,
+  left: 20,
 });
 
 export const backdropInfoWrapperClass: SxProps<Theme> = (theme) => ({

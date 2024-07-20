@@ -26,10 +26,8 @@ export default function PostBody({ postId }: { postId: string }) {
   const post = data[0];
   const { imageData, authorData } = extractPostData(post);
 
-  console.log("PostBody: ", post);
-
   return (
-    <Stack component="article">
+    <Stack component="article" className="post-body">
       <Box sx={postsImageWrapperClass}>
         {postsConfig.showImageCaption.post ? (
           <Box sx={postImageCaptionClass}>

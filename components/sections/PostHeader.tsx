@@ -22,7 +22,7 @@ export default function PostHeader({ postId }: { postId: string }) {
     if (!data) return;
     const { imageData } = extractPostData(data[0]);
     setSeoParams({
-      title: data[0].title.rendered,
+      title: parse(data[0].title.rendered) as string,
       description: data[0].excerpt.rendered,
       image: imageData.source_url,
       url: window.location.href,
@@ -38,7 +38,7 @@ export default function PostHeader({ postId }: { postId: string }) {
   return (
     <>
       <SeoInjector {...seoParams} />
-      <Stack component="article" spacing={4} sx={{ mb: 6 }}>
+      <Stack component="article" className="post-header" spacing={4} sx={{ mb: 6 }}>
         <Typography variant="h1">{parse(post.title.rendered)}</Typography>
         <Stack direction="row" spacing={2}>
           <Typography variant="body2" sx={textPillClass}>

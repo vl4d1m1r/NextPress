@@ -3,6 +3,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import { socialShareConfig } from "@/models/config";
+import { shareSpeedDialClass, shareWrapperClass } from "@/styles/layouts";
 
 export default function Share({ headline }: { headline: string }) {
   const socialShareActions = socialShareConfig.actions.map((config) => ({
@@ -17,13 +18,8 @@ export default function Share({ headline }: { headline: string }) {
   };
 
   return (
-    <Box sx={{ height: 30, transform: "translateZ(0px)", flexGrow: 1 }}>
-      <SpeedDial
-        ariaLabel="SpeedDial basic example"
-        sx={{ position: "absolute", bottom: 10, left: 20 }}
-        icon={<ShareIcon />}
-        direction="right"
-      >
+    <Box sx={shareWrapperClass}>
+      <SpeedDial ariaLabel="SpeedDial basic example" sx={shareSpeedDialClass} icon={<ShareIcon />} direction="right">
         {socialShareActions.map((action) => (
           <SpeedDialAction
             key={action.name}

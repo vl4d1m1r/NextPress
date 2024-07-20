@@ -38,8 +38,6 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
 
   if (error) return <BackdropInfo message={error.message} />;
 
-  console.log("Hero data: ", data);
-
   const heroPost = postId ? (data as PostType[])[0] : (data as PostsDataType).posts[0];
   const fetchedPostsCount = postId ? 1 : (data as PostsDataType).posts.length;
   const totalPosts = postId ? 1 : (data as PostsDataType).totalPosts;
@@ -60,7 +58,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
   }
 
   return (
-    <Box sx={heroWrapperClass} style={{ backgroundImage: `url(${heroImage})` }}>
+    <Box component="section" className="hero" sx={heroWrapperClass} style={{ backgroundImage: `url(${heroImage})` }}>
       <Container sx={{ pb: "50px", zIndex: 1 }}>
         <Grid container>
           <Grid item xs={12} sm={8}>

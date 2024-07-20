@@ -84,3 +84,11 @@ export function formatDate(dateString: string): string {
   const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
   return new Intl.DateTimeFormat("en-US", options).format(date);
 }
+
+export const stripUnsupportedTitleCharacters = (title: string): string => {
+  return title.replace(/[^a-zA-Z0-9\s-]/g, "").trim();
+};
+
+export const encodeHTMLEntities = (str: string): string => {
+  return str.replace(/[\u00A0-\u9999<>\&]/g, (i) => "&#" + i.charCodeAt(0) + ";");
+};

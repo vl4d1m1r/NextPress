@@ -8,7 +8,7 @@ import { rightGridWrapperClass } from "@/styles/layouts";
 
 export default function Main({ page, category, tag, search }: PostParamsType) {
   return (
-    <Container component="main">
+    <Container component="main" className="main">
       <Grid container>
         <Grid item xs={12} md={8}>
           <Posts page={page} category={category} tag={tag} search={search} />

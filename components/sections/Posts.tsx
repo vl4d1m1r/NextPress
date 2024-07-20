@@ -25,7 +25,6 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
   const { data, error, isLoading } = useSWR(apiRoute, postsFetcher);
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: any) => {
-    console.log("Page change: ", value);
     router.push(convertPropsToLocalRoute({ page: value, category, tag, search }));
   };
 
@@ -51,7 +50,7 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
 
   return (
     <>
-      <Stack component="section" direction="column">
+      <Stack component="section" className="posts" direction="column">
         {data && data.posts.length > 1 ? (
           <>
             {data.posts.map((post: PostType, index: number) => {

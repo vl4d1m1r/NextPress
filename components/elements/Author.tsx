@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Author({ authorData }: { authorData: PostType["_embedded"]["author"][0] | undefined }) {
   return (
-    <Grid container>
+    <Grid className="author" container>
       <Grid item xs={12} md={2}>
         {authorData?.avatar_urls[96] ? (
           <Image

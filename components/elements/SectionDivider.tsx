@@ -3,7 +3,7 @@ import { Box, Container } from "@mui/material";
 
 export default function SectionDivider() {
   return (
-    <Container>
+    <Container className="section-divider">
       <Box sx={sectionDividerClass}></Box>
     </Container>
   );
