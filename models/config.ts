@@ -149,6 +149,7 @@ export const defaultSeoConfig = {
 };
 
 export const socialShareConfig = {
+  fancyShareButton: false,
   headlinePrefix: `Check out this article from ${appConfig.name}: `,
   actions: [
     { Icon: TwitterIcon, name: "Twitter", shareUrl: `https://twitter.com/intent/tweet?text=_TEXT_&url=_URL_` },
@@ -164,8 +165,8 @@ export const socialShareConfig = {
 
 export const socialNetworksConfig = [
   { Icon: GitHubIcon, name: "GitHub", active: true, url: "https://github.com/vl4d1m1r" },
-  { Icon: TwitterIcon, name: "Twitter", active: true, url: "https://twitter.com/" },
-  { Icon: FacebookIcon, name: "Facebook", active: true, url: "https://www.facebook.com/" },
-  { Icon: LinkedInIcon, name: "LinkedIn", active: true, url: "https://www.linkedin.com/" },
-  { Icon: RedditIcon, name: "Reddit", active: true, url: "https://www.reddit.com/" },
+  { Icon: TwitterIcon, name: "Twitter", active: false, url: "https://twitter.com/" },
+  { Icon: FacebookIcon, name: "Facebook", active: false, url: "https://www.facebook.com/" },
+  { Icon: LinkedInIcon, name: "LinkedIn", active: false, url: "https://www.linkedin.com/" },
+  { Icon: RedditIcon, name: "Reddit", active: false, url: "https://www.reddit.com/" },
 ];

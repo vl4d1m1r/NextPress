@@ -20,7 +20,7 @@ export const useTheme = () => {
 };
 
 export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
-  const themeSavedInLocalStorage = localStorage.getItem(themeConfig.localStorageName) as "light" | "dark";
+  const themeSavedInLocalStorage = window.localStorage.getItem(themeConfig.localStorageName) as "light" | "dark";
   const [theme, setTheme] = useState<"light" | "dark">(
     themeSavedInLocalStorage ? themeSavedInLocalStorage : themeConfig.defaultTheme
   );

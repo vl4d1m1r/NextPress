@@ -1,6 +1,6 @@
 "use client";
-import { SxProps, Theme } from "@mui/material/styles";
 import { dividerGray } from "@/theme/colors";
+import { SxProps, Theme } from "@mui/material/styles";
 
 /*
 export const exampleClass: SxProps<Theme> = (theme) => ({
@@ -276,13 +276,24 @@ export const socialIconClass: SxProps<Theme> = (theme) => ({
   pb: 0,
 });
 
-export const shareWrapperClass: SxProps<Theme> = (theme) => ({
+export const shareWrapperNormalClass: SxProps<Theme> = (theme) => ({
+  position: "relative",
+  marginTop: 9,
+});
+
+export const shareWrapperFancyClass: SxProps<Theme> = (theme) => ({
   height: 30,
   transform: "translateZ(0px)",
   flexGrow: 1,
 });
 
-export const shareSpeedDialClass: SxProps<Theme> = (theme) => ({
+export const shareSpeedDialNormalClass: SxProps<Theme> = (theme) => ({
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+});
+
+export const shareSpeedDialFancyClass: SxProps<Theme> = (theme) => ({
   position: "absolute",
   bottom: 10,
   left: 20,

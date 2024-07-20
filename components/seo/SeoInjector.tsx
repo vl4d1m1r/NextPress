@@ -1,3 +1,4 @@
+import { appConfig } from "@/models/config";
 import { SeoDataType } from "@/types";
 
 export default function SeoInjector({ title, description, image, url }: SeoDataType) {
@@ -8,6 +9,9 @@ export default function SeoInjector({ title, description, image, url }: SeoDataT
 
   const metaDescription = document.querySelector("meta[name='description']");
   if (metaDescription) metaDescription.setAttribute("content", description);
+
+  const metaAuthor = document.querySelector("meta[name='author']");
+  if (metaAuthor) metaAuthor.setAttribute("content", appConfig.author);
 
   const metaImage = document.querySelector("meta[name='image']");
   if (metaImage) metaImage.setAttribute("content", image);
