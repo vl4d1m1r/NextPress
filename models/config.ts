@@ -3,6 +3,10 @@ import TerminalIcon from "@mui/icons-material/Terminal";
 import DrawIcon from "@mui/icons-material/Draw";
 import LockIcon from "@mui/icons-material/Lock";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import RedditIcon from "@mui/icons-material/Reddit";
 import { ThemeConfigType } from "@/types";
 
 export const pageConfig = {
@@ -140,4 +144,18 @@ export const defaultSeoConfig = {
   description: texts.tagline,
   image: apiConfig.indexImage,
   url: process.env.DOMAIN!,
+};
+
+export const socialShareConfig = {
+  headlinePrefix: `Check out this article from ${appConfig.name}: `,
+  actions: [
+    { Icon: TwitterIcon, name: "Twitter", shareUrl: `https://twitter.com/intent/tweet?text=_TEXT_&url=_URL_` },
+    { Icon: FacebookIcon, name: "Facebook", shareUrl: "https://www.facebook.com/sharer/sharer.php?u=_URL_" },
+    {
+      Icon: LinkedInIcon,
+      name: "LinkedIn",
+      shareUrl: `https://www.linkedin.com/sharing/share-offsite/?url=_URL_&title=_URL_`,
+    },
+    { Icon: RedditIcon, name: "Reddit", shareUrl: "https://www.reddit.com/submit?url=_URL_&title=_TEXT_" },
+  ],
 };

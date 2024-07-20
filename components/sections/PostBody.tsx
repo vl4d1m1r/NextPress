@@ -29,7 +29,7 @@ export default function PostBody({ postId }: { postId: string }) {
   console.log("PostBody: ", post);
 
   return (
-    <Stack component="article" spacing={4}>
+    <Stack component="article">
       <Box sx={postsImageWrapperClass}>
         {postsConfig.showImageCaption.post ? (
           <Box sx={postImageCaptionClass}>
@@ -49,9 +49,11 @@ export default function PostBody({ postId }: { postId: string }) {
           height={imageConfig.ratio.height}
         />
       </Box>
-      <Share />
+      <Share headline={parse(post.title.rendered) as string} />
       <Box>{parse(post.content.rendered)}</Box>
-      <Author authorData={authorData} />
+      <Box sx={{ my: 2 }}>
+        <Author authorData={authorData} />
+      </Box>
     </Stack>
   );
 }

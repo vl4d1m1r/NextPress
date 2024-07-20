@@ -24,6 +24,12 @@ pre code {
   overflow: auto;
 }
 
+figcaption {
+  font-size: 0.8em;
+  color: #5b5b5b;
+  text-align: center;
+}
+
 figure {
   width: 100%;
   padding: 0;
