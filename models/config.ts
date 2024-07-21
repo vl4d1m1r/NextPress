@@ -75,8 +75,12 @@ export const imageConfig = {
     height: 280,
   },
   logoTextRatio: {
-    width: 230,
-    height: 50,
+    width: 150,
+    height: 32,
+  },
+  logoTextImageDimension: {
+    width: "150px",
+    height: "32px",
   },
 };
 

@@ -1,7 +1,6 @@
 "use client";
 import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
 import { appConfig, headerConfig, imageConfig, themeConfig } from "@/models/config";
-import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import { buttonGeneralClass } from "@/styles/buttons";
 import { centerVerticalClass } from "@/styles/global";
 import {
@@ -42,11 +41,10 @@ export default function Header() {
               <Box sx={headerSecondaryLogosClass}>
                 {headerConfig.showLogoTextImage ? (
                   <Image
-                    placeholder={imagePlaceholder}
                     src={isDarkMode ? appConfig.logoTextImageDarkUrl : appConfig.logoTextImageLightUrl}
                     alt="Logo Image Text"
                     sizes="100vw"
-                    style={{ height: "auto", width: imageConfig.logoTextRatio.width }}
+                    style={{ height: "auto", width: imageConfig.logoTextImageDimension.width }}
                     width={imageConfig.logoTextRatio.width}
                     height={imageConfig.logoTextRatio.height}
                   />

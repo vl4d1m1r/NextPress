@@ -29,16 +29,19 @@ export default function PostHeader({ postId, setSidebarLevel }: { postId: string
     });
   }, [data]);
 
+  useEffect(() => {
+    if (!data) return;
+    let sidebarLevel = Math.floor(Number(post.content.rendered.length) / pageConfig.sidebarCharactersPerLevel);
+    if (sidebarLevel < 0) sidebarLevel = 0;
+    if (sidebarLevel > 4) sidebarLevel = 4;
+    setSidebarLevel(sidebarLevel);
+  }, [data]);
+
   if (error) return <PostHeaderSkeleton error={true} />;
 
   if (isLoading || !data) return <PostHeaderSkeleton />;
 
   const post = data[0];
-
-  let sidebarLevel = Math.floor(Number(post.content.rendered.length) / pageConfig.sidebarCharactersPerLevel);
-  if (sidebarLevel < 0) sidebarLevel = 0;
-  if (sidebarLevel > 4) sidebarLevel = 4;
-  setSidebarLevel(sidebarLevel);
 
   return (
     <>
