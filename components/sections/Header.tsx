@@ -46,7 +46,7 @@ export default function Header() {
                     src={isDarkMode ? appConfig.logoTextImageDarkUrl : appConfig.logoTextImageLightUrl}
                     alt="Logo Image Text"
                     sizes="100vw"
-                    style={{ height: "auto", width: "auto" }}
+                    style={{ height: "auto", width: imageConfig.logoTextRatio.width }}
                     width={imageConfig.logoTextRatio.width}
                     height={imageConfig.logoTextRatio.height}
                   />
