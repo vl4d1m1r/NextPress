@@ -104,6 +104,8 @@ add_action('init','add_cors_http_header');
 
 Of, course, if you do not want to allow everybody to reach your WordPress API, replace '\*' with your NextPress application domain.
 
+Please note: sometimes for this change to take effect immediately, you should clear or disable LiteSpeed Cache or any other cache you use in your WordPress.
+
 Also, for development purposes, you can overcome this issue by running the Chrome browser without security (It is most secure if you do it from the sandbox, even if you only go to `localhost:3000`):
 
 - Press `Windows key` + `R`
@@ -113,7 +115,7 @@ Also, for development purposes, you can overcome this issue by running the Chrom
 
 This app gets it's blog content from [WordPress API](https://developer.wordpress.org/rest-api/) which means that you must host WordPress installation somewhere. The free plan on WordPress.com website will NOT do the trick because of (in the time of writing) the obsolete api version used.
 
-## Wordpress API caveats
+## Wordpress API V2 caveats
 
 Sometimes, although installed properly and working, reaching the WordPress API on adress `https://yourwpdomain/wp-json/wp/v2` will result in 404 error. Here is what you can do:
 
