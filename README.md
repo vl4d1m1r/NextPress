@@ -2,7 +2,7 @@ NextPress
 
 by Vladimir Jankovic
 
-NextPress is a powerful blog and news content management system written in Next.js 14 (with app router) powered with Typescript and MUI 5. It uses Wordpress API for content delivery, Vercel for hosting and automatic deployment and Git and Github for version control and as repository container. NextPress blog CMS is free to use (under GPL-3.0 license) and feature:
+NextPress is a powerful blog and news content management system written in Next.js 14 (with app router) powered with Typescript and MUI 5. It uses WordPress API V2 for content delivery, Vercel for hosting and automatic deployment and Git and GitHub for version control and as repository container. NextPress blog CMS is free to use (under GPL-3.0 license) and feature:
 
 - Mobile first & fluid design, adapts to all devices and screen sizes
 - Beautiful modern design
@@ -109,18 +109,18 @@ Also, for development purposes, you can overcome this issue by running the Chrom
 - Press `Windows key` + `R`
 - Type: `chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security`
 
-## Wordpress API
+## WordPress API V2
 
-This app gets it's blog content from [Wordpress API](https://developer.wordpress.org/rest-api/) which means that you must host Wordpress installation somewhere. The free plan on Wordpress.com website will NOT do the trick because of (in the time of writing) the obsolete api version used.
+This app gets it's blog content from [WordPress API](https://developer.wordpress.org/rest-api/) which means that you must host WordPress installation somewhere. The free plan on WordPress.com website will NOT do the trick because of (in the time of writing) the obsolete api version used.
 
 ## Wordpress API caveats
 
-Sometimes, altough installed properly and working, reaching the WordPress API on adress `https://yourwpdomain/wp-json/wp/v2` will result in 404 error. Here is what you can do:
+Sometimes, although installed properly and working, reaching the WordPress API on adress `https://yourwpdomain/wp-json/wp/v2` will result in 404 error. Here is what you can do:
 
 - You can insert `index.php` into WordPress REST API endpoint and it will fix 404 error: `https://vl4di11ir.pw/doctypeadventures/index.php/wp-json/wp/v2`.
 - Or you can just go to WordPress SETTINGS, click on PERMALINKS, then choose 'Plain' (and click on save changes), then return to your real permalink choice (mine was 'Day and name'), click on save changes, and error 404 will disappear and your WordPress REST API endpoint will work as it is, without `index.php` insertion.
 
-## Backing up the Wordpress database manually
+## Backing up the WordPress database manually
 
 - First you need to go to PHP MyAdmin, run it, click on the WordPress database, and click on EXPORT. Choose SQL format. It should result in creating the `some-name.sql` file.
 - Copy whole WordPress installation folder from your server (preferably in a ZIP file). What you need the most is the folder: `wp-content\uploads`.
