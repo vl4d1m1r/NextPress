@@ -2,7 +2,7 @@
 import { themeConfig } from "@/models/config";
 import { darkTheme, lightTheme } from "@/theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { createContext, ReactNode, useContext, useMemo, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
 
 interface ThemeContextProps {
   toggleTheme: () => void;
@@ -20,10 +20,21 @@ export const useTheme = () => {
 };
 
 export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
-  const themeSavedInLocalStorage = window.localStorage.getItem(themeConfig.localStorageName) as "light" | "dark";
-  const [theme, setTheme] = useState<"light" | "dark">(
-    themeSavedInLocalStorage ? themeSavedInLocalStorage : themeConfig.defaultTheme
-  );
+  /*
+  let myTheme = themeConfig.defaultTheme;
+  if (typeof window !== "undefined") {
+    const themeSavedInLocalStorage = window.localStorage.getItem(themeConfig.localStorageName) as "light" | "dark";
+    myTheme = themeSavedInLocalStorage ? themeSavedInLocalStorage : themeConfig.defaultTheme;
+  }
+    */
+
+  const [theme, setTheme] = useState<"light" | "dark">(themeConfig.defaultTheme);
+
+  useEffect(() => {
+    let theme = localStorage.getItem(themeConfig.localStorageName) as "light" | "dark";
+    if (!theme) theme = themeConfig.defaultTheme;
+    setTheme(theme);
+  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
