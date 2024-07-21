@@ -70,8 +70,8 @@ export default function Highlights({
                       maxWidth: "100%",
                       height: "auto",
                     }}
-                    width={imageConfig.ratio.width}
-                    height={imageConfig.ratio.height}
+                    width={imageConfig.postImageRatio.width}
+                    height={imageConfig.postImageRatio.height}
                   />
                 </Link>
               </Box>

@@ -44,9 +44,9 @@ export default function Header() {
                     src={isDarkMode ? appConfig.logoTextImageDarkUrl : appConfig.logoTextImageLightUrl}
                     alt="Logo Image Text"
                     sizes="100vw"
-                    style={{ height: "auto", width: imageConfig.logoTextImageDimension.width }}
-                    width={imageConfig.logoTextRatio.width}
-                    height={imageConfig.logoTextRatio.height}
+                    style={{ height: "auto", width: imageConfig.logoTextImageRatio.width + "px" }}
+                    width={imageConfig.logoTextImageRatio.width}
+                    height={imageConfig.logoTextImageRatio.height}
                   />
                 ) : null}
               </Box>

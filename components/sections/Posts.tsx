@@ -74,8 +74,8 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
                               width: "100%",
                               height: "auto",
                             }}
-                            width={imageConfig.ratio.width}
-                            height={imageConfig.ratio.height}
+                            width={imageConfig.postImageRatio.width}
+                            height={imageConfig.postImageRatio.height}
                           />
                         </Link>
                       </Box>

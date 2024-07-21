@@ -70,17 +70,13 @@ export const postsConfig = {
 };
 
 export const imageConfig = {
-  ratio: {
+  postImageRatio: {
     width: 500,
     height: 280,
   },
-  logoTextRatio: {
+  logoTextImageRatio: {
     width: 150,
     height: 32,
-  },
-  logoTextImageDimension: {
-    width: "150px",
-    height: "32px",
   },
 };
 

@@ -43,8 +43,8 @@ export default function PostBody({ postId }: { postId: string }) {
             width: "100%",
             height: "auto",
           }}
-          width={imageConfig.ratio.width}
-          height={imageConfig.ratio.height}
+          width={imageConfig.postImageRatio.width}
+          height={imageConfig.postImageRatio.height}
         />
       </Box>
       <Share headline={parse(post.title.rendered) as string} />
