@@ -151,6 +151,7 @@ With following content:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Nothing to See Here</title>
     <style>
         body {
@@ -209,6 +210,21 @@ Tags: hidden, no-frontend
 ```
 
 Also you can put thumbnail JPEG or PNG image named `screenshot.png` inside your theme's folder. The recommended size for the theme thumbnail image is 1200x900 pixels.
+
+## Disallow robots on WordPress site
+
+Maybe it will be also good idea to disallow robots crawling onto your WordPress site which is only API. You can:
+
+- Add `robots.txt` file in the root folder of your WordPress installation with this content:
+
+```bash
+User-agent: *
+Disallow: /
+```
+
+- You can put meta tag (already present in `index.php` example file above) into your `index.php` file:
+
+`<meta name="robots" content="noindex, nofollow">`
 
 ## Backing up the WordPress database manually
 
