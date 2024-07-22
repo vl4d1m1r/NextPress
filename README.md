@@ -115,7 +115,7 @@ Also, for development purposes, you can overcome this issue by running the Chrom
 
 This app gets it's blog content from [WordPress API](https://developer.wordpress.org/rest-api/) which means that you must host WordPress installation somewhere. The free plan on WordPress.com website will NOT do the trick because of (in the time of writing) the obsolete api version used.
 
-## Wordpress API V2 caveats
+## WordPress API V2 caveats
 
 Sometimes, although installed properly and working, reaching the WordPress API on adress `https://yourwpdomain/wp-json/wp/v2` will result in 404 error. Here is what you can do:
 

@@ -91,3 +91,7 @@ export const stripUnsupportedTitleCharacters = (title: string): string => {
 export const encodeHTMLEntities = (str: string): string => {
   return str.replace(/[\u00A0-\u9999<>\&]/g, (i) => "&#" + i.charCodeAt(0) + ";");
 };
+
+export const getTwitterRandomPostId = (twitterPostIds: string[]) => {
+  return twitterPostIds[Math.floor(Math.random() * twitterPostIds.length)];
+};

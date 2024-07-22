@@ -148,6 +148,24 @@ export const defaultSeoConfig = {
   url: process.env.DOMAIN!,
 };
 
+export const twitterPostIdsConfig = [
+  "1793670209443680382",
+  "1800579554135973975",
+  "1798073267800228319",
+  "1628832338187636740",
+  "1790808855129243926",
+  "1790553459869233181",
+  "1813635365959536961",
+  "1793654965996823022", // MUI The Tree View component now supports checkbox selection
+  "1813339459187802246", // Unknown Worlds - We've had a bit of a refresh!
+  "1795535095211655173", // Unknown Worlds - Subnautica 2 questions
+  "1802027225581072763", // Layers of Fear
+  "1815403710127702322", // Craig Smith - Little Martian
+  "1618476106721693697", // Nikola Todorovic - Mortal Sin
+  "1811023274467357046", // Mac Orion - Underrail
+  "1814771053127999693", // VX Underground - Tavis Ormandy is the Silver Back Gorilla of nerds.
+];
+
 export const socialShareConfig = {
   fancyShareButton: false,
   headlinePrefix: `Check out this article from ${appConfig.name}: `,

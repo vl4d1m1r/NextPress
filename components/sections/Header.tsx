@@ -47,6 +47,7 @@ export default function Header() {
                     style={{ height: "auto", width: imageConfig.logoTextImageRatio.width + "px" }}
                     width={imageConfig.logoTextImageRatio.width}
                     height={imageConfig.logoTextImageRatio.height}
+                    priority={true}
                   />
                 ) : null}
               </Box>
