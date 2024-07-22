@@ -77,8 +77,8 @@ There is two environment variables:
 
 `.env.local`
 
-DOMAIN=http://localhost:3000/ (for development, or domain on host server)
-WORDPRESS_DOMAIN=https://your_worpdress_domain.com
+`DOMAIN=http://localhost:3000/` (for development, or domain on host server)
+`WORDPRESS_DOMAIN=https://your_worpdress_domain.com`
 
 Please note: in Next.js 14 it is not enough to put this value in .env.local. You need to update next.config.mjs with:
 
@@ -87,11 +87,24 @@ Please note: in Next.js 14 it is not enough to put this value in .env.local. You
     WORDPRESS_DOMAIN: process.env.WORDPRESS_DOMAIN,
 },`
 
-## Dealing with the CORS error
+## Dealing with the CORS
 
 Sometimes (depending on your server) the WordPress REST API fetch will result in `CORS` error when you're trying to reach it from `localhost:3000`.
 
-You can control your CORS setting for a WordPress installation in the `functions.php` file located in your selected theme folder.
+THERE ARE SEVERAL METHODS THAT YOU SHOULD NOT MIX:
+
+1. Add `.htaccess` file inside your WordPress folder, and add insert this code into it:
+
+```bash
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "https://yourdomain.com"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+    # Header set Access-Control-Allow-Credentials "true"
+</IfModule>
+```
+
+2. You can control your CORS setting for a WordPress installation in the `functions.php` file located in your selected theme folder.
 
 So, go to `_your_wordpress_root_/wp-content/themes/_chosen-theme_` and in the `functions.php` add this part of the code:
 
@@ -106,7 +119,7 @@ Of, course, if you do not want to allow everybody to reach your WordPress API, r
 
 Please note: sometimes for this change to take effect immediately, you should clear or disable LiteSpeed Cache or any other cache you use in your WordPress.
 
-Also, for development purposes, you can overcome this issue by running the Chrome browser without security (It is most secure if you do it from the sandbox, even if you only go to `localhost:3000`):
+3. Also, for development purposes, you can overcome this issue by running the Chrome browser without security (It is most secure if you do it from the sandbox, even if you only go to `localhost:3000`):
 
 - Press `Windows key` + `R`
 - Type: `chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security`
@@ -121,6 +134,81 @@ Sometimes, although installed properly and working, reaching the WordPress API o
 
 - You can insert `index.php` into WordPress REST API endpoint and it will fix 404 error: `https://vl4di11ir.pw/doctypeadventures/index.php/wp-json/wp/v2`.
 - Or you can just go to WordPress SETTINGS, click on PERMALINKS, then choose 'Plain' (and click on save changes), then return to your real permalink choice (mine was 'Day and name'), click on save changes, and error 404 will disappear and your WordPress REST API endpoint will work as it is, without `index.php` insertion.
+
+## Blocking WordPress from displaying your posts, and use it just as an API server
+
+If you do not want for WordPress to display your posts (and use it just as an API server), you can create your 'empty' theme.
+
+Go to `wp-content/themes` folder and create two files:
+
+`index.php`
+
+With following content:
+
+```bash
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nothing to See Here</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .message {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>Nothing to See Here</h1>
+        <p>Move along, there's nothing interesting on this page.</p>
+    </div>
+</body>
+</html>
+```
+
+`style.css`
+
+With following content:
+
+```bash
+/*
+
+Theme Name: Vladimir's Nothin' Here Theme
+
+Theme URI: https://doctypeadventures.vercel.app/
+
+Author: Vladimir Jankovic
+
+Author URI: https://doctypeadventures.vercel.app/
+
+Description: A custom theme to prevent any frontend rendering.
+
+Version: 1.0
+
+License: GNU General Public License v2 or later
+
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Tags: hidden, no-frontend
+
+*/
+```
+
+Also you can put thumbnail JPEG or PNG image named `screenshot.png` inside your theme's folder. The recommended size for the theme thumbnail image is 1200x900 pixels.
 
 ## Backing up the WordPress database manually
 
