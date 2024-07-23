@@ -12,6 +12,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 
 export const heroConfig = {
   height: "large",
+  placeholderImage: `${process.env.DOMAIN}images/placeholders/hero-placeholder.jpg`,
   heroHeightSizes: {
     xs: "35vh",
     small: "40vh",
