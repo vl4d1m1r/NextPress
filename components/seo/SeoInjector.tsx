@@ -31,5 +31,17 @@ export default function SeoInjector({ title, description, image, url }: SeoDataT
   const ogUrl = document.querySelector("meta[property='og:url']");
   if (ogUrl) ogUrl.setAttribute("content", url);
 
+  const twitterCard = document.querySelector("meta[name='twitter:card']");
+  if (twitterCard) twitterCard.setAttribute("content", "summary_large_image");
+
+  const twitterTitle = document.querySelector("meta[name='twitter:title']");
+  if (twitterTitle) twitterTitle.setAttribute("content", title);
+
+  const twitterDescription = document.querySelector("meta[name='twitter:description']");
+  if (twitterDescription) twitterDescription.setAttribute("content", description);
+
+  const twitterImage = document.querySelector("meta[name='twitter:image']");
+  if (twitterImage) twitterImage.setAttribute("content", image);
+
   return null;
 }

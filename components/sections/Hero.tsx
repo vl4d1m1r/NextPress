@@ -8,7 +8,7 @@ import BackdropInfo from "@/components/widgets/BackdropInfo";
 import { postsFetcher, simpleFetcher } from "@/controllers/api";
 import { convertPropsToApiRoute, extractPostData, formatDate } from "@/controllers/utils";
 import { apiConfig, infoDisplayDataConfig } from "@/models/config";
-import { heroWrapperClass } from "@/styles/layouts";
+import { heroTextWrapperClass, heroWrapperClass } from "@/styles/layouts";
 import { textPillClass, textPostsContentClass } from "@/styles/text";
 import { HeroPostParamsType, PostsDataType, PostType } from "@/types";
 import { Container, Grid } from "@mui/material";
@@ -61,7 +61,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
       <Container sx={{ pb: "50px", zIndex: 1 }}>
         <Grid container>
           <Grid item xs={12} sm={8}>
-            <Stack spacing={4}>
+            <Stack spacing={4} sx={heroTextWrapperClass}>
               <Link href={heroLink}>
                 <Typography variant="h1">{heroTitle}</Typography>
               </Link>

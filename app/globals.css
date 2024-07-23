@@ -8,6 +8,11 @@ a:-webkit-any-link {
   text-decoration: none;
 }
 
+article.post-body a:-webkit-any-link {
+  color: inherit;
+  text-decoration: underline dotted #28be43;
+}
+
 .post-author-photo {
   border-radius: 5px;
 }
@@ -22,6 +27,12 @@ pre code {
   width: 100%;
   display: block;
   overflow: auto;
+  background-color: #080808;
+  color: #28be43;
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 5px 15px;
+  word-break: break-word;
 }
 
 figcaption {

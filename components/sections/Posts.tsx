@@ -48,7 +48,7 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
 
   return (
     <>
-      <Stack component="section" className="posts" direction="column">
+      <Stack spacing={6} component="section" className="posts" direction="column">
         {data && data.posts.length > 1 ? (
           <>
             {data.posts.map((post: PostType, index: number) => {
@@ -119,6 +119,7 @@ export default function Posts({ page, category, tag, search }: PostParamsType) {
           onChange={handlePageChange}
           variant="outlined"
           shape="rounded"
+          sx={{ mt: 4 }}
         />
       ) : null}
     </>

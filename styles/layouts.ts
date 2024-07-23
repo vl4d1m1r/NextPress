@@ -1,4 +1,5 @@
 "use client";
+import { heroConfig } from "@/models/config";
 import { dividerGray } from "@/theme/colors";
 import { SxProps, Theme } from "@mui/material/styles";
 
@@ -23,6 +24,10 @@ export const containerClass: SxProps<Theme> = (theme) => ({
   [theme.breakpoints.up("lg")]: {
     maxWidth: "1200px",
   },
+});
+
+export const mainContainerClass: SxProps<Theme> = (theme) => ({
+  mt: { xs: 2, sm: 10 },
 });
 
 export const rightGridWrapperClass: SxProps<Theme> = (theme) => ({
@@ -72,7 +77,8 @@ export const headerDrawerWrapperClass: SxProps<Theme> = (theme) => ({
 
 export const heroWrapperClass: SxProps<Theme> = (theme) => ({
   position: "relative",
-  height: { xs: "100vh", md: "50vh" },
+  height: { xs: "100vh", md: heroConfig.heroHeightSizes[heroConfig.height as keyof typeof heroConfig.heroHeightSizes] },
+  minHeight: { xs: "400px", md: "500px" },
   width: "100%",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -93,10 +99,14 @@ export const heroWrapperClass: SxProps<Theme> = (theme) => ({
   },
 });
 
+export const heroTextWrapperClass: SxProps<Theme> = (theme) => ({
+  wordWrap: "break-word",
+});
+
 export const sectionDividerClass: SxProps<Theme> = (theme) => ({
   width: "100%",
-  pt: 4,
-  mb: 4,
+  pt: 6,
+  mb: 6,
   borderBottom: `1px solid ${theme.palette.grey[dividerGray]}`,
 });
 
@@ -142,6 +152,11 @@ export const postsInfoWrapperClass: SxProps<Theme> = (theme) => ({
   justifyContent: "center",
   alignItems: "center",
   minHeight: "200px",
+});
+
+export const postHeaderWrapperClass: SxProps<Theme> = (theme) => ({
+  mb: 6,
+  wordBreak: "break-word",
 });
 
 export const searchWrapperClass: SxProps<Theme> = (theme) => ({

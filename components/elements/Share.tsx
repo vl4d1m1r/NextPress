@@ -19,6 +19,7 @@ export default function Share({ headline }: { headline: string }) {
   }));
 
   const handleShare = (shareUrl: string) => {
+    console.log("shareUrl === ", shareUrl);
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   };
 

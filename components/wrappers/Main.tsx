@@ -4,13 +4,13 @@ import Search from "@/components/widgets/Search";
 import TweetPost from "@/components/widgets/TweetPost";
 import { getTwitterRandomPostId } from "@/controllers/utils";
 import { twitterPostIdsConfig } from "@/models/config";
-import { rightGridWrapperClass } from "@/styles/layouts";
+import { mainContainerClass, rightGridWrapperClass } from "@/styles/layouts";
 import { PostParamsType } from "@/types";
 import { Container, Grid, Stack } from "@mui/material";
 
 export default function Main({ page, category, tag, search }: PostParamsType) {
   return (
-    <Container component="main" className="main">
+    <Container component="main" className="main" sx={mainContainerClass}>
       <Grid container>
         <Grid item xs={12} md={8}>
           <Posts page={page} category={category} tag={tag} search={search} />

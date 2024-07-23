@@ -10,6 +10,18 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import TerminalIcon from "@mui/icons-material/Terminal";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
+export const heroConfig = {
+  height: "large",
+  heroHeightSizes: {
+    xs: "35vh",
+    small: "40vh",
+    medium: "50vh",
+    large: "58vh",
+    xl: "68vh",
+    full: "100vh",
+  },
+};
+
 export const pageConfig = {
   postsPerPage: 5,
   tagsPerPage: 100,
