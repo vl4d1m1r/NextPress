@@ -117,8 +117,8 @@ export const themeConfig: ThemeConfigType = {
 };
 
 export const taglineConfig: TaglineConfigType = {
-  taglineText: `${appConfig.name} | Technology, security and stuff according to some guy.`,
-  taglineAdditionalText: "I'm started programming on PC with floppy drive. I'm that old!",
+  taglineText: "Technology, security and stuff according to some guy.",
+  taglineAdditionalText: "I started programming on a PC with a floppy drive. I'm that old!",
   headerTagline: {
     show: false,
     position: "below-header",
