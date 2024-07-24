@@ -1,6 +1,6 @@
 "use client";
 import ThemeSwitcher from "@/components/actions/ThemeSwitcher";
-import { appConfig, headerConfig, imageConfig, themeConfig } from "@/models/config";
+import { appConfig, headerConfig, imageConfig, taglineConfig, themeConfig } from "@/models/config";
 import { buttonGeneralClass } from "@/styles/buttons";
 import { centerVerticalClass } from "@/styles/global";
 import {
@@ -10,6 +10,8 @@ import {
   headerRightSideDesktopClass,
   headerRightSideMobileClass,
   headerSecondaryLogosClass,
+  headerTaglineContainerClass,
+  headerTaglineWrapperClass,
   headerWrapperClass,
 } from "@/styles/layouts";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -34,6 +36,11 @@ export default function Header() {
   return (
     <>
       <Box component="header" className="header" sx={headerWrapperClass}>
+        {taglineConfig.headerTagline.show && taglineConfig.headerTagline.position === "above-header" ? (
+          <Container sx={headerTaglineContainerClass}>
+            <Box sx={headerTaglineWrapperClass}>{taglineConfig.taglineText}</Box>
+          </Container>
+        ) : null}
         <Container sx={headerContainerClass}>
           <Link href="/">
             <Stack direction="row" sx={centerVerticalClass}>
@@ -75,6 +82,11 @@ export default function Header() {
             {themeConfig.allowThemeChange ? <ThemeSwitcher /> : null}
           </Stack>
         </Container>
+        {taglineConfig.headerTagline.show && taglineConfig.headerTagline.position === "below-header" ? (
+          <Container sx={headerTaglineContainerClass}>
+            <Box sx={headerTaglineWrapperClass}>{taglineConfig.taglineText}</Box>
+          </Container>
+        ) : null}
       </Box>
     </>
   );

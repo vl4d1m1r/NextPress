@@ -1,9 +1,10 @@
+import AboutUs from "@/components/sections/AboutUs";
 import Posts from "@/components/sections/Posts";
 import Tags from "@/components/sections/Tags";
 import Search from "@/components/widgets/Search";
 import TweetPost from "@/components/widgets/TweetPost";
 import { getTwitterRandomPostId } from "@/controllers/utils";
-import { twitterPostIdsConfig } from "@/models/config";
+import { sidebarConfig, twitterPostIdsConfig } from "@/models/config";
 import { mainContainerClass, rightGridWrapperClass } from "@/styles/layouts";
 import { PostParamsType } from "@/types";
 import { Container, Grid, Stack } from "@mui/material";
@@ -18,8 +19,9 @@ export default function Main({ page, category, tag, search }: PostParamsType) {
         <Grid item xs={12} md={4} sx={rightGridWrapperClass}>
           <Stack spacing={2}>
             <Search />
-            <TweetPost id={getTwitterRandomPostId(twitterPostIdsConfig)} />
-            <Tags tagsDisplayVariant="MOST_POPULAR" />
+            {sidebarConfig.homePage.showAboutUs ? <AboutUs /> : null}
+            {sidebarConfig.homePage.showTweets ? <TweetPost id={getTwitterRandomPostId(twitterPostIdsConfig)} /> : null}
+            {sidebarConfig.homePage.showTopTags ? <Tags tagsDisplayVariant="MOST_POPULAR" /> : null}
           </Stack>
         </Grid>
       </Grid>

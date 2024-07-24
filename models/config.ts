@@ -1,5 +1,5 @@
 // import getConfig from "next/config"; deprecated in app router
-import { ThemeConfigType } from "@/types";
+import { TaglineConfigType, ThemeConfigType } from "@/types";
 import DrawIcon from "@mui/icons-material/Draw";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -82,14 +82,31 @@ export const postsConfig = {
   },
 };
 
+export const sidebarConfig = {
+  aboutUsFontSize: "0.8rem",
+  homePage: {
+    showAboutUs: true,
+    showTweets: true,
+    showTopTags: false,
+  },
+  postPage: {
+    showAboutUs: true,
+    showTweets: true,
+    showTags: true,
+    showHighlightsLevel1: true,
+    showHighlightsLevel2: true,
+    showHighlightsLevel3: true,
+  },
+};
+
 export const imageConfig = {
   postImageRatio: {
     width: 500,
     height: 280,
   },
   logoTextImageRatio: {
-    width: 150,
-    height: 32,
+    width: 170, // xl: 200, md: 170, sm: 150
+    height: 40, // xl: 50, md: 40, sm: 30
   },
 };
 
@@ -99,8 +116,16 @@ export const themeConfig: ThemeConfigType = {
   localStorageName: `${appConfig.slug}-theme`,
 };
 
-export const textsConfig = {
-  tagline: "Technology, security and stuff according to some guy.",
+export const taglineConfig: TaglineConfigType = {
+  taglineText: `${appConfig.name} | Technology, security and stuff according to some guy.`,
+  taglineAdditionalText: "I'm started programming on PC with floppy drive. I'm that old!",
+  headerTagline: {
+    show: false,
+    position: "below-header",
+  },
+};
+
+export const legalConfig = {
   copyrightNotice: `Ⓒ ${appConfig.author}, 2016-${pageConfig.currentYear}`,
   license: "Website engine released under the MIT license.",
   rant: "All the articles on this site represent my opinions, and I could be wrong. So take everything that I said here with a grain of salt. Also, I am not into monetization with my texts, so no tracking cookies, ads, or anything of that sort here. And, please, please, please don't f*ck something up after reading articles from this site! ",
@@ -156,7 +181,7 @@ export const infoDisplayDataConfig = {
 
 export const defaultSeoConfig = {
   title: appConfig.name,
-  description: textsConfig.tagline,
+  description: taglineConfig.taglineText,
   image: apiConfig.indexImage,
   url: process.env.DOMAIN!,
 };

@@ -1,5 +1,5 @@
 "use client";
-import { heroConfig } from "@/models/config";
+import { headerConfig, heroConfig, sidebarConfig } from "@/models/config";
 import { dividerGray } from "@/theme/colors";
 import { SxProps, Theme } from "@mui/material/styles";
 
@@ -52,7 +52,7 @@ export const headerContainerClass: SxProps<Theme> = (theme) => ({
 });
 
 export const headerSecondaryLogosClass: SxProps<Theme> = (theme) => ({
-  display: { xs: "none", md: "flex" },
+  display: { xs: headerConfig.showLogo ? "none" : "flex", md: "flex" },
   alignItems: "center",
 });
 
@@ -73,6 +73,16 @@ export const headerDrawerClass: SxProps<Theme> = (theme) => ({
 export const headerDrawerWrapperClass: SxProps<Theme> = (theme) => ({
   p: 4,
   borderTop: `1px solid ${theme.palette.grey[dividerGray]}`,
+});
+
+export const headerTaglineContainerClass: SxProps<Theme> = (theme) => ({
+  backgroundColor: "rgba(0, 0, 0, 0.3)",
+});
+
+export const headerTaglineWrapperClass: SxProps<Theme> = (theme) => ({
+  textAlign: "center",
+  fontSize: "0.8rem",
+  py: 0.5,
 });
 
 export const heroWrapperClass: SxProps<Theme> = (theme) => ({
@@ -99,6 +109,10 @@ export const heroWrapperClass: SxProps<Theme> = (theme) => ({
   },
 });
 
+export const heroTitleClass: SxProps<Theme> = (theme) => ({
+  fontSize: { xs: "2.6rem", md: "3rem" },
+});
+
 export const heroTextWrapperClass: SxProps<Theme> = (theme) => ({
   wordWrap: "break-word",
 });
@@ -108,6 +122,20 @@ export const sectionDividerClass: SxProps<Theme> = (theme) => ({
   pt: 6,
   mb: 6,
   borderBottom: `1px solid ${theme.palette.grey[dividerGray]}`,
+});
+
+export const aboutUsWrapperClass: SxProps<Theme> = (theme) => ({
+  fontFamily: "Ubuntu Mono, monospace",
+  fontSize: sidebarConfig.aboutUsFontSize,
+  width: "100%",
+  border: `1px solid ${theme.palette.grey[dividerGray]}`,
+  borderRadius: 1,
+  p: 2,
+  mt: "38px !important",
+});
+
+export const aboutUsHeadlineClass: SxProps<Theme> = (theme) => ({
+  color: theme.palette.warning.main,
 });
 
 export const imageCaptionClass: SxProps = {

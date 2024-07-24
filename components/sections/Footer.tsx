@@ -1,5 +1,5 @@
 "use client";
-import { socialNetworksConfig, textsConfig } from "@/models/config";
+import { legalConfig, socialNetworksConfig, taglineConfig } from "@/models/config";
 import { centerHorizontalClass, centerVerticalClass } from "@/styles/global";
 import {
   footerSocialWrapperClass,
@@ -51,7 +51,10 @@ export default function Footer() {
         </Stack>
         <Grid container sx={footerTextGridContainerClass}>
           <Grid item xs={12} sm={6} sx={footerTextGridItemLeftClass}>
-            <Typography variant="body2">© 2024 Doctype Adventures</Typography>
+            <Stack spacing={2}>
+              <Typography variant="body2">{legalConfig.copyrightNotice}</Typography>
+              <Typography variant="body2">{taglineConfig.taglineText}</Typography>
+            </Stack>
           </Grid>
           <Grid item xs={12} sm={6} sx={footerTextGridItemRightClass}>
             <ClickAwayListener onClickAway={handleTooltipClose}>
@@ -65,7 +68,7 @@ export default function Footer() {
                   disableFocusListener
                   disableHoverListener
                   disableTouchListener
-                  title={textsConfig.disclaimer}
+                  title={legalConfig.disclaimer}
                   placement="top-end"
                   arrow
                 >

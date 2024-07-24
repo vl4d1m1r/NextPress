@@ -101,6 +101,15 @@ export type InfoDisplayDataType = {
   homeButton: boolean;
 };
 
+export type TaglineConfigType = {
+  taglineText: string;
+  taglineAdditionalText: string;
+  headerTagline: {
+    show: boolean;
+    position: "above-header" | "below-header";
+  };
+};
+
 export enum ReportTypes {
   LOADING = "loading",
   ERROR = "error",

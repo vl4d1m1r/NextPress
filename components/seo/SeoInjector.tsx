@@ -1,3 +1,4 @@
+"use client";
 import { appConfig } from "@/models/config";
 import { SeoDataType } from "@/types";
 
