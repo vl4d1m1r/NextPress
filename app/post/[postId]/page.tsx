@@ -1,4 +1,5 @@
 "use client";
+import ScrollToTopButton from "@/components/elements/ScrollToTopButton";
 import SectionDivider from "@/components/elements/SectionDivider";
 import PostBodySkeleton from "@/components/feedback/skeletons/PostBodySkeleton";
 import PostHeaderSkeleton from "@/components/feedback/skeletons/PostHeaderSkeleton";
@@ -96,6 +97,7 @@ export default function PostRoute({ params }: { params: { postId: string } }) {
         </Grid>
       </Container>
       <SectionDivider />
+      <ScrollToTopButton />
     </Box>
   );
 }

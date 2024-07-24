@@ -8,6 +8,7 @@ import { sidebarConfig, twitterPostIdsConfig } from "@/models/config";
 import { mainContainerClass, rightGridWrapperClass } from "@/styles/layouts";
 import { PostParamsType } from "@/types";
 import { Container, Grid, Stack } from "@mui/material";
+import ScrollToTopButton from "../elements/ScrollToTopButton";
 
 export default function Main({ page, category, tag, search }: PostParamsType) {
   return (
@@ -25,6 +26,7 @@ export default function Main({ page, category, tag, search }: PostParamsType) {
           </Stack>
         </Grid>
       </Grid>
+      <ScrollToTopButton />
     </Container>
   );
 }
