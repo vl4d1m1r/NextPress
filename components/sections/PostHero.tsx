@@ -15,7 +15,7 @@ export default function PostHero({ post }: { post: PostType }) {
   return (
     <Box
       component="section"
-      className="hero"
+      id="post-hero"
       sx={heroWrapperClass}
       style={{ backgroundImage: `url(${imageData.source_url})` }}
     >

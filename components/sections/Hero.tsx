@@ -57,7 +57,7 @@ export default function Hero({ page, category, tag, search, postId }: HeroPostPa
   }
 
   return (
-    <Box component="section" className="hero" sx={heroWrapperClass} style={{ backgroundImage: `url(${heroImage})` }}>
+    <Box component="section" id="hero" sx={heroWrapperClass} style={{ backgroundImage: `url(${heroImage})` }}>
       <Container sx={{ pb: "50px", zIndex: 1 }}>
         <Grid container>
           <Grid item xs={12} sm={8}>

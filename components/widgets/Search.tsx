@@ -21,7 +21,7 @@ export default function Search() {
   };
 
   return (
-    <Box component="form" sx={searchWrapperClass}>
+    <Box component="form" className="search" sx={searchWrapperClass}>
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search"

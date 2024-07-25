@@ -9,7 +9,7 @@ import parse from "html-react-parser";
 
 export default function PostHeader({ post }: { post: PostType }) {
   return (
-    <Stack component="article" className="post-header" spacing={4} sx={postHeaderWrapperClass}>
+    <Stack component="article" id="post-header" spacing={4} sx={postHeaderWrapperClass}>
       <Typography variant="h1">{parse(post.title.rendered)}</Typography>
       <Stack direction="row" spacing={2}>
         <Typography variant="body2" sx={textPillClass}>

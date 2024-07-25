@@ -47,7 +47,7 @@ export default function PostWrapper({ postId }: { postId: string }) {
   if (error) return <BackdropInfo message={error.message} />;
 
   return (
-    <Box>
+    <Box component="main" id="main-post-wrapper">
       {postConfig.postType === "hero-post" ? (
         <>
           {data ? <PostHero post={data[0]} /> : <HeroSkeleton source="post" />}

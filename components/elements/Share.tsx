@@ -23,7 +23,7 @@ export default function Share({ headline }: { headline: string }) {
   if (socialShareConfig.speedDialAlwaysOpen) speedDialAdditionalProps.open = true;
 
   return (
-    <Box sx={shareWrapperClass}>
+    <Box className="share" sx={shareWrapperClass}>
       <SpeedDial
         ariaLabel="share-speed-dial"
         icon={<ShareIcon />}

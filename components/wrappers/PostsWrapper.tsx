@@ -12,7 +12,7 @@ import ScrollToTopButton from "../elements/ScrollToTopButton";
 
 export default function PostsWrapper({ page, category, tag, search }: PostParamsType) {
   return (
-    <Container component="main" className="main" sx={mainContainerClass}>
+    <Container component="main" id="main-posts-wrapper" sx={mainContainerClass}>
       <Grid container>
         <Grid item xs={12} md={8}>
           <Posts page={page} category={category} tag={tag} search={search} />

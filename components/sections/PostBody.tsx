@@ -14,7 +14,7 @@ export default function PostBody({ post }: { post: PostType }) {
   const { imageData, authorData } = extractPostData(post);
 
   return (
-    <Stack component="article" className="post-body">
+    <Stack component="article" id="post-body">
       {postConfig.postType === "plain-post" ? (
         <Box sx={postsImageWrapperClass}>
           {postsConfig.showImageCaption.post ? (
