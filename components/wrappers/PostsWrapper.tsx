@@ -4,7 +4,7 @@ import Tags from "@/components/sections/Tags";
 import Search from "@/components/widgets/Search";
 import TweetPost from "@/components/widgets/TweetPost";
 import { getTwitterRandomPostId } from "@/controllers/utils";
-import { sidebarConfig, twitterPostIdsConfig } from "@/models/config";
+import { sidebarConfig, widgetsConfig } from "@/models/config";
 import { mainContainerClass, rightGridWrapperClass } from "@/styles/layouts";
 import { PostParamsType } from "@/types";
 import { Container, Grid, Stack } from "@mui/material";
@@ -21,7 +21,9 @@ export default function PostsWrapper({ page, category, tag, search }: PostParams
           <Stack spacing={2}>
             <Search />
             {sidebarConfig.homePage.showAboutUs ? <AboutUs /> : null}
-            {sidebarConfig.homePage.showTweets ? <TweetPost id={getTwitterRandomPostId(twitterPostIdsConfig)} /> : null}
+            {sidebarConfig.homePage.showTweets ? (
+              <TweetPost id={getTwitterRandomPostId(widgetsConfig.twitter.ids)} />
+            ) : null}
             {sidebarConfig.homePage.showTopTags ? <Tags tagsDisplayVariant="MOST_POPULAR" /> : null}
           </Stack>
         </Grid>

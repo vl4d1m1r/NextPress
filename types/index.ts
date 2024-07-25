@@ -10,6 +10,20 @@ export type HeroPostParamsType = {
   postId?: string;
 };
 
+export type HeroConfigType = {
+  height: "xs" | "small" | "medium" | "large" | "xl" | "full";
+  placeholderImage: string;
+  placeholderPostImage: string;
+  heroHeightSizes: {
+    xs: "35vh";
+    small: "40vh";
+    medium: "50vh";
+    large: "58vh";
+    xl: "68vh";
+    full: "100vh";
+  };
+};
+
 export type ImageDataType = {
   source_url: string;
   title: { rendered: string };
@@ -49,6 +63,10 @@ export type PostsDataType = {
 
 export type PostPagePropsType = {
   params: { postId: string };
+};
+
+export type PostConfigType = {
+  postType: "hero-post" | "plain-post";
 };
 
 export type CategoryType = {

@@ -1,7 +1,7 @@
 import Author from "@/components/elements/Author";
 import Share from "@/components/elements/Share";
 import { extractPostData } from "@/controllers/utils";
-import { imageConfig, postsConfig } from "@/models/config";
+import { imageConfig, postConfig, postsConfig } from "@/models/config";
 import { imagePlaceholder } from "@/public/images/placeholders/imagePlaceholder500x280";
 import { postImageCaptionClass, postsImageWrapperClass } from "@/styles/layouts";
 import { PostType } from "@/types";
@@ -15,25 +15,27 @@ export default function PostBody({ post }: { post: PostType }) {
 
   return (
     <Stack component="article" className="post-body">
-      <Box sx={postsImageWrapperClass}>
-        {postsConfig.showImageCaption.post ? (
-          <Box sx={postImageCaptionClass}>
-            <Typography variant="caption">{imageData.title.rendered}</Typography>
-          </Box>
-        ) : null}
-        <Image
-          placeholder={imagePlaceholder}
-          src={imageData.source_url}
-          alt={imageData.title.rendered}
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-          width={imageConfig.postImageRatio.width}
-          height={imageConfig.postImageRatio.height}
-        />
-      </Box>
+      {postConfig.postType === "plain-post" ? (
+        <Box sx={postsImageWrapperClass}>
+          {postsConfig.showImageCaption.post ? (
+            <Box sx={postImageCaptionClass}>
+              <Typography variant="caption">{imageData.title.rendered}</Typography>
+            </Box>
+          ) : null}
+          <Image
+            placeholder={imagePlaceholder}
+            src={imageData.source_url}
+            alt={imageData.title.rendered}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+            width={imageConfig.postImageRatio.width}
+            height={imageConfig.postImageRatio.height}
+          />
+        </Box>
+      ) : null}
       <Share headline={parse(post.title.rendered) as string} />
       <Box>{parse(post.content.rendered)}</Box>
       <Box sx={{ my: 2 }}>

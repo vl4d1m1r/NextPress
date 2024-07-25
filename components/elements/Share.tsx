@@ -1,10 +1,5 @@
 import { socialShareConfig } from "@/models/config";
-import {
-  shareSpeedDialFancyClass,
-  shareSpeedDialNormalClass,
-  shareWrapperFancyClass,
-  shareWrapperNormalClass,
-} from "@/styles/layouts";
+import { shareSpeedDialClass, shareWrapperClass } from "@/styles/layouts";
 import ShareIcon from "@mui/icons-material/Share";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
@@ -24,13 +19,8 @@ export default function Share({ headline }: { headline: string }) {
   };
 
   return (
-    <Box sx={socialShareConfig.fancyShareButton ? shareWrapperFancyClass : shareWrapperNormalClass}>
-      <SpeedDial
-        ariaLabel="SpeedDial basic example"
-        sx={socialShareConfig.fancyShareButton ? shareSpeedDialFancyClass : shareSpeedDialNormalClass}
-        icon={<ShareIcon />}
-        direction="right"
-      >
+    <Box sx={shareWrapperClass}>
+      <SpeedDial ariaLabel="SpeedDial basic example" sx={shareSpeedDialClass} icon={<ShareIcon />} direction="right">
         {socialShareActions.map((action) => (
           <SpeedDialAction
             key={action.name}

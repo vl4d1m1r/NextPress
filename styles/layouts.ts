@@ -1,5 +1,5 @@
 "use client";
-import { headerConfig, heroConfig, sidebarConfig } from "@/models/config";
+import { headerConfig, heroConfig, postConfig, sidebarConfig } from "@/models/config";
 import { dividerGray } from "@/theme/colors";
 import { SxProps, Theme } from "@mui/material/styles";
 
@@ -111,6 +111,10 @@ export const heroWrapperClass: SxProps<Theme> = (theme) => ({
 
 export const heroTitleClass: SxProps<Theme> = (theme) => ({
   fontSize: { xs: "2.6rem", md: "3rem" },
+});
+
+export const heroPostTitleClass: SxProps<Theme> = (theme) => ({
+  fontSize: { xs: "2.8rem", md: "4rem" },
 });
 
 export const heroTextWrapperClass: SxProps<Theme> = (theme) => ({
@@ -319,27 +323,17 @@ export const socialIconClass: SxProps<Theme> = (theme) => ({
   pb: 0,
 });
 
-export const shareWrapperNormalClass: SxProps<Theme> = (theme) => ({
+const shareMarginTop = postConfig.postType === "plain-post" ? 9 : 4;
+
+export const shareWrapperClass: SxProps<Theme> = (theme) => ({
   position: "relative",
-  marginTop: 9,
+  marginTop: shareMarginTop,
 });
 
-export const shareWrapperFancyClass: SxProps<Theme> = (theme) => ({
-  height: 30,
-  transform: "translateZ(0px)",
-  flexGrow: 1,
-});
-
-export const shareSpeedDialNormalClass: SxProps<Theme> = (theme) => ({
+export const shareSpeedDialClass: SxProps<Theme> = (theme) => ({
   position: "absolute",
   bottom: 0,
   left: 0,
-});
-
-export const shareSpeedDialFancyClass: SxProps<Theme> = (theme) => ({
-  position: "absolute",
-  bottom: 10,
-  left: 20,
 });
 
 export const authorImageWrapperClass: SxProps<Theme> = (theme) => ({

@@ -1,7 +1,7 @@
 import Footer from "@/components/sections/Footer";
 import Header from "@/components/sections/Header";
 import { ThemeContextProvider } from "@/context/ThemeContext";
-import { appConfig, defaultSeoConfig } from "@/models/config";
+import { appConfig, defaultMetadataConfig } from "@/models/config";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -9,16 +9,16 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: defaultSeoConfig.title,
-  description: defaultSeoConfig.description,
+  title: defaultMetadataConfig.title,
+  description: defaultMetadataConfig.description,
   /* Original author must not be changed */
   authors: [{ name: appConfig.author }],
   /* Original author must not be changed */
   openGraph: {
-    title: defaultSeoConfig.title,
-    description: defaultSeoConfig.description,
-    images: [{ url: defaultSeoConfig.image }],
-    url: defaultSeoConfig.url,
+    title: defaultMetadataConfig.title,
+    description: defaultMetadataConfig.description,
+    images: [{ url: defaultMetadataConfig.image }],
+    url: defaultMetadataConfig.url,
     type: "website",
   },
 };
