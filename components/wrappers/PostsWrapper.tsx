@@ -10,7 +10,7 @@ import { PostParamsType } from "@/types";
 import { Container, Grid, Stack } from "@mui/material";
 import ScrollToTopButton from "../elements/ScrollToTopButton";
 
-export default function Main({ page, category, tag, search }: PostParamsType) {
+export default function PostsWrapper({ page, category, tag, search }: PostParamsType) {
   return (
     <Container component="main" className="main" sx={mainContainerClass}>
       <Grid container>

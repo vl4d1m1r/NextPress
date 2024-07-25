@@ -47,6 +47,10 @@ export type PostsDataType = {
   posts: PostType[];
 };
 
+export type PostPagePropsType = {
+  params: { postId: string };
+};
+
 export type CategoryType = {
   id: number;
   name: string;
