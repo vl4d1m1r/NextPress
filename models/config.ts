@@ -1,4 +1,3 @@
-// import getConfig from "next/config"; deprecated in app router
 import { HeroConfigType, PostConfigType, TaglineConfigType, ThemeConfigType } from "@/types";
 import DrawIcon from "@mui/icons-material/Draw";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -84,7 +83,7 @@ export const postsConfig = {
 
 export const postConfig: PostConfigType = {
   /*
-  There are two types of posts, and you can choose one of them to be displayed as the main post on the post page:
+  There are two types of posts, and you can choose one of them to be displayed on the post page:
     - hero-post: displays the post as a hero post with a large image and a title
     - plain-post: displays the post as a plain post with a smaller image and a title
   */
@@ -173,6 +172,7 @@ export const widgetsConfig = {
 };
 
 export const socialShareConfig = {
+  speedDialAlwaysOpen: false,
   headlinePrefix: `Check out this article from ${appConfig.name}: `,
   actions: [
     { Icon: TwitterIcon, name: "Twitter", shareUrl: `https://twitter.com/intent/tweet?text=_TEXT_&url=_URL_` },

@@ -6,10 +6,12 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-export default function HeroSkeleton() {
-  console.log("HeroSkeleton === ", heroConfig.placeholderImage);
+export default function HeroSkeleton({ source = "page" }: { source?: "post" | "page" }) {
+  let placeholderImage = heroConfig.placeholderImage;
+  if (source === "post") placeholderImage = heroConfig.placeholderPostImage;
+
   return (
-    <Box sx={heroWrapperClass} style={{ backgroundImage: `url(${heroConfig.placeholderImage})` }}>
+    <Box sx={heroWrapperClass} style={{ backgroundImage: `url(${placeholderImage})` }}>
       <Container sx={{ pb: "50px", zIndex: 1 }}>
         <Grid container>
           <Grid item xs={12} sm={8}>

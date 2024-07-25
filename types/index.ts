@@ -123,12 +123,16 @@ export type InfoDisplayDataType = {
   homeButton: boolean;
 };
 
+export type SpeedDialAdditionalPropsConfig = {
+  open?: boolean;
+};
+
 export type TaglineConfigType = {
   taglineText: string;
   taglineAdditionalText: string;
   headerTagline: {
     show: boolean;
-    position: "above-header" | "below-header";
+    position: string;
   };
 };
 

@@ -50,7 +50,7 @@ export default function PostWrapper({ postId }: { postId: string }) {
     <Box>
       {postConfig.postType === "hero-post" ? (
         <>
-          {data ? <PostHero post={data[0]} /> : <HeroSkeleton />}
+          {data ? <PostHero post={data[0]} /> : <HeroSkeleton source="post" />}
           <SectionDivider />
         </>
       ) : null}

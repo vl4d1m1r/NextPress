@@ -1,5 +1,6 @@
 import { socialShareConfig } from "@/models/config";
 import { shareSpeedDialClass, shareWrapperClass } from "@/styles/layouts";
+import { SpeedDialAdditionalPropsConfig } from "@/types";
 import ShareIcon from "@mui/icons-material/Share";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
@@ -14,13 +15,22 @@ export default function Share({ headline }: { headline: string }) {
   }));
 
   const handleShare = (shareUrl: string) => {
-    console.log("shareUrl === ", shareUrl);
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   };
 
+  const speedDialAdditionalProps: SpeedDialAdditionalPropsConfig = {};
+
+  if (socialShareConfig.speedDialAlwaysOpen) speedDialAdditionalProps.open = true;
+
   return (
     <Box sx={shareWrapperClass}>
-      <SpeedDial ariaLabel="SpeedDial basic example" sx={shareSpeedDialClass} icon={<ShareIcon />} direction="right">
+      <SpeedDial
+        ariaLabel="share-speed-dial"
+        icon={<ShareIcon />}
+        sx={shareSpeedDialClass}
+        direction="right"
+        {...speedDialAdditionalProps}
+      >
         {socialShareActions.map((action) => (
           <SpeedDialAction
             key={action.name}
