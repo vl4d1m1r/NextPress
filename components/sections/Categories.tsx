@@ -65,7 +65,7 @@ export default function Categories({
   }
 
   return (
-    <Stack direction={direction === "ROW" ? "row" : "column"} spacing={2}>
+    <Stack className="categories" direction={direction === "ROW" ? "row" : "column"} spacing={2}>
       {data.map((category: CategoryType) => {
         let buttonVariant = "text";
         if (mainMenuConfig.buttonsOutlined) buttonVariant = "outlined";

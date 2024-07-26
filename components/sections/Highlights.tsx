@@ -41,7 +41,7 @@ export default function Highlights({
   return (
     <Box
       component="section"
-      className="highlights"
+      className={`highlights-${category.slug}`}
       sx={direction === "COLUMN" ? highlightsContainerColumnClass : highlightsContainerRowClass}
     >
       <Stack direction="row" spacing={2} sx={highlightsHeadlineClass}>

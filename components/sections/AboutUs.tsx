@@ -4,7 +4,7 @@ import { Box, Stack } from "@mui/material";
 
 export default function AboutUs() {
   return (
-    <Box className="sidebar-tagline" sx={aboutUsWrapperClass}>
+    <Box className="about-us" sx={aboutUsWrapperClass}>
       <Stack spacing={2}>
         <Box sx={aboutUsHeadlineClass}>'Bout us:</Box>
         <Box>{taglineConfig.taglineText}</Box>

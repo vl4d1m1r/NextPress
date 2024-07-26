@@ -1,5 +1,5 @@
 import { extractPostData, formatDate } from "@/controllers/utils";
-import { heroPostTitleClass, heroTextWrapperClass, heroWrapperClass } from "@/styles/layouts";
+import { heroPostContainerClass, heroPostTitleClass, heroTextWrapperClass, heroWrapperClass } from "@/styles/layouts";
 import { textPillClass } from "@/styles/text";
 import { PostType } from "@/types";
 import { Container, Grid } from "@mui/material";
@@ -19,7 +19,7 @@ export default function PostHero({ post }: { post: PostType }) {
       sx={heroWrapperClass}
       style={{ backgroundImage: `url(${imageData.source_url})` }}
     >
-      <Container sx={{ pb: "20px", zIndex: 1 }}>
+      <Container sx={heroPostContainerClass}>
         <Grid container>
           <Grid item xs={12} sm={8}>
             <Stack spacing={4} sx={heroTextWrapperClass}>

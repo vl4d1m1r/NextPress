@@ -13,7 +13,7 @@ export default function PostHeaderSkeleton({ error = false }: { error?: boolean 
     );
   }
   return (
-    <Stack component="article" spacing={4} sx={{ mb: 6 }}>
+    <Stack className="post-header-skeleton" component="article" spacing={4} sx={{ mb: 6 }}>
       <Skeleton variant="rectangular" width="100%" height="30px" />
       <Skeleton variant="rectangular" width="100%" height="30px" />
       <Stack direction="row" spacing={2}>

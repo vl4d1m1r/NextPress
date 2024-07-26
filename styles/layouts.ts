@@ -1,5 +1,5 @@
 "use client";
-import { headerConfig, heroConfig, postConfig, sidebarConfig } from "@/models/config";
+import { apiConfig, headerConfig, heroConfig, postConfig, sidebarConfig } from "@/models/config";
 import { dividerGray } from "@/theme/colors";
 import { SxProps, Theme } from "@mui/material/styles";
 
@@ -109,8 +109,17 @@ export const heroWrapperClass: SxProps<Theme> = (theme) => ({
   },
 });
 
+export const heroContainerClass: SxProps<Theme> = (theme) => ({
+  pb: "50px",
+  zIndex: 1,
+});
+
 export const heroTitleClass: SxProps<Theme> = (theme) => ({
   fontSize: { xs: "2.6rem", md: "3rem" },
+});
+
+export const heroPostContainerClass: SxProps<Theme> = (theme) => ({
+  fontSize: { pb: "20px", zIndex: 1 },
 });
 
 export const heroPostTitleClass: SxProps<Theme> = (theme) => ({
@@ -350,4 +359,31 @@ export const backdropInfoWrapperClass: SxProps<Theme> = (theme) => ({
   color: "#fff",
   zIndex: theme.zIndex.drawer + 1,
   p: { xs: 2, sm: 4, lg: 0 },
+});
+
+export const notFoundHeroWrapperClass: SxProps<Theme> = (theme) => ({
+  position: "relative",
+  height: "100vh",
+  backgroundImage: `url(${apiConfig.indexImage})`,
+  minHeight: { xs: "400px", md: "500px" },
+  width: "100%",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-end",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.9)", // 50% transparent black
+  },
+});
+
+export const notFoundContainerClass: SxProps<Theme> = (theme) => ({
+  pb: "10%",
+  zIndex: 1,
 });

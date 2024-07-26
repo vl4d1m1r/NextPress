@@ -11,7 +11,7 @@ export default function HeroSkeleton({ source = "page" }: { source?: "post" | "p
   if (source === "post") placeholderImage = heroConfig.placeholderPostImage;
 
   return (
-    <Box sx={heroWrapperClass} style={{ backgroundImage: `url(${placeholderImage})` }}>
+    <Box className="hero-skeleton" sx={heroWrapperClass} style={{ backgroundImage: `url(${placeholderImage})` }}>
       <Container sx={{ pb: "50px", zIndex: 1 }}>
         <Grid container>
           <Grid item xs={12} sm={8}>

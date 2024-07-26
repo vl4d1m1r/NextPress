@@ -37,14 +37,6 @@ export const convertPropsToLocalRoute = (props: { [key: string]: number | string
   }, apiRoute);
 };
 
-/*
- *
- * Function for deep cloning an Array
- *
- */
-export const deepCloneArray = (items: any) =>
-  items.map((item: any) => (Array.isArray(item) ? deepCloneArray(item) : item));
-
 function isObject<T>(item: T): item is T & Record<string, unknown> {
   return item !== null && typeof item === "object" && !Array.isArray(item);
 }
@@ -83,14 +75,6 @@ export function formatDate(dateString: string): string {
   const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
   return new Intl.DateTimeFormat("en-US", options).format(date);
 }
-
-export const stripUnsupportedTitleCharacters = (title: string): string => {
-  return title.replace(/[^a-zA-Z0-9\s-]/g, "").trim();
-};
-
-export const encodeHTMLEntities = (str: string): string => {
-  return str.replace(/[\u00A0-\u9999<>\&]/g, (i) => "&#" + i.charCodeAt(0) + ";");
-};
 
 export const getTwitterRandomPostId = (twitterPostIds: string[]) => {
   return twitterPostIds[Math.floor(Math.random() * twitterPostIds.length)];

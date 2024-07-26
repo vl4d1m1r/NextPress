@@ -8,7 +8,7 @@ export default function PostBody({ numberOfItems = 10 }: { numberOfItems?: numbe
   const skeletons = Array.from({ length: numberOfItems }, (_, index) => index);
 
   return (
-    <Stack component="article" spacing={4}>
+    <Stack className="post-body-skeleton" component="article" spacing={4}>
       {postConfig.postType === "plain-post" ? (
         <Box sx={postsImageWrapperClass}>
           <Skeleton variant="rectangular" width="100%" height="400px" />

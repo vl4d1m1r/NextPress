@@ -45,7 +45,7 @@ export default function HighlightsSkeleton({
   return (
     <Box
       component="section"
-      className="highlights-loading"
+      className="highlights-skeleton"
       sx={direction === "COLUMN" ? highlightsContainerColumnClass : highlightsContainerRowClass}
     >
       <Stack direction="row" spacing={2} sx={highlightsHeadlineClass}>

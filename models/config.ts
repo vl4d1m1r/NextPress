@@ -215,8 +215,8 @@ export const infoDisplayDataConfig = {
   },
   notFound: {
     type: "notFound",
-    title: "THAT PAGE ISN'T HERE MUTHA!",
-    messages: ["I LOOKED EVERYWHERE MUTHA!", "I CAN'T FIND IT!", "BUT I DON'T GIVE A CARE!"],
+    title: "PAGE YOU'RE LOOKIN' FOR ISN'T HERE MUTHA!",
+    messages: ["I CAN'T FIND IT!", "BUT I DON'T GIVE A FLYING FF*XK!"],
     animation: `¯${String.fromCharCode(92)}_(ツ)_/¯`,
     homeButton: true,
     homeLink: "/",
